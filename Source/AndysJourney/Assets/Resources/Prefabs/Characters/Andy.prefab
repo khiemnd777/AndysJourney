@@ -157,7 +157,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1318836224283822}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.458, y: -0.128, z: 0}
+  m_LocalPosition: {x: -0.005, y: -0.128, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4288343234097134}
@@ -202,7 +202,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.16, y: 0.19}
+    oldSize: {x: 0.14, y: 0.19}
     newSize: {x: 0.16, y: 0.19}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -279,16 +279,22 @@ MonoBehaviour:
   spriteDown:
   - {fileID: 21300074, guid: 9214978587e9a42b9bfc81fdd553c693, type: 3}
   - {fileID: 21300076, guid: 9214978587e9a42b9bfc81fdd553c693, type: 3}
-  spriteUp: []
-  spriteLeft: []
-  spriteRight: []
+  spriteUp:
+  - {fileID: 21300082, guid: 9214978587e9a42b9bfc81fdd553c693, type: 3}
+  - {fileID: 21300084, guid: 9214978587e9a42b9bfc81fdd553c693, type: 3}
+  spriteLeft:
+  - {fileID: 21300086, guid: 9214978587e9a42b9bfc81fdd553c693, type: 3}
+  - {fileID: 21300088, guid: 9214978587e9a42b9bfc81fdd553c693, type: 3}
+  spriteRight:
+  - {fileID: 21300078, guid: 9214978587e9a42b9bfc81fdd553c693, type: 3}
+  - {fileID: 21300080, guid: 9214978587e9a42b9bfc81fdd553c693, type: 3}
 --- !u!114 &114599922878602582
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1318836224283822}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8a7c8602250274eb68cc62c9c584ba5f, type: 3}
   m_Name: 
@@ -336,7 +342,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 99
-  m_Sprite: {fileID: 21300000, guid: 9214978587e9a42b9bfc81fdd553c693, type: 3}
+  m_Sprite: {fileID: 21300074, guid: 9214978587e9a42b9bfc81fdd553c693, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

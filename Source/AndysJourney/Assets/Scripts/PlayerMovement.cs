@@ -33,8 +33,9 @@ public class PlayerMovement : MonoBehaviour
     InteractableObject _currentInteractableObject;
     DirectionGetter2D _directionGetter;
 
-    bool stopX;
-    bool stopY;
+    public bool stopX;
+    public bool stopY;
+    
     bool isSurfing;
 
     int lastStance = 3;

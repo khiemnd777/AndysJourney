@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 9214978587e9a42b9bfc81fdd553c693
-timeCreated: 1527459837
+timeCreated: 1527714245
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -43,6 +43,12 @@ TextureImporter:
     21300072: running_dust_4
     21300074: andy-slingshot-down-0
     21300076: andy-slingshot-down-1
+    21300078: andy-slingshot-right-0
+    21300080: andy-slingshot-right-1
+    21300082: andy-slingshot-up-0
+    21300084: andy-slingshot-up-1
+    21300086: andy-slingshot-left-0
+    21300088: andy-slingshot-left-1
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
@@ -670,7 +676,7 @@ TextureImporter:
         width: 14
         height: 19
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -682,6 +688,90 @@ TextureImporter:
         x: 86
         y: 69
         width: 14
+        height: 19
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: andy-slingshot-right-0
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 47
+        width: 15
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: andy-slingshot-right-1
+      rect:
+        serializedVersion: 2
+        x: 85
+        y: 47
+        width: 15
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: andy-slingshot-up-0
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 25
+        width: 15
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: andy-slingshot-up-1
+      rect:
+        serializedVersion: 2
+        x: 87
+        y: 25
+        width: 15
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: andy-slingshot-left-0
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 3
+        width: 15
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: andy-slingshot-left-1
+      rect:
+        serializedVersion: 2
+        x: 85
+        y: 3
+        width: 15
         height: 19
       alignment: 0
       pivot: {x: 0, y: 0}

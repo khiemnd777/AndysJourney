@@ -2716,18 +2716,7 @@ Prefab:
       propertyPath: m_RootOrder
       value: 4
       objectReference: {fileID: 0}
-    - target: {fileID: 212476543109385384, guid: f0fb72915f8de419a957b12e90d98c6f,
-        type: 2}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300074, guid: 9214978587e9a42b9bfc81fdd553c693,
-        type: 3}
     - target: {fileID: 114599922878602582, guid: f0fb72915f8de419a957b12e90d98c6f,
-        type: 2}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 95697227602997936, guid: f0fb72915f8de419a957b12e90d98c6f,
         type: 2}
       propertyPath: m_Enabled
       value: 1
