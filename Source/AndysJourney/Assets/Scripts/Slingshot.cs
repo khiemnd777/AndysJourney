@@ -32,7 +32,6 @@ public class Slingshot : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.J))
         {
-            var directionEnum = _directionGetter.directionEnum;
 			_movement.stopX = _movement.stopY = true;
 			_animator.SetBool(_slingshotHoldTriggerStr, true);
 			_animator.SetBool(_slingshotTriggerReleaseStr, false);
