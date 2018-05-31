@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 70c37cf8236a346a8a56c7162c0aa782
-timeCreated: 1527548012
+timeCreated: 1527775935
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -479,29 +479,15 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: stone-bullet
-      rect:
-        serializedVersion: 2
-        x: 5
-        y: 108
-        width: 5
-        height: 5
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
       name: stone-bullet-explode-0
       rect:
         serializedVersion: 2
         x: 15
-        y: 101
+        y: 97
         width: 21
         height: 18
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.8}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -511,11 +497,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 40
-        y: 101
+        y: 97
         width: 21
         height: 18
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.8}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -525,11 +511,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 68
-        y: 101
+        y: 96
         width: 21
         height: 18
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.8}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -539,11 +525,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 96
-        y: 101
+        y: 95
         width: 21
         height: 18
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.8}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -553,11 +539,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 124
-        y: 101
+        y: 95
         width: 21
         height: 18
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.8}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -566,9 +552,9 @@ TextureImporter:
       name: stone-bullet-flying-0
       rect:
         serializedVersion: 2
-        x: 2
-        y: 94
-        width: 7
+        x: 1
+        y: 102
+        width: 5
         height: 8
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -580,9 +566,9 @@ TextureImporter:
       name: stone-bullet-flying-1
       rect:
         serializedVersion: 2
-        x: 11
-        y: 94
-        width: 7
+        x: 8
+        y: 102
+        width: 5
         height: 8
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
