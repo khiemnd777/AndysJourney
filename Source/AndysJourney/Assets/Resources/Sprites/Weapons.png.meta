@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 70c37cf8236a346a8a56c7162c0aa782
-timeCreated: 1527775935
+timeCreated: 1528013876
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -35,13 +35,20 @@ TextureImporter:
     21300056: Weapons_0
     21300058: stone_explode_0
     21300060: stone-bullet
-    21300062: stone-bullet-explode-0
-    21300064: stone-bullet-explode-1
-    21300066: stone-bullet-explode-2
-    21300068: stone-bullet-explode-3
-    21300070: stone-bullet-explode-4
+    21300062: big-shot-stone-bullet-explode-0
+    21300064: big-shot-stone-bullet-explode-1
+    21300066: big-shot-stone-bullet-explode-2
+    21300068: big-shot-stone-bullet-explode-3
+    21300070: big-shot-stone-bullet-explode-4
     21300072: stone-bullet-flying-0
     21300074: stone-bullet-flying-1
+    21300076: big_shot_stone_1
+    21300078: big_shot_stone_0
+    21300080: stone-bullet-explode-0
+    21300082: stone-bullet-explode-3
+    21300084: stone-bullet-explode-2
+    21300086: stone-bullet-explode-1
+    21300088: stone-bullet-explode-4
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
@@ -479,7 +486,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: stone-bullet-explode-0
+      name: big-shot-stone-bullet-explode-0
       rect:
         serializedVersion: 2
         x: 15
@@ -493,7 +500,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: stone-bullet-explode-1
+      name: big-shot-stone-bullet-explode-1
       rect:
         serializedVersion: 2
         x: 40
@@ -507,7 +514,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: stone-bullet-explode-2
+      name: big-shot-stone-bullet-explode-2
       rect:
         serializedVersion: 2
         x: 68
@@ -521,7 +528,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: stone-bullet-explode-3
+      name: big-shot-stone-bullet-explode-3
       rect:
         serializedVersion: 2
         x: 96
@@ -535,7 +542,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: stone-bullet-explode-4
+      name: big-shot-stone-bullet-explode-4
       rect:
         serializedVersion: 2
         x: 124
@@ -569,6 +576,104 @@ TextureImporter:
         x: 8
         y: 102
         width: 5
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: big_shot_stone_1
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 119
+        width: 7
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: big_shot_stone_0
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 119
+        width: 7
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: stone-bullet-explode-0
+      rect:
+        serializedVersion: 2
+        x: 23
+        y: 118
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: stone-bullet-explode-3
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 117
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: stone-bullet-explode-2
+      rect:
+        serializedVersion: 2
+        x: 42
+        y: 117
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: stone-bullet-explode-1
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 117
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: stone-bullet-explode-4
+      rect:
+        serializedVersion: 2
+        x: 62
+        y: 117
+        width: 8
         height: 8
       alignment: 0
       pivot: {x: 0.5, y: 0.5}

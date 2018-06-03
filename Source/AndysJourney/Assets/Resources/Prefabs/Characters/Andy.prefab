@@ -517,9 +517,12 @@ MonoBehaviour:
   projectileUpLeft: {fileID: 4373440739519866}
   projectileDownRight: {fileID: 4755781082953088}
   projectileDownLeft: {fileID: 4680866571284276}
-  stonedBulletPrefab: {fileID: 114047195388951302, guid: eef8a0b197c4b4c768c647705ae30f52,
+  stonedBulletPrefab: {fileID: 114925131748226464, guid: eef8a0b197c4b4c768c647705ae30f52,
     type: 2}
-  force: 2
+  force: 1.75
+  bigShotStoneBulletPrefab: {fileID: 114125156510879162, guid: 6cb55795de58446e486f01ca14e59e2b,
+    type: 2}
+  bigShotTakingTime: 1.5
 --- !u!114 &114599922878602582
 MonoBehaviour:
   m_ObjectHideFlags: 1

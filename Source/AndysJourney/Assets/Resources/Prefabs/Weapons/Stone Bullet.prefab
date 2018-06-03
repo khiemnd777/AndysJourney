@@ -23,9 +23,9 @@ GameObject:
   - component: {fileID: 95682731859883526}
   - component: {fileID: 61094393439723284}
   - component: {fileID: 50830011312232202}
-  - component: {fileID: 114047195388951302}
+  - component: {fileID: 114925131748226464}
   m_Layer: 0
-  m_Name: Stone Bullet Flying
+  m_Name: Stone Bullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -38,7 +38,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1974728301973038}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.176, y: 0, z: 0}
+  m_LocalPosition: {x: -0.089, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -106,7 +106,7 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &114047195388951302
+--- !u!114 &114925131748226464
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -114,10 +114,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1974728301973038}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: befda9016f84e422f9b669f30636f05d, type: 3}
+  m_Script: {fileID: 11500000, guid: b4f057a7bb73a49ce8a430e21adc9081, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectileDestructPrefab: {fileID: 4854294507788386, guid: 2f5fe11bc6e8e4928be6c51b686244f1,
+  projectileDestructPrefab: {fileID: 4224195161468614, guid: ebb380b4fd11f443bb28ac0084f74c8a,
     type: 2}
 --- !u!212 &212703422093972086
 SpriteRenderer:
