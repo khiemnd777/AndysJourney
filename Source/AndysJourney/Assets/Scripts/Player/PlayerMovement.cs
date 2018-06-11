@@ -22,7 +22,7 @@ public class PlayerMovement : MonoBehaviour
     [Space]
     public bool carrying;
     [SerializeField]
-    Transform _runndingDustPrefab;
+    Transform _runningDustPrefab;
     [SerializeField]
     Transform _dustPosition;
 
@@ -89,8 +89,6 @@ public class PlayerMovement : MonoBehaviour
         {
             _t = false;
             _dustTime = Time.time + stepTime;
-            // var runningDust = Instantiate<Transform>(_runndingDustPrefab, _dustPosition.transform.position, Quaternion.identity);
-            // Destroy(runningDust.gameObject, .5f);
             var dustPosition = _dustPosition.transform.position;
             StartCoroutine(Dusting(dustPosition));
         }
@@ -100,7 +98,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if(!instantiateImmediately)
             yield return new WaitForSeconds(.1f);
-        var runningDust = Instantiate<Transform>(_runndingDustPrefab, dustPosition, Quaternion.identity);
+        var runningDust = Instantiate<Transform>(_runningDustPrefab, dustPosition, Quaternion.identity);
         runningDust.transform.localScale = Vector3.one * size;
         Destroy(runningDust.gameObject, .5f);
     }
