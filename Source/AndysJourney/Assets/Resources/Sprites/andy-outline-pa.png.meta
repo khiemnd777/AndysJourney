@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 9214978587e9a42b9bfc81fdd553c693
-timeCreated: 1528842055
+timeCreated: 1528898850
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -72,6 +72,11 @@ TextureImporter:
     21300130: andy-outline-pa_44
     21300132: andy-outline-pa_45
     21300134: andy-outline-pa_46
+    21300136: andy-outline-pa_47
+    21300138: andy-outline-pa_48
+    21300140: andy-outline-pa_49
+    21300142: andy-outline-pa_50
+    21300144: andy-outline-pa_51
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
@@ -1118,6 +1123,76 @@ TextureImporter:
         y: 294
         width: 25
         height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: andy-outline-pa_47
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 330
+        width: 26
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: andy-outline-pa_48
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 330
+        width: 26
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: andy-outline-pa_49
+      rect:
+        serializedVersion: 2
+        x: 61
+        y: 330
+        width: 26
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: andy-outline-pa_50
+      rect:
+        serializedVersion: 2
+        x: 86
+        y: 330
+        width: 26
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: andy-outline-pa_51
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 330
+        width: 26
+        height: 25
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
