@@ -74,6 +74,7 @@ GameObject:
   - component: {fileID: 114426042224729420}
   - component: {fileID: 114493843182952582}
   - component: {fileID: 114387703382293278}
+  - component: {fileID: 114150765685329188}
   m_Layer: 0
   m_Name: Andy
   m_TagString: Player
@@ -460,6 +461,17 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114150765685329188
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1318836224283822}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb0cf58481be34b0bbb92d76bdda38f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114387703382293278
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -522,7 +534,7 @@ MonoBehaviour:
   force: 1.75
   bigShotStoneBulletPrefab: {fileID: 114125156510879162, guid: 6cb55795de58446e486f01ca14e59e2b,
     type: 2}
-  bigShotTakingTime: 1.5
+  bigShotTakingTime: 1
 --- !u!114 &114599922878602582
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -540,7 +552,7 @@ MonoBehaviour:
   surfingExtraDistance: 0.32
   surfingSeconds: 0.25
   carrying: 0
-  _runndingDustPrefab: {fileID: 4220859945656976, guid: 526a33ea7429d4fdf945fdb682381f83,
+  _runningDustPrefab: {fileID: 4220859945656976, guid: 526a33ea7429d4fdf945fdb682381f83,
     type: 2}
   _dustPosition: {fileID: 4559883779672584}
   stopX: 0
