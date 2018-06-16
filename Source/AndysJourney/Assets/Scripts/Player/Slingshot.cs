@@ -71,12 +71,10 @@ public class Slingshot : MonoBehaviour
             var holdInTime = Time.time - _holdBigShotTime;
             if (holdInTime >= bigShotTakingTime)
             {
-                Debug.Log("Big shot");
                 InstantiateBigShotBullet();
             }
             else
             {
-                Debug.Log("Ordinary shot");
                 InstantiateBullet();
             }
         }
