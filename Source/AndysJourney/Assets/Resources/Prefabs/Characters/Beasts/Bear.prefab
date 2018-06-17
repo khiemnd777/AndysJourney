@@ -48,7 +48,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1650670835148126
 GameObject:
   m_ObjectHideFlags: 0
@@ -233,6 +233,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   andyPrefab: {fileID: 4953434492686104, guid: f0fb72915f8de419a957b12e90d98c6f, type: 2}
+  _waitForEffect: 0
   _boomEffectPrefab: {fileID: 95630237225539356, guid: 644931e5687f646c5aee7f03111050c2,
     type: 2}
 --- !u!212 &212481451719162492

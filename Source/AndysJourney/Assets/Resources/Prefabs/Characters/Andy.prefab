@@ -474,7 +474,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   beastPrefab: {fileID: 114067836749726720, guid: 29f0f6ebcad8f4c8e898f0165dc2703a,
     type: 2}
-  _boomEffectPrefab: {fileID: 95630237225539356, guid: 644931e5687f646c5aee7f03111050c2,
+  _waitForEffect: 1
+  _boomEffectPrefab: {fileID: 95006876192253780, guid: ab08a3759037549b597c9e626dc96268,
     type: 2}
 --- !u!114 &114387703382293278
 MonoBehaviour:
