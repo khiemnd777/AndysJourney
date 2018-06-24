@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: ad4acfa40b49f4194b64496950fb166c
-timeCreated: 1529533921
+timeCreated: 1529840662
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -11,6 +11,13 @@ TextureImporter:
     21300008: monsters_4
     21300010: monsters_5
     21300012: monsters_6
+    21300014: monsters_7
+    21300016: monsters_8
+    21300018: monsters_9
+    21300020: monsters_10
+    21300022: monsters_11
+    21300024: monsters_12
+    21300026: monsters_13
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
@@ -112,53 +119,11 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: monsters_0
-      rect:
-        serializedVersion: 2
-        x: 109
-        y: 6
-        width: 43
-        height: 34
-      alignment: 9
-      pivot: {x: 0.68503445, y: 0.022133682}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: monsters_1
-      rect:
-        serializedVersion: 2
-        x: 60
-        y: 6
-        width: 42
-        height: 36
-      alignment: 9
-      pivot: {x: 0.6228799, y: 0.022133682}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: monsters_2
-      rect:
-        serializedVersion: 2
-        x: 12
-        y: 6
-        width: 40
-        height: 36
-      alignment: 9
-      pivot: {x: 0.5591359, y: 0.028107008}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
       name: monsters_3
       rect:
         serializedVersion: 2
-        x: 107
-        y: 49
+        x: 7
+        y: 7
         width: 10
         height: 18
       alignment: 9
@@ -171,8 +136,8 @@ TextureImporter:
       name: monsters_4
       rect:
         serializedVersion: 2
-        x: 120
-        y: 49
+        x: 20
+        y: 7
         width: 11
         height: 18
       alignment: 9
@@ -185,8 +150,8 @@ TextureImporter:
       name: monsters_5
       rect:
         serializedVersion: 2
-        x: 135
-        y: 49
+        x: 35
+        y: 7
         width: 11
         height: 18
       alignment: 9
@@ -199,12 +164,152 @@ TextureImporter:
       name: monsters_6
       rect:
         serializedVersion: 2
-        x: 149
-        y: 49
+        x: 49
+        y: 7
         width: 11
         height: 18
       alignment: 9
       pivot: {x: 0.770272, y: 0.029530419}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: monsters_0
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 31
+        width: 19
+        height: 19
+      alignment: 9
+      pivot: {x: 0.9177051, y: 0.13009584}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: monsters_1
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 31
+        width: 18
+        height: 19
+      alignment: 9
+      pivot: {x: 0.9114524, y: 0.13009584}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: monsters_2
+      rect:
+        serializedVersion: 2
+        x: 43
+        y: 31
+        width: 18
+        height: 19
+      alignment: 9
+      pivot: {x: 0.9114526, y: 0.13009584}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: monsters_7
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 55
+        width: 17
+        height: 28
+      alignment: 9
+      pivot: {x: 0.79474676, y: 0.019111225}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: monsters_8
+      rect:
+        serializedVersion: 2
+        x: 28
+        y: 55
+        width: 18
+        height: 27
+      alignment: 9
+      pivot: {x: 0.8029976, y: 0.019111088}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: monsters_9
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 55
+        width: 20
+        height: 27
+      alignment: 9
+      pivot: {x: 0.82319033, y: 0.017799923}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: monsters_10
+      rect:
+        serializedVersion: 2
+        x: 74
+        y: 55
+        width: 17
+        height: 28
+      alignment: 9
+      pivot: {x: 0.7882641, y: 0.017447472}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: monsters_11
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 88
+        width: 19
+        height: 29
+      alignment: 9
+      pivot: {x: 0.8039037, y: 0.021493582}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: monsters_12
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 88
+        width: 19
+        height: 29
+      alignment: 9
+      pivot: {x: 0.7947785, y: 0.021921618}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: monsters_13
+      rect:
+        serializedVersion: 2
+        x: 61
+        y: 88
+        width: 19
+        height: 29
+      alignment: 9
+      pivot: {x: 0.79961115, y: 0.021921618}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
