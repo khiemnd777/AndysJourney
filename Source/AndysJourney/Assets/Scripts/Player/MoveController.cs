@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MainMovement : MonoBehaviour
+public class MoveController : PlayerController, IControlLocker
 {
     public float deltaDistance = .008f;
     public float jumpForce;
@@ -16,25 +16,25 @@ public class MainMovement : MonoBehaviour
     [System.NonSerialized]
     public bool stopY;
 
-    Rigidbody2D _rb;
-    Animator _anim;
     bool _isOnGround = true;
     bool _isMoving;
     bool _isJump;
+    bool _lockMove;
     Vector3 _dir;
     float _x;
     float _y;
     int _extraJump;
 
-    void Start()
+    public override void Start()
     {
-        _rb = GetComponent<Rigidbody2D>();
-        _anim = GetComponent<Animator>();
+        base.Start();
+        ControlLock.Register("Move", this);
         _extraJump = extraJumpCount;
     }
 
-    void Update()
+    public override void Update()
     {
+        base.Update();
         if (_isOnGround)
         {
             _extraJump = extraJumpCount;
@@ -45,14 +45,31 @@ public class MainMovement : MonoBehaviour
         SetDirectionX();
     }
 
-    void FixedUpdate()
+    public override void FixedUpdate()
     {
+        base.FixedUpdate();
         CalculateVelocity();
         ForceForJump();
     }
 
+    public void Lock(string name)
+    {
+        if(name == "Move"){
+            _lockMove = true;
+        }
+    }
+
+    public void ReleaseLock(string name)
+    {
+        if(name == "Move"){
+            _lockMove = false;
+        }
+    }
+
     void SetDirectionX()
     {
+        if(_lockMove) 
+            return;
         if (!_isMoving)
             return;
         _x = GetInputX();
@@ -62,6 +79,8 @@ public class MainMovement : MonoBehaviour
 
     void CalculateVelocity()
     {
+        if(_lockMove) 
+            return;
         var dirX = GetInputX() * (deltaDistance / Time.fixedDeltaTime);
         _rb.velocity = new Vector2(dirX, _rb.velocity.y);
     }
@@ -89,11 +108,12 @@ public class MainMovement : MonoBehaviour
 
     void SetJumpState()
     {
-		_isJump = Input.GetKeyDown(KeyCode.K);
+        _isJump = Input.GetKeyDown(KeyCode.K);
         _anim.SetBool("isJump", !_isOnGround && _extraJump > 0 || _isJump);
-		if(!_isOnGround && _extraJump > 0 && _isJump){
-			_anim.Play("Jump", -1, 0);
-		}
+        if (!_isOnGround && _extraJump > 0 && _isJump)
+        {
+            _anim.Play("Jump", -1, 0);
+        }
     }
 
     void SetOnGroundState(bool state)
