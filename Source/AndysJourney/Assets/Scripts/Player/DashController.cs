@@ -7,14 +7,16 @@ public class DashController : PlayerController
     public float dashingForce = 1.8f;
     public float dashingExtraDistance = .35f;
     public float dashingSeconds = .3f;
+    public float dashingCooldown = 1f;
 
     bool _isDashing;
+    bool _isInCooldown;
 
     public override void Update()
     {
-        if (Input.GetKeyDown(KeyCode.L) && !_isDashing)
+        if (Input.GetKeyDown(KeyCode.L) && !_isDashing && !_isInCooldown)
         {
-            // Start dashing
+            StartCoroutine(StartCooldown());
             StartCoroutine(StartDashing());
         }
     }
@@ -34,6 +36,12 @@ public class DashController : PlayerController
         _anim.SetBool("isDashing", false);
         _rb.gravityScale = gravityScale;
         ControlLock.ReleaseLock("Move");
+    }
+
+    IEnumerator StartCooldown(){
+        _isInCooldown = true;
+        yield return new WaitForSeconds(dashingCooldown);
+        _isInCooldown = false;
     }
 
     IEnumerator Dashing()
