@@ -37,6 +37,18 @@ public class Utility
         animator.SetLayerWeight(animator.GetLayerIndex(layerName), 1);
     }
 
+    public static float GetAnimationLength(Animator animator, string animationName){
+        var controller = animator.runtimeAnimatorController;
+        var animations = controller.animationClips;
+        for(var i = 0; i < animations.Length; i++){
+            var anim = animations[i];
+            if(!animationName.Equals(anim.name))
+                continue;
+            return anim.length;
+        }
+        return 0;
+    }
+
     public static IEnumerator JumpToDestination(Transform owner, Vector3 source, Vector3 destination, System.Action toBeAtDestination = null)
     {
         var percent = .0f;
