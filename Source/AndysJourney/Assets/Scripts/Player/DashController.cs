@@ -24,17 +24,17 @@ public class DashController : PlayerController
     IEnumerator StartDashing()
     {
         ControlLock.Lock("Move");
-        // var gravityScale = _rb.gravityScale;
-        // _rb.gravityScale = .06f;
+        var gravityScale = _rb.gravityScale;
+        _rb.gravityScale = .0f;
         _isDashing = true;
         _anim.SetBool("isDashing", true);
         var time = Utility.TimeByFrame(22, 60);
         // StartCoroutine(Dashing());
-        _rb.velocity = new Vector2(_anim.GetFloat("x") * dashingForce, _rb.gravityScale);
+        _rb.velocity = Vector2.right * _anim.GetFloat("x") * dashingForce;
         yield return new WaitForSeconds(time);
         _isDashing = false;
         _anim.SetBool("isDashing", false);
-        // _rb.gravityScale = gravityScale;
+        _rb.gravityScale = gravityScale;
         ControlLock.ReleaseLock("Move");
     }
 

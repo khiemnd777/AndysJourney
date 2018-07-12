@@ -11,6 +11,11 @@ public class MoveController : PlayerController, IControlLocker
     public Transform groundCheck;
     public float groundCheckRadius;
     public LayerMask groundLayer;
+    [Header("Collision check")]
+    public Transform leftCollisionCheck;
+    public Transform rightCollisionCheck;
+    public float collisionCheckRadius;
+    public LayerMask collisionLayer;
     [System.NonSerialized]
     public bool stopX;
     [System.NonSerialized]
@@ -20,6 +25,8 @@ public class MoveController : PlayerController, IControlLocker
     bool _isMoving;
     bool _isJump;
     bool _lockMove;
+    bool _isLeftCollision;
+    bool _isRightCollision;
     Vector3 _dir;
     float _x;
     float _y;
@@ -39,6 +46,8 @@ public class MoveController : PlayerController, IControlLocker
         {
             _extraJump = extraJumpCount;
         }
+        CheckLeftCollision();
+        CheckRightCollision();
         CheckOnGround();
         SetMovingState();
         SetJumpState();
@@ -82,6 +91,9 @@ public class MoveController : PlayerController, IControlLocker
         if(_lockMove) 
             return;
         var dirX = GetInputX() * (deltaDistance / Time.fixedDeltaTime);
+        if((_isLeftCollision || _isRightCollision) && !_isOnGround){
+            dirX = 0f;
+        }
         _rb.velocity = new Vector2(dirX, _rb.velocity.y);
     }
 
@@ -131,5 +143,17 @@ public class MoveController : PlayerController, IControlLocker
     {
         var state = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
         SetOnGroundState(state == true);
+    }
+
+    void CheckLeftCollision()
+    {
+        var state = Physics2D.OverlapCircle(leftCollisionCheck.position, collisionCheckRadius, collisionLayer);
+        _isLeftCollision = state == true;
+    }
+
+    void CheckRightCollision()
+    {
+        var state = Physics2D.OverlapCircle(rightCollisionCheck.position, collisionCheckRadius, collisionLayer);
+        _isRightCollision = state == true;
     }
 }
