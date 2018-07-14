@@ -13,8 +13,8 @@ public class MoveController : PlayerController, IControlLocker
     public LayerMask groundLayer;
     [Header("Collision check")]
     public float friction;
-    public Transform leftCollisionCheck;
-    public Transform rightCollisionCheck;
+    public Transform beindCollisionCheck;
+    public Transform frontCollisionCheck;
     public float collisionCheckRadius;
     public LayerMask collisionLayer;
     [System.NonSerialized]
@@ -25,8 +25,8 @@ public class MoveController : PlayerController, IControlLocker
     bool _isOnGround = true;
     bool _isMoving;
     bool _isJump;
-    bool _isLeftCollision;
-    bool _isRightCollision;
+    bool _isBehindCollision;
+    bool _isFrontCollision;
     bool _lockMove;
     bool _lockMoveOnGround;
     Vector3 _dir;
@@ -48,8 +48,8 @@ public class MoveController : PlayerController, IControlLocker
         {
             _extraJump = extraJumpCount;
         }
-        CheckLeftCollision();
-        CheckRightCollision();
+        CheckBehindCollision();
+        CheckFrontCollision();
         CheckOnGround();
         SetMovingState();
         SetJumpState();
@@ -107,7 +107,8 @@ public class MoveController : PlayerController, IControlLocker
             return;
         var inputX = GetInputX();
         var dirX = inputX * (deltaDistance / Time.fixedDeltaTime);
-        if ((_isLeftCollision && inputX < 0 || _isRightCollision && inputX > 0) && !_isOnGround)
+        // Collision with front obstacle
+        if ((_isFrontCollision && inputX != 0) && !_isOnGround)
         {
             if (_rb.velocity.y < 0)
             {
@@ -176,15 +177,15 @@ public class MoveController : PlayerController, IControlLocker
         SetOnGroundState(state == true);
     }
 
-    void CheckLeftCollision()
+    void CheckBehindCollision()
     {
-        var state = Physics2D.OverlapCircle(leftCollisionCheck.position, collisionCheckRadius, collisionLayer);
-        _isLeftCollision = state == true && _faceX < 0;
+        var state = Physics2D.OverlapCircle(beindCollisionCheck.position, collisionCheckRadius, collisionLayer);
+        _isBehindCollision = state == true;
     }
 
-    void CheckRightCollision()
+    void CheckFrontCollision()
     {
-        var state = Physics2D.OverlapCircle(rightCollisionCheck.position, collisionCheckRadius, collisionLayer);
-        _isRightCollision = state == true && _faceX > 0;
+        var state = Physics2D.OverlapCircle(frontCollisionCheck.position, collisionCheckRadius, collisionLayer);
+        _isFrontCollision = state == true;
     }
 }

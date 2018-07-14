@@ -298,7 +298,7 @@ GameObject:
   m_Component:
   - component: {fileID: 326400354}
   m_Layer: 0
-  m_Name: Right collision check
+  m_Name: Front Collision Check
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -423,7 +423,7 @@ GameObject:
   m_Component:
   - component: {fileID: 588920791}
   m_Layer: 0
-  m_Name: Left collision check
+  m_Name: Behind Collision Check
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -542,7 +542,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1353145358}
   m_Layer: 0
-  m_Name: Ground check
+  m_Name: Ground Check
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -868,8 +868,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 512
   friction: 0
-  leftCollisionCheck: {fileID: 588920791}
-  rightCollisionCheck: {fileID: 326400354}
+  beindCollisionCheck: {fileID: 588920791}
+  frontCollisionCheck: {fileID: 326400354}
   collisionCheckRadius: 0.05
   collisionLayer:
     serializedVersion: 2
@@ -910,7 +910,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0}
-    oldSize: {x: 0.15, y: 0.19}
+    oldSize: {x: 0.14, y: 0.19}
     newSize: {x: 0.15, y: 0.18}
     adaptiveTilingThreshold: 0.5
     drawMode: 0

@@ -23,15 +23,23 @@ public abstract class PlayerController : MonoBehaviour
     public virtual void Update()
     {
         _faceX = Input.GetAxisRaw("Horizontal") == 0 ? _faceX : Input.GetAxisRaw("Horizontal");
+        FlipX();
     }
 
     public virtual void FixedUpdate()
     {
-        
+
     }
 
     public virtual void LateUpdate()
     {
-        
+
+    }
+
+    void FlipX()
+    {
+        var localScale = transform.localScale;
+        var scaleVal = new Vector3(Mathf.Abs(localScale.x) * _faceX, localScale.y, localScale.z);
+        transform.localScale = scaleVal;
     }
 }

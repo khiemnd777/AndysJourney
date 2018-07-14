@@ -41,8 +41,7 @@ public class NormalBunchController : PlayerController
         var prefab = _isOne ? _effectOnePrefab : _effectTwoPrefab;
         var fx = Instantiate<SpriteRenderer>(prefab, transform.position, Quaternion.identity, transform);
         fx.gameObject.SetActive(true);
-        fx.transform.localPosition = new Vector3(.095f * _faceX, .095f, 0);
-        fx.transform.localScale = new Vector3(_faceX, 1, 1);
+        fx.transform.localPosition = new Vector3(.095f, .095f, 0);
         var fxAnim = fx.GetComponent<Animator>();
         Destroy(fx.gameObject, fxAnim.GetCurrentAnimatorStateInfo(0).length);
     }

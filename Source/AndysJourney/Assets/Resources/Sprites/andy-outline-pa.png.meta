@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 9214978587e9a42b9bfc81fdd553c693
-timeCreated: 1531387778
+timeCreated: 1531539400
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -203,6 +203,8 @@ TextureImporter:
     21300392: andy-outline-pa_175
     21300394: andy-outline-pa_176
     21300396: andy-outline-pa_177
+    21300398: andy-outline-pa_178
+    21300400: andy-outline-pa_179
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
@@ -419,9 +421,9 @@ TextureImporter:
       name: andy-outline-pa_12
       rect:
         serializedVersion: 2
-        x: 3
+        x: 4
         y: 3
-        width: 15
+        width: 14
         height: 20
       alignment: 7
       pivot: {x: 0.5, y: 0}
@@ -433,9 +435,9 @@ TextureImporter:
       name: andy-outline-pa_13
       rect:
         serializedVersion: 2
-        x: 20
+        x: 21
         y: 3
-        width: 15
+        width: 14
         height: 20
       alignment: 7
       pivot: {x: 0.5, y: 0}
@@ -447,9 +449,9 @@ TextureImporter:
       name: andy-outline-pa_14
       rect:
         serializedVersion: 2
-        x: 37
+        x: 38
         y: 2
-        width: 15
+        width: 14
         height: 20
       alignment: 7
       pivot: {x: 0.5, y: 0}
@@ -461,9 +463,9 @@ TextureImporter:
       name: andy-outline-pa_15
       rect:
         serializedVersion: 2
-        x: 71
+        x: 72
         y: 3
-        width: 15
+        width: 14
         height: 20
       alignment: 7
       pivot: {x: 0.5, y: 0}
@@ -1539,9 +1541,9 @@ TextureImporter:
       name: andy-outline-pa_73
       rect:
         serializedVersion: 2
-        x: 88
+        x: 89
         y: 2
-        width: 15
+        width: 14
         height: 20
       alignment: 7
       pivot: {x: 0.5, y: 0}
@@ -1553,9 +1555,9 @@ TextureImporter:
       name: andy-outline-pa_74
       rect:
         serializedVersion: 2
-        x: 106
+        x: 107
         y: 2
-        width: 15
+        width: 14
         height: 20
       alignment: 7
       pivot: {x: 0.5, y: 0}
@@ -1567,9 +1569,9 @@ TextureImporter:
       name: andy-outline-pa_75
       rect:
         serializedVersion: 2
-        x: 54
+        x: 55
         y: 2
-        width: 15
+        width: 14
         height: 20
       alignment: 7
       pivot: {x: 0.5, y: 0}
@@ -1973,9 +1975,9 @@ TextureImporter:
       name: andy-outline-pa_100
       rect:
         serializedVersion: 2
-        x: 10
+        x: 11
         y: 586
-        width: 15
+        width: 14
         height: 19
       alignment: 7
       pivot: {x: 0.5, y: 0}
@@ -1987,9 +1989,9 @@ TextureImporter:
       name: andy-outline-pa_101
       rect:
         serializedVersion: 2
-        x: 29
+        x: 30
         y: 586
-        width: 15
+        width: 14
         height: 19
       alignment: 7
       pivot: {x: 0.5, y: 0}
@@ -2001,9 +2003,9 @@ TextureImporter:
       name: andy-outline-pa_102
       rect:
         serializedVersion: 2
-        x: 48
+        x: 49
         y: 584
-        width: 15
+        width: 14
         height: 21
       alignment: 7
       pivot: {x: 0.5, y: 0}
@@ -2015,9 +2017,9 @@ TextureImporter:
       name: andy-outline-pa_103
       rect:
         serializedVersion: 2
-        x: 67
+        x: 68
         y: 584
-        width: 15
+        width: 14
         height: 21
       alignment: 7
       pivot: {x: 0.5, y: 0}
@@ -2029,9 +2031,9 @@ TextureImporter:
       name: andy-outline-pa_104
       rect:
         serializedVersion: 2
-        x: 86
+        x: 87
         y: 584
-        width: 15
+        width: 14
         height: 21
       alignment: 7
       pivot: {x: 0.5, y: 0}
@@ -2043,9 +2045,9 @@ TextureImporter:
       name: andy-outline-pa_105
       rect:
         serializedVersion: 2
-        x: 105
+        x: 106
         y: 586
-        width: 15
+        width: 14
         height: 21
       alignment: 7
       pivot: {x: 0.5, y: 0}
@@ -2057,9 +2059,9 @@ TextureImporter:
       name: andy-outline-pa_106
       rect:
         serializedVersion: 2
-        x: 124
+        x: 125
         y: 586
-        width: 15
+        width: 14
         height: 22
       alignment: 7
       pivot: {x: 0.5, y: 0}
@@ -2225,9 +2227,9 @@ TextureImporter:
       name: andy-outline-pa_118
       rect:
         serializedVersion: 2
-        x: 9
+        x: 10
         y: 658
-        width: 15
+        width: 14
         height: 19
       alignment: 7
       pivot: {x: 0.5, y: 0}
@@ -2239,9 +2241,9 @@ TextureImporter:
       name: andy-outline-pa_119
       rect:
         serializedVersion: 2
-        x: 28
+        x: 29
         y: 658
-        width: 15
+        width: 14
         height: 19
       alignment: 7
       pivot: {x: 0.5, y: 0}
@@ -2253,9 +2255,9 @@ TextureImporter:
       name: andy-outline-pa_120
       rect:
         serializedVersion: 2
-        x: 47
+        x: 48
         y: 658
-        width: 15
+        width: 14
         height: 19
       alignment: 7
       pivot: {x: 0.5, y: 0}
@@ -2267,9 +2269,9 @@ TextureImporter:
       name: andy-outline-pa_121
       rect:
         serializedVersion: 2
-        x: 66
+        x: 67
         y: 658
-        width: 15
+        width: 14
         height: 19
       alignment: 7
       pivot: {x: 0.5, y: 0}
@@ -2281,9 +2283,9 @@ TextureImporter:
       name: andy-outline-pa_122
       rect:
         serializedVersion: 2
-        x: 8
+        x: 9
         y: 684
-        width: 15
+        width: 14
         height: 19
       alignment: 7
       pivot: {x: 0.5, y: 0}
@@ -2295,9 +2297,9 @@ TextureImporter:
       name: andy-outline-pa_123
       rect:
         serializedVersion: 2
-        x: 26
+        x: 27
         y: 684
-        width: 15
+        width: 14
         height: 19
       alignment: 7
       pivot: {x: 0.5, y: 0}
@@ -2309,9 +2311,9 @@ TextureImporter:
       name: andy-outline-pa_124
       rect:
         serializedVersion: 2
-        x: 45
+        x: 46
         y: 684
-        width: 15
+        width: 14
         height: 19
       alignment: 7
       pivot: {x: 0.5, y: 0}
@@ -2323,9 +2325,9 @@ TextureImporter:
       name: andy-outline-pa_125
       rect:
         serializedVersion: 2
-        x: 63
+        x: 64
         y: 684
-        width: 15
+        width: 14
         height: 19
       alignment: 7
       pivot: {x: 0.5, y: 0}
@@ -2337,9 +2339,9 @@ TextureImporter:
       name: andy-outline-pa_126
       rect:
         serializedVersion: 2
-        x: 81
+        x: 82
         y: 684
-        width: 15
+        width: 14
         height: 19
       alignment: 7
       pivot: {x: 0.5, y: 0}
@@ -2351,9 +2353,9 @@ TextureImporter:
       name: andy-outline-pa_127
       rect:
         serializedVersion: 2
-        x: 99
+        x: 100
         y: 684
-        width: 15
+        width: 14
         height: 19
       alignment: 7
       pivot: {x: 0.5, y: 0}
@@ -2365,9 +2367,9 @@ TextureImporter:
       name: andy-outline-pa_128
       rect:
         serializedVersion: 2
-        x: 7
+        x: 8
         y: 708
-        width: 15
+        width: 14
         height: 19
       alignment: 7
       pivot: {x: 0.5, y: 0}
@@ -2379,9 +2381,9 @@ TextureImporter:
       name: andy-outline-pa_129
       rect:
         serializedVersion: 2
-        x: 25
+        x: 26
         y: 708
-        width: 15
+        width: 14
         height: 19
       alignment: 7
       pivot: {x: 0.5, y: 0}
@@ -2393,9 +2395,9 @@ TextureImporter:
       name: andy-outline-pa_130
       rect:
         serializedVersion: 2
-        x: 43
+        x: 44
         y: 708
-        width: 15
+        width: 14
         height: 19
       alignment: 7
       pivot: {x: 0.5, y: 0}
@@ -2407,9 +2409,9 @@ TextureImporter:
       name: andy-outline-pa_131
       rect:
         serializedVersion: 2
-        x: 61
+        x: 62
         y: 708
-        width: 15
+        width: 14
         height: 19
       alignment: 7
       pivot: {x: 0.5, y: 0}
@@ -2421,9 +2423,9 @@ TextureImporter:
       name: andy-outline-pa_132
       rect:
         serializedVersion: 2
-        x: 80
+        x: 81
         y: 708
-        width: 15
+        width: 14
         height: 19
       alignment: 7
       pivot: {x: 0.5, y: 0}
@@ -2435,9 +2437,9 @@ TextureImporter:
       name: andy-outline-pa_133
       rect:
         serializedVersion: 2
-        x: 99
+        x: 100
         y: 708
-        width: 15
+        width: 14
         height: 19
       alignment: 7
       pivot: {x: 0.5, y: 0}
@@ -2855,9 +2857,9 @@ TextureImporter:
       name: andy-outline-pa_163
       rect:
         serializedVersion: 2
-        x: 136
+        x: 137
         y: 708
-        width: 15
+        width: 14
         height: 19
       alignment: 7
       pivot: {x: 0.5, y: 0}
@@ -3054,6 +3056,34 @@ TextureImporter:
         x: 8
         y: 848
         width: 15
+        height: 19
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: andy-outline-pa_178
+      rect:
+        serializedVersion: 2
+        x: 118
+        y: 684
+        width: 14
+        height: 19
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: andy-outline-pa_179
+      rect:
+        serializedVersion: 2
+        x: 136
+        y: 684
+        width: 14
         height: 19
       alignment: 7
       pivot: {x: 0.5, y: 0}
