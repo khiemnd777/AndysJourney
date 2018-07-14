@@ -7,10 +7,11 @@ public abstract class PlayerController : MonoBehaviour
     protected Rigidbody2D _rb;
     protected Animator _anim;
     protected float _faceX;
+    protected Player _player;
 
     public virtual void Awake()
     {
-
+        _player = GetComponent<Player>();
     }
 
     public virtual void Start()
@@ -22,8 +23,7 @@ public abstract class PlayerController : MonoBehaviour
 
     public virtual void Update()
     {
-        _faceX = Input.GetAxisRaw("Horizontal") == 0 ? _faceX : Input.GetAxisRaw("Horizontal");
-        FlipX();
+        _faceX = _player.faceX;
     }
 
     public virtual void FixedUpdate()
@@ -34,12 +34,5 @@ public abstract class PlayerController : MonoBehaviour
     public virtual void LateUpdate()
     {
 
-    }
-
-    void FlipX()
-    {
-        var localScale = transform.localScale;
-        var scaleVal = new Vector3(Mathf.Abs(localScale.x) * _faceX, localScale.y, localScale.z);
-        transform.localScale = scaleVal;
     }
 }

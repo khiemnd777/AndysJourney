@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 
-public interface IControlLocker{
+public interface IControlLocker
+{
     void Lock(string name);
     void ReleaseLock(string name);
 }
@@ -11,26 +12,28 @@ public class ControlLock
 
     public static void Register(string name, IControlLocker controller)
     {
-        if(_list.ContainsKey(name))
+        if (_list.ContainsKey(name))
             return;
         _list.Add(name, controller);
     }
 
-    public static void Lock(string name, System.Action then = null)
+    public static void Lock(params string[] names)
     {
-        if(!_list.ContainsKey(name))
-            throw new KeyNotFoundException();
-        _list[name].Lock(name);
-        if(then != null)
-            then();
+        foreach (var name in names)
+        {
+            if (!_list.ContainsKey(name))
+                throw new KeyNotFoundException();
+            _list[name].Lock(name);
+        }
     }
 
-    public static void ReleaseLock(string name, System.Action then = null)
+    public static void ReleaseLock(params string[] names)
     {
-        if(!_list.ContainsKey(name))
-            throw new KeyNotFoundException();
-        _list[name].ReleaseLock(name);
-        if(then != null)
-            then();
+        foreach (var name in names)
+        {
+            if (!_list.ContainsKey(name))
+                throw new KeyNotFoundException();
+            _list[name].ReleaseLock(name);
+        }
     }
 }

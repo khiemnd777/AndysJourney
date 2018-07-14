@@ -761,6 +761,7 @@ GameObject:
   - component: {fileID: 1849662090}
   - component: {fileID: 1849662094}
   - component: {fileID: 1849662095}
+  - component: {fileID: 1849662098}
   - component: {fileID: 1849662093}
   - component: {fileID: 1849662096}
   - component: {fileID: 1849662097}
@@ -930,10 +931,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a26b414481ca04b2e827dd0829411b5d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dashingForce: 1.9
-  dashingExtraDistance: 0.35
-  dashingSeconds: 0.3
-  dashingCooldown: 1
+  dashingForce: 2
 --- !u!114 &1849662097
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -949,6 +947,17 @@ MonoBehaviour:
     type: 2}
   _effectTwoPrefab: {fileID: 212975791743043932, guid: eb335e64a7ab1422e95154f5784070a0,
     type: 2}
+--- !u!114 &1849662098
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1849662089}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2455128cffd324aecb2c2e823a8f3a44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2146065616
 Prefab:
   m_ObjectHideFlags: 0

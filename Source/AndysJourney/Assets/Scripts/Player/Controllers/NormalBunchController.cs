@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NormalBunchController : PlayerController
+public class NormalBunchController : PlayerController, IControlLocker
 {
     [SerializeField]
     SpriteRenderer _effectOnePrefab;
@@ -11,17 +11,24 @@ public class NormalBunchController : PlayerController
     Transform _effectPosition;
     bool _isInCooldown;
     bool _isOne = true;
+    bool _lockPunch;
+
+    public override void Start()
+    {
+        base.Start();
+        ControlLock.Register("NormalPunch", this);
+    }
 
     public override void Update()
     {
         base.Update();
-        if (Input.GetKeyDown(KeyCode.J) && !_isInCooldown)
+        if (Input.GetKeyDown(KeyCode.J) && !_isInCooldown && !_lockPunch)
         {
-            StartCoroutine(StartBunching());
+            StartCoroutine(StartPunching());
         }
     }
 
-    IEnumerator StartBunching()
+    IEnumerator StartPunching()
     {
         _isInCooldown = true;
         ControlLock.Lock("MoveOnGround");
@@ -37,12 +44,29 @@ public class NormalBunchController : PlayerController
         ControlLock.ReleaseLock("MoveOnGround");
     }
 
-    void InstantiateEffect(){
+    void InstantiateEffect()
+    {
         var prefab = _isOne ? _effectOnePrefab : _effectTwoPrefab;
         var fx = Instantiate<SpriteRenderer>(prefab, transform.position, Quaternion.identity, transform);
         fx.gameObject.SetActive(true);
         fx.transform.localPosition = new Vector3(.095f, .095f, 0);
         var fxAnim = fx.GetComponent<Animator>();
         Destroy(fx.gameObject, fxAnim.GetCurrentAnimatorStateInfo(0).length);
+    }
+
+    public void Lock(string name)
+    {
+        if (name == "NormalPunch")
+        {
+            _lockPunch = true;
+        }
+    }
+
+    public void ReleaseLock(string name)
+    {
+        if (name == "NormalPunch")
+        {
+            _lockPunch = false;
+        }
     }
 }

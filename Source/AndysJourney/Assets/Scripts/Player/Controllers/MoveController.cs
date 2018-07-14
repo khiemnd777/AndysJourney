@@ -29,6 +29,7 @@ public class MoveController : PlayerController, IControlLocker
     bool _isFrontCollision;
     bool _lockMove;
     bool _lockMoveOnGround;
+    bool _lockJump;
     Vector3 _dir;
     float _y;
     int _extraJump;
@@ -38,6 +39,7 @@ public class MoveController : PlayerController, IControlLocker
         base.Start();
         ControlLock.Register("Move", this);
         ControlLock.Register("MoveOnGround", this);
+        ControlLock.Register("Jump", this);
         _extraJump = extraJumpCount;
     }
 
@@ -73,6 +75,10 @@ public class MoveController : PlayerController, IControlLocker
         {
             _lockMoveOnGround = true;
         }
+        else if (name == "Jump")
+        {
+            _lockJump = true;
+        }
     }
 
     public void ReleaseLock(string name)
@@ -85,11 +91,15 @@ public class MoveController : PlayerController, IControlLocker
         {
             _lockMoveOnGround = false;
         }
+        else if (name == "Jump")
+        {
+            _lockJump = false;
+        }
     }
 
     void SetDirectionX()
     {
-        if(_lockMoveOnGround && _isOnGround)
+        if (_lockMoveOnGround && _isOnGround)
             return;
         if (_lockMove)
             return;
@@ -101,7 +111,7 @@ public class MoveController : PlayerController, IControlLocker
 
     void CalculateVelocity()
     {
-        if(_lockMoveOnGround && _isOnGround)
+        if (_lockMoveOnGround && _isOnGround)
             return;
         if (_lockMove)
             return;
@@ -123,6 +133,9 @@ public class MoveController : PlayerController, IControlLocker
 
     void ForceForJump()
     {
+        if(_lockJump){
+            return;
+        }
         if (!_isJump)
             return;
         if (!_isOnGround && _extraJump > 0)
@@ -138,11 +151,13 @@ public class MoveController : PlayerController, IControlLocker
 
     void SetMovingState()
     {
-        if(_lockMoveOnGround && _isOnGround){
+        if (_lockMoveOnGround && _isOnGround)
+        {
             _anim.SetBool("isMoving", false);
             return;
         }
-        if(_lockMove){
+        if (_lockMove)
+        {
             _anim.SetBool("isMoving", false);
             return;
         }
@@ -152,6 +167,10 @@ public class MoveController : PlayerController, IControlLocker
 
     void SetJumpState()
     {
+        if(_lockJump){
+            _anim.SetBool("isJump", false);
+            return;
+        }
         _isJump = Input.GetKeyDown(KeyCode.K);
         _anim.SetBool("isJump", !_isOnGround && _extraJump > 0 || _isJump);
         if (!_isOnGround && _extraJump > 0 && _isJump)
