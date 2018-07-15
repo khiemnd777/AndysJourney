@@ -12,11 +12,12 @@ public class MoveController : PlayerController, IControlLocker
     public float groundCheckRadius;
     public LayerMask groundLayer;
     [Header("Collision check")]
-    public float friction;
     public Transform beindCollisionCheck;
-    public Transform frontCollisionCheck;
     public float collisionCheckRadius;
     public LayerMask collisionLayer;
+    [Header("Wall sliding/jumping")]
+    public float frictionY;
+    public bool allowWallSliding;
     [System.NonSerialized]
     public bool stopX;
     [System.NonSerialized]
@@ -26,7 +27,6 @@ public class MoveController : PlayerController, IControlLocker
     bool _isMoving;
     bool _isJump;
     bool _isBehindCollision;
-    bool _isFrontCollision;
     bool _lockMove;
     bool _lockMoveOnGround;
     bool _lockJump;
@@ -37,9 +37,7 @@ public class MoveController : PlayerController, IControlLocker
     public override void Start()
     {
         base.Start();
-        ControlLock.Register("Move", this);
-        ControlLock.Register("MoveOnGround", this);
-        ControlLock.Register("Jump", this);
+        ControlLock.Register(this, "Move", "MoveOnGround", "Jump");
         _extraJump = extraJumpCount;
     }
 
@@ -51,7 +49,6 @@ public class MoveController : PlayerController, IControlLocker
             _extraJump = extraJumpCount;
         }
         CheckBehindCollision();
-        CheckFrontCollision();
         CheckOnGround();
         SetMovingState();
         SetJumpState();
@@ -115,14 +112,14 @@ public class MoveController : PlayerController, IControlLocker
             return;
         if (_lockMove)
             return;
-        var inputX = GetInputX();
+        var inputX = _player.GetInputX();
         var dirX = inputX * (deltaDistance / Time.fixedDeltaTime);
-        // Collision with front obstacle
-        if ((_isFrontCollision && inputX != 0) && !_isOnGround)
+        if ((_player.isFrontCollision && inputX != 0) && !_isOnGround)
         {
             if (_rb.velocity.y < 0)
             {
-                _rb.velocity += Vector2.up * friction;
+                var frictionYVal = allowWallSliding ? frictionY : 0f;
+                _rb.velocity += Vector2.up * frictionYVal * Time.fixedDeltaTime;
             }
         }
         else
@@ -133,7 +130,8 @@ public class MoveController : PlayerController, IControlLocker
 
     void ForceForJump()
     {
-        if(_lockJump){
+        if (_lockJump)
+        {
             return;
         }
         if (!_isJump)
@@ -161,13 +159,14 @@ public class MoveController : PlayerController, IControlLocker
             _anim.SetBool("isMoving", false);
             return;
         }
-        _isMoving = GetInputX() != 0;
+        _isMoving = _player.GetInputX() != 0;
         _anim.SetBool("isMoving", _isMoving);
     }
 
     void SetJumpState()
     {
-        if(_lockJump){
+        if (_lockJump)
+        {
             _anim.SetBool("isJump", false);
             return;
         }
@@ -185,11 +184,6 @@ public class MoveController : PlayerController, IControlLocker
         _anim.SetBool("isOnGround", state);
     }
 
-    float GetInputX()
-    {
-        return !stopX ? Input.GetAxisRaw("Horizontal") : 0f;
-    }
-
     void CheckOnGround()
     {
         var state = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
@@ -200,11 +194,5 @@ public class MoveController : PlayerController, IControlLocker
     {
         var state = Physics2D.OverlapCircle(beindCollisionCheck.position, collisionCheckRadius, collisionLayer);
         _isBehindCollision = state == true;
-    }
-
-    void CheckFrontCollision()
-    {
-        var state = Physics2D.OverlapCircle(frontCollisionCheck.position, collisionCheckRadius, collisionLayer);
-        _isFrontCollision = state == true;
     }
 }

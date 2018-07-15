@@ -17,12 +17,22 @@ public class ControlLock
         _list.Add(name, controller);
     }
 
+    public static void Register(IControlLocker controller, params string[] names)
+    {
+        foreach (var name in names)
+        {
+            if (_list.ContainsKey(name))
+                continue;
+            _list.Add(name, controller);
+        }
+    }
+
     public static void Lock(params string[] names)
     {
         foreach (var name in names)
         {
             if (!_list.ContainsKey(name))
-                throw new KeyNotFoundException();
+                throw new KeyNotFoundException("No found [" + name + "]");
             _list[name].Lock(name);
         }
     }
