@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Player : MonoBehaviour, IControlLocker
 {
+    public float gravity = .45f;
     public Transform frontCollisionCheck;
     public float collisionCheckRadius;
     public LayerMask collisionLayer;
@@ -11,10 +12,17 @@ public class Player : MonoBehaviour, IControlLocker
     public float faceX;
     [System.NonSerialized]
     public bool isFrontCollision;
+
     bool _lockFlipX;
+
+    Rigidbody2D _rb;
+    Animator _anim;
 
     void Start()
     {
+        _rb = GetComponent<Rigidbody2D>();
+        _anim = GetComponent<Animator>();
+        _rb.gravityScale = gravity;
         faceX = 1;
         ControlLock.Register("FlipX", this);
     }
@@ -22,8 +30,8 @@ public class Player : MonoBehaviour, IControlLocker
     void Update()
     {
         faceX = Input.GetAxisRaw("Horizontal") == 0 ? faceX : Input.GetAxisRaw("Horizontal");
-        CheckFrontCollision();
         FlipX();
+        CheckFrontCollision();
     }
 
     void FlipX()
@@ -32,7 +40,10 @@ public class Player : MonoBehaviour, IControlLocker
             return;
         var localScale = transform.localScale;
         var scaleVal = new Vector3(Mathf.Abs(localScale.x) * faceX, localScale.y, localScale.z);
-        transform.localScale = scaleVal;
+        if(localScale.x != faceX){
+            _anim.SetBool("isWallSliding", false);
+            transform.localScale = scaleVal;
+        }
     }
 
     void CheckFrontCollision()

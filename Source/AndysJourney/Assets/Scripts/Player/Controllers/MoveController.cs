@@ -27,6 +27,7 @@ public class MoveController : PlayerController, IControlLocker
     bool _isMoving;
     bool _isJump;
     bool _isBehindCollision;
+    bool _jumpByWall;
     bool _lockMove;
     bool _lockMoveOnGround;
     bool _lockJump;
@@ -51,6 +52,7 @@ public class MoveController : PlayerController, IControlLocker
         CheckBehindCollision();
         CheckOnGround();
         SetMovingState();
+        SetWallSlidingState();
         SetJumpState();
         SetDirectionX();
     }
@@ -116,14 +118,17 @@ public class MoveController : PlayerController, IControlLocker
         var dirX = inputX * (deltaDistance / Time.fixedDeltaTime);
         if ((_player.isFrontCollision && inputX != 0) && !_isOnGround)
         {
+            // When player is wall sliding or colliding
             if (_rb.velocity.y < 0)
             {
+                _rb.gravityScale = allowWallSliding && frictionY > 0 ? 0 : _player.gravity;
                 var frictionYVal = allowWallSliding ? frictionY : 0f;
-                _rb.velocity += Vector2.up * frictionYVal * Time.fixedDeltaTime;
+                _rb.velocity = new Vector2(_rb.velocity.x, -10 / frictionYVal * Time.fixedDeltaTime);
             }
         }
         else
         {
+            _rb.gravityScale = _player.gravity;
             _rb.velocity = new Vector2(dirX, _rb.velocity.y);
         }
     }
@@ -136,10 +141,16 @@ public class MoveController : PlayerController, IControlLocker
         }
         if (!_isJump)
             return;
+        // when jumping, the gravity value is not zero
+        _rb.gravityScale = _player.gravity;
         if (!_isOnGround && _extraJump > 0)
         {
             _rb.velocity = Vector2.up * jumpForce;
             _extraJump--;
+        }
+        else if (_extraJump <= 0 && _jumpByWall)
+        {
+            _rb.velocity = Vector2.up * jumpForce;
         }
         else if (_isOnGround)
         {
@@ -159,7 +170,7 @@ public class MoveController : PlayerController, IControlLocker
             _anim.SetBool("isMoving", false);
             return;
         }
-        _isMoving = _player.GetInputX() != 0;
+        _isMoving = _player.GetInputX() != 0 && !IsWallSlidingState();
         _anim.SetBool("isMoving", _isMoving);
     }
 
@@ -171,11 +182,31 @@ public class MoveController : PlayerController, IControlLocker
             return;
         }
         _isJump = Input.GetKeyDown(KeyCode.K);
-        _anim.SetBool("isJump", !_isOnGround && _extraJump > 0 || _isJump);
+        _jumpByWall = IsWallSlidingState();
+        _anim.SetBool("isJump", (!_isOnGround && _extraJump > 0 || _isJump) && !IsWallSlidingState());
         if (!_isOnGround && _extraJump > 0 && _isJump)
         {
             _anim.Play("Jump", -1, 0);
         }
+    }
+
+    void SetWallSlidingState()
+    {
+        var isWallSlidingState = IsWallSlidingState();
+        _anim.SetBool("isWallSliding", isWallSlidingState);
+        if(isWallSlidingState){
+            _extraJump = extraJumpCount;
+        }
+    }
+
+    bool IsWallSlidingState()
+    {
+        return _player.isFrontCollision
+                    && _player.GetInputX() != 0
+                    && !_isOnGround
+                    && allowWallSliding
+                    && frictionY > 0
+                    && _rb.velocity.y < 0;
     }
 
     void SetOnGroundState(bool state)
