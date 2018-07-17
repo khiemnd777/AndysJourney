@@ -12,7 +12,7 @@ public class DashController : PlayerController
     public override void Update()
     {
         base.Update();
-        if(_anim.GetBool("isOnGround") && !_isDashing){
+        if((_anim.GetBool("isWallSliding") || _anim.GetBool("isOnGround")) && !_isDashing){
             _isInCooldown = false;
         }
         if (Input.GetKeyDown(KeyCode.L) && !_isDashing && !_isInCooldown)

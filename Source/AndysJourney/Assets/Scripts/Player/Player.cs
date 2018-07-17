@@ -8,20 +8,30 @@ public class Player : MonoBehaviour, IControlLocker
     public Transform frontCollisionCheck;
     public float collisionCheckRadius;
     public LayerMask collisionLayer;
-	[System.NonSerialized]
+    [System.NonSerialized]
     public float faceX;
     [System.NonSerialized]
     public bool isFrontCollision;
+
+    public Movement2D movement
+    {
+        get
+        {
+            return _movement;
+        }
+    }
 
     bool _lockFlipX;
 
     Rigidbody2D _rb;
     Animator _anim;
+    Movement2D _movement;
 
     void Start()
     {
         _rb = GetComponent<Rigidbody2D>();
         _anim = GetComponent<Animator>();
+        _movement = GetComponent<Movement2D>();
         _rb.gravityScale = gravity;
         faceX = 1;
         ControlLock.Register("FlipX", this);
@@ -40,7 +50,8 @@ public class Player : MonoBehaviour, IControlLocker
             return;
         var localScale = transform.localScale;
         var scaleVal = new Vector3(Mathf.Abs(localScale.x) * faceX, localScale.y, localScale.z);
-        if(localScale.x != faceX){
+        if (localScale.x != faceX)
+        {
             _anim.SetBool("isWallSliding", false);
             transform.localScale = scaleVal;
         }
@@ -53,6 +64,11 @@ public class Player : MonoBehaviour, IControlLocker
     }
 
     public float GetInputX()
+    {
+        return GetInputHorizontal();
+    }
+
+    public float GetInputHorizontal()
     {
         return Input.GetAxisRaw("Horizontal");
     }
