@@ -31,6 +31,7 @@ public class MoveController : PlayerController, IControlLocker
     bool _lockMove;
     bool _lockMoveOnGround;
     bool _lockJump;
+    bool _flippedByWallSliding;
     Vector3 _dir;
     float _y;
     int _extraJump;
@@ -49,10 +50,7 @@ public class MoveController : PlayerController, IControlLocker
         {
             _extraJump = extraJumpCount;
         }
-        CheckBehindCollision();
-        CheckOnGround();
         SetMovingState();
-        SetWallSlidingState();
         SetJumpState();
         SetDirectionX();
     }
@@ -60,6 +58,9 @@ public class MoveController : PlayerController, IControlLocker
     public override void FixedUpdate()
     {
         base.FixedUpdate();
+        CheckBehindCollision();
+        CheckOnGround();
+        SetWallSlidingState();
         CalculateVelocity();
         ForceForJump();
     }
@@ -104,7 +105,7 @@ public class MoveController : PlayerController, IControlLocker
             return;
         if (!_isMoving)
             return;
-        _anim.SetFloat("x", _faceX);
+        _anim.SetFloat("x", _player.faceX);
         _anim.SetFloat("y", _y);
     }
 
@@ -114,9 +115,9 @@ public class MoveController : PlayerController, IControlLocker
             return;
         if (_lockMove)
             return;
-        var inputX = _player.GetInputX();
+        var inputX = _player.GetInputHorizontal();
         var dirX = inputX * (deltaDistance / Time.fixedDeltaTime);
-        if ((_player.isFrontCollision && inputX != 0) && !_isOnGround)
+        if ((_player.isFrontCollision && (inputX > 0 && _player.faceX > 0 || inputX < 0 && _player.faceX < 0)) && !_isOnGround)
         {
             // When player is wall sliding or colliding
             if (_rb.velocity.y < 0)
@@ -156,6 +157,7 @@ public class MoveController : PlayerController, IControlLocker
         {
             _rb.velocity = Vector2.up * jumpForce;
         }
+        _isJump = false;
     }
 
     void SetMovingState()
@@ -194,15 +196,32 @@ public class MoveController : PlayerController, IControlLocker
     {
         var isWallSlidingState = IsWallSlidingState();
         _anim.SetBool("isWallSliding", isWallSlidingState);
-        if(isWallSlidingState){
+        if (isWallSlidingState)
+        {
             _extraJump = extraJumpCount;
+            // Flip when sliding
+            if (!_flippedByWallSliding)
+            {
+                ControlLock.Lock("FlipX");
+                _flippedByWallSliding = true;
+                _sprite.flipX = true;
+            }
+        }
+        else
+        {
+            if (_flippedByWallSliding)
+            {
+                ControlLock.ReleaseLock("FlipX");
+                _flippedByWallSliding = false;
+                _sprite.flipX = false;
+            }
         }
     }
 
     bool IsWallSlidingState()
     {
         return _player.isFrontCollision
-                    && _player.GetInputX() != 0
+                    && (_player.GetInputX() > 0 && transform.localScale.x > 0 || _player.GetInputX() < 0 && transform.localScale.x < 0)
                     && !_isOnGround
                     && allowWallSliding
                     && frictionY > 0

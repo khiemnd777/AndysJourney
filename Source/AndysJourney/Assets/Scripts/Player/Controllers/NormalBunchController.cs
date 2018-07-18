@@ -34,11 +34,21 @@ public class NormalBunchController : PlayerController, IControlLocker
         ControlLock.Lock("MoveOnGround");
         _anim.SetBool("isBunch", true);
         _anim.SetBool("isBunchOne", _isOne);
-        var bunchName = string.Format("Normal Bunch {0} {1}", _faceX < 0 ? "Left" : "Right", _isOne ? 1 : 2);
-        var bunchLength = Utility.GetAnimationLength(_anim, bunchName);
+        var bunchName = string.Empty;
+        var bunchLength = 0f;
+        if (_anim.GetBool("isWallSliding"))
+        {
+            bunchName = "Wall Punch";
+            bunchLength = Utility.GetAnimationLength(_anim, bunchName);
+        }
+        else
+        {
+            bunchName = string.Format("Normal Bunch {0} {1}", _faceX < 0 ? "Left" : "Right", _isOne ? 1 : 2);
+            bunchLength = Utility.GetAnimationLength(_anim, bunchName);
+            _isOne = !_isOne;
+        }
         InstantiateEffect();
         yield return new WaitForSeconds(bunchLength);
-        _isOne = !_isOne;
         _anim.SetBool("isBunch", false);
         _isInCooldown = false;
         ControlLock.ReleaseLock("MoveOnGround");
@@ -46,10 +56,14 @@ public class NormalBunchController : PlayerController, IControlLocker
 
     void InstantiateEffect()
     {
-        var prefab = _isOne ? _effectOnePrefab : _effectTwoPrefab;
+        var prefab = _isOne || _anim.GetBool("isWallSliding") ? _effectOnePrefab : _effectTwoPrefab;
         var fx = Instantiate<SpriteRenderer>(prefab, transform.position, Quaternion.identity, transform);
         fx.gameObject.SetActive(true);
-        fx.transform.localPosition = new Vector3(.095f, .095f, 0);
+        var dirX = _anim.GetBool("isWallSliding") ? -1 : 1;
+        fx.transform.localPosition = new Vector3(.095f * dirX, .095f, 0);
+        var scale = fx.transform.localScale;
+        scale.x *= dirX;
+        fx.transform.localScale = scale;
         var fxAnim = fx.GetComponent<Animator>();
         Destroy(fx.gameObject, fxAnim.GetCurrentAnimatorStateInfo(0).length);
     }

@@ -6,6 +6,7 @@ public abstract class PlayerController : MonoBehaviour
 {
     protected Rigidbody2D _rb;
     protected Animator _anim;
+    protected SpriteRenderer _sprite;
     protected float _faceX;
     protected Player _player;
 
@@ -18,6 +19,7 @@ public abstract class PlayerController : MonoBehaviour
     {
         _rb = GetComponent<Rigidbody2D>();
         _anim = GetComponent<Animator>();
+        _sprite = GetComponent<SpriteRenderer>();
         _faceX = 1;
     }
 

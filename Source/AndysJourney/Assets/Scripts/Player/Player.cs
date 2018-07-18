@@ -39,12 +39,17 @@ public class Player : MonoBehaviour, IControlLocker
 
     void Update()
     {
+        
+    }
+
+    void FixedUpdate()
+    {
         faceX = Input.GetAxisRaw("Horizontal") == 0 ? faceX : Input.GetAxisRaw("Horizontal");
-        FlipX();
+        HandleFlipX();
         CheckFrontCollision();
     }
 
-    void FlipX()
+    void HandleFlipX()
     {
         if (_lockFlipX)
             return;
