@@ -50,9 +50,11 @@ public class MoveController : PlayerController, IControlLocker
         {
             _extraJump = extraJumpCount;
         }
+        SetDirectionX();
         SetMovingState();
         SetJumpState();
-        SetDirectionX();
+        SetWallSlidingState();
+        ForceForJump();
     }
 
     public override void FixedUpdate()
@@ -60,9 +62,7 @@ public class MoveController : PlayerController, IControlLocker
         base.FixedUpdate();
         CheckBehindCollision();
         CheckOnGround();
-        SetWallSlidingState();
         CalculateVelocity();
-        ForceForJump();
     }
 
     public void Lock(string name)
@@ -157,7 +157,6 @@ public class MoveController : PlayerController, IControlLocker
         {
             _rb.velocity = Vector2.up * jumpForce;
         }
-        _isJump = false;
     }
 
     void SetMovingState()
