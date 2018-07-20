@@ -7,12 +7,19 @@ public class CameraController : MonoBehaviour
 	public Transform target;
 	public float smoothSpeed = .125f;
 	public Vector3 offset;
+	public BoxCollider2D bound;
+
+	Camera theCamera;
+
+	void Start()
+	{
+		theCamera = GetComponent<Camera>();
+	}
 
 	void FixedUpdate()
 	{
 		var desiredPos = target.position + offset;
 		var smoothedPos = Vector3.Lerp(transform.position, desiredPos, smoothSpeed);
-		transform.position = smoothedPos;
-		// transform.LookAt(target);
+		transform.position = Utility.CameraInBound(theCamera, bound, smoothedPos);
 	}
 }

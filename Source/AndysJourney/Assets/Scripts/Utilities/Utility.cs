@@ -37,12 +37,14 @@ public class Utility
         animator.SetLayerWeight(animator.GetLayerIndex(layerName), 1);
     }
 
-    public static float GetAnimationLength(Animator animator, string animationName){
+    public static float GetAnimationLength(Animator animator, string animationName)
+    {
         var controller = animator.runtimeAnimatorController;
         var animations = controller.animationClips;
-        for(var i = 0; i < animations.Length; i++){
+        for (var i = 0; i < animations.Length; i++)
+        {
             var anim = animations[i];
-            if(!animationName.Equals(anim.name))
+            if (!animationName.Equals(anim.name))
                 continue;
             return anim.length;
         }
@@ -72,5 +74,16 @@ public class Utility
         owner.position = currentPos;
         if (toBeAtDestination != null)
             toBeAtDestination();
+    }
+
+    public static Vector3 CameraInBound(Camera camera, BoxCollider2D bound, Vector3 position)
+    {
+        var min = bound.bounds.min;
+		var max = bound.bounds.max;
+		var halfHeight = camera.orthographicSize;
+		var halfWidth = halfHeight * Screen.width / Screen.height;
+        var x = Mathf.Clamp(position.x, min.x + halfWidth, max.x - halfWidth);
+		var y = Mathf.Clamp(position.y, min.y + halfHeight, max.y - halfHeight);
+        return new Vector3(x, y, position.z);
     }
 }
