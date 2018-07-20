@@ -12,7 +12,7 @@ public class MoveController : PlayerController, IControlLocker
     public float groundCheckRadius;
     public LayerMask groundLayer;
     [Header("Collision check")]
-    public Transform beindCollisionCheck;
+    public Transform behindCollisionCheck;
     public float collisionCheckRadius;
     public LayerMask collisionLayer;
     [Header("Wall sliding/jumping")]
@@ -242,7 +242,7 @@ public class MoveController : PlayerController, IControlLocker
 
     void CheckBehindCollision()
     {
-        var state = Physics2D.OverlapCircle(beindCollisionCheck.position, collisionCheckRadius, collisionLayer);
+        var state = Physics2D.OverlapCircle(behindCollisionCheck.position, collisionCheckRadius, collisionLayer);
         _isBehindCollision = state == true;
     }
 }
