@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MoveController : PlayerController, IControlLocker
 {
-    public float deltaDistance = .008f;
+    public float moveSpeed = .008f;
     public float jumpForce;
     public int extraJumpCount;
     [Header("Ground check")]
@@ -111,12 +111,18 @@ public class MoveController : PlayerController, IControlLocker
 
     void CalculateVelocity()
     {
-        if (_lockMoveOnGround && _isOnGround)
+        if (_lockMoveOnGround && _isOnGround){
+            _player.HandleExtraForces();
+            _player.ResetExtraForces();
             return;
-        if (_lockMove)
+        }
+        if (_lockMove){
+            _player.HandleExtraForces();
+            _player.ResetExtraForces(); 
             return;
+        }
         var inputX = _player.GetInputHorizontal();
-        var dirX = inputX * (deltaDistance / Time.fixedDeltaTime);
+        var dirX = inputX * moveSpeed * Time.fixedDeltaTime;
         if ((_player.isFrontCollision && (inputX > 0 && _player.faceX > 0 || inputX < 0 && _player.faceX < 0)) && !_isOnGround)
         {
             // When player is wall sliding or colliding
@@ -131,6 +137,9 @@ public class MoveController : PlayerController, IControlLocker
         {
             _rb.gravityScale = _player.gravity;
             _rb.velocity = new Vector2(dirX, _rb.velocity.y);
+            // another forces.
+            _player.HandleExtraForces();
+            _player.ResetExtraForces();
         }
     }
 

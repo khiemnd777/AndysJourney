@@ -1613,7 +1613,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb12248bbf2954ecb814778346cb6c68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  deltaDistance: 0.0125
+  moveSpeed: 35
   jumpForce: 1.75
   extraJumpCount: 2
   groundCheck: {fileID: 1353145358}
@@ -1711,12 +1711,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2455128cffd324aecb2c2e823a8f3a44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gravity: 0.45
   frontCollisionCheck: {fileID: 326400354}
   collisionCheckRadius: 0.01
   collisionLayer:
     serializedVersion: 2
     m_Bits: 512
+  gravity: 0.45
 --- !u!1001 &2146065616
 Prefab:
   m_ObjectHideFlags: 0

@@ -8,11 +8,11 @@ public abstract class PlayerController : MonoBehaviour
     protected Animator _anim;
     protected SpriteRenderer _sprite;
     protected float _faceX;
-    protected Player _player;
+    protected PlayerSettings _player;
 
     public virtual void Awake()
     {
-        _player = GetComponent<Player>();
+        _player = GetComponent<PlayerSettings>();
     }
 
     public virtual void Start()

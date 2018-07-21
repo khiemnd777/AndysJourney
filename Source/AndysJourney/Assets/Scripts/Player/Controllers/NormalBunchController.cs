@@ -30,7 +30,9 @@ public class NormalBunchController : PlayerController, IControlLocker
 
     void OnDetectedHit(HitDetector detector, Collider2D other)
     {
-        StartCoroutine(DoReflectiveForce());
+        // StartCoroutine(DoReflectiveForce());
+        ControlLock.Lock("Move");
+        _player.extraForceX -= .5f * _faceX;
     }
 
     IEnumerator DoReflectiveForce()
@@ -39,11 +41,9 @@ public class NormalBunchController : PlayerController, IControlLocker
         var vel = _rb.velocity;
         vel.x -= .5f * _faceX;
         _rb.velocity = vel;
-        // _rb.velocity = vel;
         yield return new WaitForSeconds(.1f);
         ControlLock.ReleaseLock("Move");
     }
-
     IEnumerator StartPunching()
     {
         _isInCooldown = true;
@@ -70,7 +70,7 @@ public class NormalBunchController : PlayerController, IControlLocker
         yield return new WaitForSeconds(bunchLength);
         _anim.SetBool("isBunch", false);
         _isInCooldown = false;
-        ControlLock.ReleaseLock("MoveOnGround");
+        ControlLock.ReleaseLock("MoveOnGround", "Move");
     }
 
     void InstantiateEffect()

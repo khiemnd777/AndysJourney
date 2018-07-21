@@ -2,14 +2,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : MonoBehaviour, IControlLocker
+public class PlayerSettings : MonoBehaviour, IControlLocker
 {
-    public float gravity = .45f;
     public Transform frontCollisionCheck;
     public float collisionCheckRadius;
     public LayerMask collisionLayer;
+
+    public float gravity = .45f;
     [System.NonSerialized]
     public float faceX;
+    [System.NonSerialized]
+    public float extraForceX;
+    [System.NonSerialized]
+    public float extraForceY;
     [System.NonSerialized]
     public bool isFrontCollision;
 
@@ -39,7 +44,7 @@ public class Player : MonoBehaviour, IControlLocker
 
     void Update()
     {
-        
+
     }
 
     void FixedUpdate()
@@ -76,6 +81,17 @@ public class Player : MonoBehaviour, IControlLocker
     public float GetInputHorizontal()
     {
         return Input.GetAxisRaw("Horizontal");
+    }
+
+    public void HandleExtraForces()
+    {
+        _rb.velocity = _rb.velocity + new Vector2(extraForceX, extraForceY);
+    }
+
+    public void ResetExtraForces()
+    {
+        extraForceX = 0f;
+        extraForceY = 0f;
     }
 
     public void Lock(string name)
