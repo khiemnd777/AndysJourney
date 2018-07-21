@@ -70,7 +70,7 @@ public class NormalBunchController : PlayerController, IControlLocker
         yield return new WaitForSeconds(bunchLength);
         _anim.SetBool("isBunch", false);
         _isInCooldown = false;
-        ControlLock.ReleaseLock("MoveOnGround", "Move");
+        ControlLock.ReleaseLock("MoveOnGround");
     }
 
     void InstantiateEffect()
