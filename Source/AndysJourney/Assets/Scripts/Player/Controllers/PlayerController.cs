@@ -25,12 +25,12 @@ public abstract class PlayerController : MonoBehaviour
 
     public virtual void Update()
     {
-        _faceX = _player.faceX;
+        
     }
 
     public virtual void FixedUpdate()
     {
-
+        _faceX = _player.faceX;
     }
 
     public virtual void LateUpdate()

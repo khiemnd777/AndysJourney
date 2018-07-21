@@ -5,9 +5,9 @@ using UnityEngine;
 public class NormalBunchController : PlayerController, IControlLocker
 {
     [SerializeField]
-    SpriteRenderer _effectOnePrefab;
+    HitDetector _effectOnePrefab;
     [SerializeField]
-    SpriteRenderer _effectTwoPrefab;
+    HitDetector _effectTwoPrefab;
     Transform _effectPosition;
     bool _isInCooldown;
     bool _isOne = true;
@@ -28,6 +28,22 @@ public class NormalBunchController : PlayerController, IControlLocker
         }
     }
 
+    void OnDetectedHit(HitDetector detector, Collider2D other)
+    {
+        StartCoroutine(DoReflectiveForce());
+    }
+
+    IEnumerator DoReflectiveForce()
+    {
+        ControlLock.Lock("Move");
+        var vel = _rb.velocity;
+        vel.x -= .5f * _faceX;
+        _rb.velocity = vel;
+        // _rb.velocity = vel;
+        yield return new WaitForSeconds(.1f);
+        ControlLock.ReleaseLock("Move");
+    }
+
     IEnumerator StartPunching()
     {
         _isInCooldown = true;
@@ -45,19 +61,23 @@ public class NormalBunchController : PlayerController, IControlLocker
         {
             bunchName = string.Format("Normal Bunch {0} {1}", _faceX < 0 ? "Left" : "Right", _isOne ? 1 : 2);
             bunchLength = Utility.GetAnimationLength(_anim, bunchName);
-            _isOne = !_isOne;
         }
         InstantiateEffect();
+        if (!_anim.GetBool("isWallSliding"))
+        {
+            _isOne = !_isOne;
+        }
         yield return new WaitForSeconds(bunchLength);
         _anim.SetBool("isBunch", false);
         _isInCooldown = false;
-        ControlLock.ReleaseLock("MoveOnGround");
+        ControlLock.ReleaseLock("MoveOnGround", "Move");
     }
 
     void InstantiateEffect()
     {
         var prefab = _isOne || _anim.GetBool("isWallSliding") ? _effectOnePrefab : _effectTwoPrefab;
-        var fx = Instantiate<SpriteRenderer>(prefab, transform.position, Quaternion.identity, transform);
+        var fx = Instantiate<HitDetector>(prefab, transform.position, Quaternion.identity, transform);
+        fx.onDetectedHit = OnDetectedHit;
         fx.gameObject.SetActive(true);
         var dirX = _anim.GetBool("isWallSliding") ? -1 : 1;
         fx.transform.localPosition = new Vector3(.095f * dirX, .095f, 0);

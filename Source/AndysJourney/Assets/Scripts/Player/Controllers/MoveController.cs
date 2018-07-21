@@ -146,16 +146,16 @@ public class MoveController : PlayerController, IControlLocker
         _rb.gravityScale = _player.gravity;
         if (!_isOnGround && _extraJump > 0)
         {
-            _rb.velocity = Vector2.up * jumpForce;
+            _rb.velocity = new Vector2(_rb.velocity.x, jumpForce);
             _extraJump--;
         }
         else if (_extraJump <= 0 && _jumpByWall)
         {
-            _rb.velocity = Vector2.up * jumpForce;
+            _rb.velocity = new Vector2(_rb.velocity.x, jumpForce); //Vector2.up * jumpForce;
         }
         else if (_isOnGround)
         {
-            _rb.velocity = Vector2.up * jumpForce;
+            _rb.velocity = new Vector2(_rb.velocity.x, jumpForce); //Vector2.up * jumpForce;
         }
     }
 

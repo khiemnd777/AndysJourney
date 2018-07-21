@@ -86,4 +86,14 @@ public class Utility
 		var y = Mathf.Clamp(position.y, min.y + halfHeight, max.y - halfHeight);
         return new Vector3(x, y, position.z);
     }
+
+    public static bool LayerInLayerMask(int layer, LayerMask layerMask)
+    {
+        return layerMask == (layerMask | (1 << layer));
+    }
+
+    public static bool IsNull(object checkedObject)
+    {
+        return checkedObject == null || checkedObject is Object && checkedObject.Equals(null);
+    }
 }
