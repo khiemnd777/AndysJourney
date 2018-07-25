@@ -96,4 +96,14 @@ public class Utility
     {
         return checkedObject == null || checkedObject is Object && checkedObject.Equals(null);
     }
+
+    public static SpriteRenderer CreateSpriteRendererBySample(Sprite sample, Vector3 position, Vector3 scale, float opacity){
+        var spriteObj = new GameObject("Surfing Shadow", typeof(SpriteRenderer));
+        spriteObj.transform.position = position;
+        spriteObj.transform.localScale = scale;
+        var spriteObjRenderer = spriteObj.GetComponent<SpriteRenderer>();
+        spriteObjRenderer.sprite = sample;
+        spriteObjRenderer.color = new Color(255f, 255f, 255f, opacity);
+        return spriteObjRenderer;
+    }
 }

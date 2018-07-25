@@ -12,6 +12,7 @@ public class NormalBunchController : PlayerController, IControlLocker
     bool _isInCooldown;
     bool _isOne = true;
     bool _lockPunch;
+    bool _isDown;
 
     public override void Start()
     {
@@ -22,7 +23,13 @@ public class NormalBunchController : PlayerController, IControlLocker
     public override void Update()
     {
         base.Update();
-        if (Input.GetKeyDown(KeyCode.J) && !_isInCooldown && !_lockPunch)
+        if(Input.GetKeyDown(KeyCode.S)){
+            _isDown = true;
+        }
+        if(Input.GetKeyUp(KeyCode.S)){
+            _isDown = false;
+        }
+        if (!_isDown && Input.GetKeyDown(KeyCode.J) && !_isInCooldown && !_lockPunch)
         {
             StartCoroutine(StartPunching());
         }
