@@ -40,9 +40,6 @@ public class DashController : PlayerController
         _anim.SetBool("isDashing", true);
         var length = Utility.GetAnimationLength(_anim, "Dashing Right");
         _rb.velocity = Vector2.right * transform.localScale.x * dashingForce;
-        // create a shadow sample
-        var shadowSprite = Utility.CreateSpriteRendererBySample(_sprite.sprite, transform.position, transform.localScale, .25f);
-        Destroy(shadowSprite.gameObject, 0.075f);
         yield return new WaitForSeconds(length);
         _isDashing = false;
         _anim.SetBool("isDashing", false);

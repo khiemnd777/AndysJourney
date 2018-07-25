@@ -149,12 +149,14 @@ public class MoveController : PlayerController, IControlLocker
         {
             return;
         }
-        if (!_isJump)
+        if (!_player.isJump)
             return;
         // when jumping, the gravity value is not zero
         _rb.gravityScale = _player.gravity;
         if (!_isOnGround && _extraJump > 0)
         {
+            ControlLock.ReleaseLock("Move");
+            _anim.SetBool("isKickDown", false);
             _rb.velocity = new Vector2(_rb.velocity.x, jumpForce);
             _extraJump--;
         }
@@ -164,6 +166,8 @@ public class MoveController : PlayerController, IControlLocker
         }
         else if (_isOnGround)
         {
+            ControlLock.ReleaseLock("Move");
+            _anim.SetBool("isKickDown", false);
             _rb.velocity = new Vector2(_rb.velocity.x, jumpForce); //Vector2.up * jumpForce;
         }
     }
@@ -191,10 +195,10 @@ public class MoveController : PlayerController, IControlLocker
             _anim.SetBool("isJump", false);
             return;
         }
-        _isJump = Input.GetKeyDown(KeyCode.K);
+        _player.isJump = Input.GetKeyDown(KeyCode.K);
         _jumpByWall = IsWallSlidingState();
-        _anim.SetBool("isJump", (!_isOnGround && _extraJump > 0 || _isJump) && !IsWallSlidingState());
-        if (!_isOnGround && _extraJump > 0 && _isJump)
+        _anim.SetBool("isJump", (!_isOnGround && _extraJump > 0 || _player.isJump) && !IsWallSlidingState());
+        if (!_isOnGround && _extraJump > 0 && _player.isJump)
         {
             _anim.Play("Jump", -1, 0);
         }

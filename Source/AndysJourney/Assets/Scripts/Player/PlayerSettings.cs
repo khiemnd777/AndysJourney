@@ -18,6 +18,9 @@ public class PlayerSettings : MonoBehaviour, IControlLocker
     [System.NonSerialized]
     public bool isFrontCollision;
 
+    [System.NonSerialized]
+    public bool isJump;
+
     public Movement2D movement
     {
         get
