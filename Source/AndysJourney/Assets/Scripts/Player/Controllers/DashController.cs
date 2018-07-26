@@ -34,7 +34,7 @@ public class DashController : PlayerController
             yield return null;
         }
         _isInCooldown = true;
-        ControlLock.Lock("Move", "FlipX", "NormalPunch", "Jump");
+        ControlLock.Lock("Move", "FlipX", "NormalPunch", "Jump", "KickDown");
         _rb.gravityScale = .0f;
         _isDashing = true;
         _anim.SetBool("isDashing", true);
@@ -44,6 +44,6 @@ public class DashController : PlayerController
         _isDashing = false;
         _anim.SetBool("isDashing", false);
         _rb.gravityScale = _player.gravity;
-        ControlLock.ReleaseLock("Move", "FlipX", "NormalPunch", "Jump");
+        ControlLock.ReleaseLock("Move", "FlipX", "NormalPunch", "Jump", "KickDown");
     }
 }

@@ -248,7 +248,8 @@ public class MoveController : PlayerController, IControlLocker
 
     void CheckOnGround()
     {
-        var state = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
+        var state = Physics2D.OverlapBox(groundCheck.position, _col.bounds.extents, 90, groundLayer);
+        // var state = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
         SetOnGroundState(state == true);
     }
 

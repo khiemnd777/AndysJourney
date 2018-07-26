@@ -2,14 +2,30 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class KickDownController : PlayerController
+public class KickDownController : PlayerController, IControlLocker
 {
+    [SerializeField]
+    Camera _theCamera;
+    [SerializeField]
+    float _shakingDuration;
+    [SerializeField]
+    float _shakingAmount;
+
     bool _isInCooldown;
     bool _isDown;
+    bool _lock;
+
+    public override void Start()
+    {
+        base.Start();
+        ControlLock.Register(this, "KickDown");
+    }
 
     public override void Update()
     {
         base.Update();
+        if (_lock)
+            return;
         if (Input.GetKeyDown(KeyCode.S))
         {
             _isDown = true;
@@ -21,6 +37,22 @@ public class KickDownController : PlayerController
         if (_isDown && Input.GetKeyDown(KeyCode.J) && !_isInCooldown)
         {
             StartCoroutine(StartKickDown());
+        }
+    }
+
+    public void Lock(string name)
+    {
+        if (name == "KickDown")
+        {
+            _lock = true;
+        }
+    }
+
+    public void ReleaseLock(string name)
+    {
+        if (name == "KickDown")
+        {
+            _lock = false;
         }
     }
 
@@ -36,6 +68,12 @@ public class KickDownController : PlayerController
         while (!_anim.GetBool("isOnGround") && !_player.isJump)
         {
             yield return null;
+        }
+        if (_anim.GetBool("isOnGround"))
+        {
+            StartCoroutine(Utility.Shaking(_shakingDuration, _shakingAmount, _theCamera.transform
+            , () => ControlLock.Lock("Camera")
+            , () => ControlLock.ReleaseLock("Camera")));
         }
         ControlLock.ReleaseLock("Move");
         _anim.SetBool("isKickDown", false);

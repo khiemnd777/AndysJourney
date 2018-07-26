@@ -33,12 +33,14 @@ public class PlayerSettings : MonoBehaviour, IControlLocker
 
     Rigidbody2D _rb;
     Animator _anim;
+    BoxCollider2D _col;
     Movement2D _movement;
 
     void Start()
     {
         _rb = GetComponent<Rigidbody2D>();
         _anim = GetComponent<Animator>();
+        _col = GetComponent<BoxCollider2D>();
         _movement = GetComponent<Movement2D>();
         _rb.gravityScale = gravity;
         faceX = 1;
@@ -72,7 +74,8 @@ public class PlayerSettings : MonoBehaviour, IControlLocker
 
     void CheckFrontCollision()
     {
-        var state = Physics2D.OverlapCircle(frontCollisionCheck.position, collisionCheckRadius, collisionLayer);
+        // var state = Physics2D.OverlapCircle(frontCollisionCheck.position, collisionCheckRadius, collisionLayer);
+        var state = Physics2D.OverlapBox(frontCollisionCheck.position, _col.bounds.extents, 90, collisionLayer);
         isFrontCollision = state == true;
     }
 

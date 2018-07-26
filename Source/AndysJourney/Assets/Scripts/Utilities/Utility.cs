@@ -79,11 +79,11 @@ public class Utility
     public static Vector3 CameraInBound(Camera camera, BoxCollider2D bound, Vector3 position)
     {
         var min = bound.bounds.min;
-		var max = bound.bounds.max;
-		var halfHeight = camera.orthographicSize;
-		var halfWidth = halfHeight * Screen.width / Screen.height;
+        var max = bound.bounds.max;
+        var halfHeight = camera.orthographicSize;
+        var halfWidth = halfHeight * Screen.width / Screen.height;
         var x = Mathf.Clamp(position.x, min.x + halfWidth, max.x - halfWidth);
-		var y = Mathf.Clamp(position.y, min.y + halfHeight, max.y - halfHeight);
+        var y = Mathf.Clamp(position.y, min.y + halfHeight, max.y - halfHeight);
         return new Vector3(x, y, position.z);
     }
 
@@ -97,7 +97,8 @@ public class Utility
         return checkedObject == null || checkedObject is Object && checkedObject.Equals(null);
     }
 
-    public static SpriteRenderer CreateSpriteRendererBySample(Sprite sample, Vector3 position, Vector3 scale, float opacity){
+    public static SpriteRenderer CreateSpriteRendererBySample(Sprite sample, Vector3 position, Vector3 scale, float opacity)
+    {
         var spriteObj = new GameObject("Surfing Shadow", typeof(SpriteRenderer));
         spriteObj.transform.position = position;
         spriteObj.transform.localScale = scale;
@@ -105,5 +106,24 @@ public class Utility
         spriteObjRenderer.sprite = sample;
         spriteObjRenderer.color = new Color(255f, 255f, 255f, opacity);
         return spriteObjRenderer;
+    }
+
+    public static IEnumerator Shaking(float duration, float amount, Transform target, System.Action before, System.Action after)
+    {
+        if(before != null){
+            before();
+        }
+        var originalPos = target.transform.localPosition;
+        float endTime = Time.time + duration;
+        while (Time.time < endTime)
+        {
+            target.localPosition = originalPos + Random.insideUnitSphere * amount;
+            duration -= Time.deltaTime;
+            yield return null;
+        }
+        target.localPosition = originalPos;
+        if(after != null){
+            after();
+        }
     }
 }

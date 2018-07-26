@@ -302,7 +302,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 1849662092}
-  smoothSpeed: 0.2
+  smoothSpeed: 0.25
   offset: {x: 0, y: 0, z: -1}
   bound: {fileID: 1779403781}
 --- !u!1001 &66094088
@@ -1616,7 +1616,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 35
   jumpForce: 1.75
-  extraJumpCount: 2
+  extraJumpCount: 1
   groundCheck: {fileID: 1353145358}
   groundCheckRadius: 0.01
   groundLayer:
@@ -1729,6 +1729,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1a89aa34543f41b1a7e3c7375704895, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _theCamera: {fileID: 28925742}
+  _shakingDuration: 0.125
+  _shakingAmount: 0.0195
 --- !u!1001 &2146065616
 Prefab:
   m_ObjectHideFlags: 0
