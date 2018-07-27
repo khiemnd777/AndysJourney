@@ -126,4 +126,18 @@ public class Utility
             after();
         }
     }
+    
+    public static IEnumerator VectorLerp(Transform owner, Vector3 source, Vector3 destination, float seconds, System.Func<YieldInstruction> returnBy, System.Action toBeAtDestination = null)
+    {
+        var percent = .0f;
+        while (percent <= 1f)
+        {
+            percent += Time.deltaTime / seconds;
+            var currentPos = Vector3.Lerp(source, destination, percent);
+            owner.position = currentPos;
+            yield return returnBy();
+        }
+        if (toBeAtDestination != null)
+            toBeAtDestination();
+    }
 }

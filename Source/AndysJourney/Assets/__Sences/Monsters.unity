@@ -1565,6 +1565,7 @@ GameObject:
   - component: {fileID: 1849662096}
   - component: {fileID: 1849662097}
   - component: {fileID: 1849662099}
+  - component: {fileID: 1849662100}
   m_Layer: 0
   m_Name: Main
   m_TagString: Untagged
@@ -1779,6 +1780,20 @@ MonoBehaviour:
   _shakingDuration: 0.125
   _shakingAmount: 0.0195
   _effect: {fileID: 114471181763935598, guid: 60dec2d9105734f3a88d6c652b5df7a6, type: 2}
+--- !u!114 &1849662100
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1849662089}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 145cef07c8cc9432aa54c220a82da43e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _theCamera: {fileID: 28925742}
+  _translatedVal: 0.15
+  _holdIn: 0.75
 --- !u!1001 &2146065616
 Prefab:
   m_ObjectHideFlags: 0
