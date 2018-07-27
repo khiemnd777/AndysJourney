@@ -32,7 +32,7 @@ public class ControlLock
         foreach (var name in names)
         {
             if (!_list.ContainsKey(name))
-                throw new KeyNotFoundException("No found [" + name + "]");
+                return;
             _list[name].Lock(name);
         }
     }
@@ -42,7 +42,7 @@ public class ControlLock
         foreach (var name in names)
         {
             if (!_list.ContainsKey(name))
-                throw new KeyNotFoundException();
+                return;
             _list[name].ReleaseLock(name);
         }
     }

@@ -35,13 +35,6 @@ public class NormalBunchController : PlayerController, IControlLocker
         }
     }
 
-    void OnDetectedHit(HitDetector detector, Collider2D other)
-    {
-        // StartCoroutine(DoReflectiveForce());
-        ControlLock.Lock("Move");
-        _player.extraForceX -= .5f * _faceX;
-    }
-
     IEnumerator DoReflectiveForce()
     {
         ControlLock.Lock("Move");
@@ -93,6 +86,13 @@ public class NormalBunchController : PlayerController, IControlLocker
         fx.transform.localScale = scale;
         var fxAnim = fx.GetComponent<Animator>();
         Destroy(fx.gameObject, fxAnim.GetCurrentAnimatorStateInfo(0).length);
+    }
+
+    void OnDetectedHit(HitDetector detector, Collider2D other)
+    {
+        // StartCoroutine(DoReflectiveForce());
+        ControlLock.Lock("Move");
+        _player.extraForceX -= .5f * _faceX;
     }
 
     public void Lock(string name)

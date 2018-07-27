@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 9214978587e9a42b9bfc81fdd553c693
-timeCreated: 1532536621
+timeCreated: 1532704918
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -3000,6 +3000,62 @@ TextureImporter:
         x: 327
         y: 560
         width: 38
+        height: 19
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: andy-outline-pa_172
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 823
+        width: 14
+        height: 19
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: andy-outline-pa_173
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 854
+        width: 17
+        height: 19
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: andy-outline-pa_174
+      rect:
+        serializedVersion: 2
+        x: 27
+        y: 854
+        width: 17
+        height: 19
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: andy-outline-pa_175
+      rect:
+        serializedVersion: 2
+        x: 47
+        y: 854
+        width: 17
         height: 19
       alignment: 7
       pivot: {x: 0.5, y: 0}
