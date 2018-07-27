@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class KickDownController : PlayerController, IControlLocker
+public class KickDownController : PlayerController, IControlLocker, IStateHandler
 {
     [SerializeField]
     Camera _theCamera;
@@ -16,11 +16,13 @@ public class KickDownController : PlayerController, IControlLocker
     bool _isInCooldown;
     bool _isDown;
     bool _lock;
+    HitDetector _curFx;
 
     public override void Start()
     {
         base.Start();
         ControlLock.Register(this, "KickDown");
+        StateHandling.Register(this, "KickDown");
     }
 
     public override void Update()
@@ -58,6 +60,21 @@ public class KickDownController : PlayerController, IControlLocker
         }
     }
 
+    public void HandleState(string name, string state)
+    {
+        if (name == "KickDown")
+        {
+            if(state == "Off"){
+                if(_curFx != null || _curFx is Object && !_curFx.Equals(null)){
+                    ControlLock.ReleaseLock("Move");
+                    _anim.SetBool("isKickDown", false);
+                    _isInCooldown = false;
+                    Destroy(_curFx.gameObject);
+                }
+            }
+        }
+    }
+
     IEnumerator StartKickDown()
     {
         _isInCooldown = true;
@@ -69,7 +86,7 @@ public class KickDownController : PlayerController, IControlLocker
         var shadowSample = Utility.CreateSpriteRendererBySample(_sprite.sprite, transform.position, transform.localScale, .25f);
         Destroy(shadowSample.gameObject, .075f);
         // Create the effect
-        InstantiateEffect();
+        _curFx = InstantiateEffect();
         yield break;
     }
 
@@ -86,13 +103,11 @@ public class KickDownController : PlayerController, IControlLocker
     {
         if ("Ground".Equals(LayerMask.LayerToName(other.gameObject.layer)))
         {
+            _anim.SetBool("isOnGround", true);
             StartCoroutine(Utility.Shaking(_shakingDuration, _shakingAmount, _theCamera.transform
             , () => ControlLock.Lock("Camera1")
             , () => ControlLock.ReleaseLock("Camera1")));
         }
-        ControlLock.ReleaseLock("Move");
-        _anim.SetBool("isKickDown", false);
-        _isInCooldown = false;
-        Destroy(detector.gameObject);
+        HandleState("KickDown", "Off");
     }
 }

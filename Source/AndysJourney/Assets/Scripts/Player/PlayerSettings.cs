@@ -84,9 +84,19 @@ public class PlayerSettings : MonoBehaviour, IControlLocker
         return GetInputHorizontal();
     }
 
+    public float GetInputY()
+    {
+        return GetInputVertical();
+    }
+
     public float GetInputHorizontal()
     {
         return Input.GetAxisRaw("Horizontal");
+    }
+
+    public float GetInputVertical()
+    {
+        return Input.GetAxisRaw("Vertical");
     }
 
     public void HandleExtraForces()

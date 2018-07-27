@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 9214978587e9a42b9bfc81fdd553c693
-timeCreated: 1532704918
+timeCreated: 1532707523
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -3056,6 +3056,34 @@ TextureImporter:
         x: 47
         y: 854
         width: 17
+        height: 19
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: andy-outline-pa_176
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 878
+        width: 14
+        height: 19
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: andy-outline-pa_177
+      rect:
+        serializedVersion: 2
+        x: 27
+        y: 878
+        width: 14
         height: 19
       alignment: 7
       pivot: {x: 0.5, y: 0}

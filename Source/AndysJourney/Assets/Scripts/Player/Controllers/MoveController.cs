@@ -51,6 +51,7 @@ public class MoveController : PlayerController, IControlLocker
             _extraJump = extraJumpCount;
         }
         SetDirectionX();
+        SetDirectionY();
         SetMovingState();
         SetJumpState();
         SetWallSlidingState();
@@ -106,7 +107,10 @@ public class MoveController : PlayerController, IControlLocker
         if (!_isMoving)
             return;
         _anim.SetFloat("x", _player.faceX);
-        _anim.SetFloat("y", _y);
+    }
+
+    void SetDirectionY(){
+        _anim.SetFloat("y", _player.GetInputY());
     }
 
     void CalculateVelocity()
@@ -156,7 +160,7 @@ public class MoveController : PlayerController, IControlLocker
         if (!_isOnGround && _extraJump > 0)
         {
             ControlLock.ReleaseLock("Move");
-            _anim.SetBool("isKickDown", false);
+            StateHandling.Handle("KickDown", "Off");
             _rb.velocity = new Vector2(_rb.velocity.x, jumpForce);
             _extraJump--;
         }
