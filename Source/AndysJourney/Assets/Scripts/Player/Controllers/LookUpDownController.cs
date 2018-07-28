@@ -6,8 +6,10 @@ public class LookUpDownController : PlayerController
 {
     [SerializeField]
     Camera _theCamera;
-	[SerializeField]
-	float _translatedVal;
+    [SerializeField]
+    BoxCollider2D _bound;
+    [SerializeField]
+    float _translatedVal;
     [SerializeField]
     float _holdIn;
 
@@ -29,8 +31,19 @@ public class LookUpDownController : PlayerController
             {
                 if (_start + _holdIn <= Time.time)
                 {
-					ControlLock.Lock("Camera");
-                    StartCoroutine(Looking());
+                    ControlLock.Lock("Camera");
+                    var edge = Utility.CameraBoundEdge(_theCamera, _bound, _theCamera.transform.position);
+                    if (edge.y == 0)
+                    {
+						if(_player.GetInputY() == 1)
+							return;
+                    }
+                    else if (edge.y == 1)
+                    {
+                        if(_player.GetInputY() == -1)
+							return;
+                    }
+					StartCoroutine(Looking(_player.GetInputY()));
                     _handled = true;
                 }
             }
@@ -40,17 +53,16 @@ public class LookUpDownController : PlayerController
             _firstInput = false;
             _handled = false;
             _start = 0f;
-			ControlLock.ReleaseLock("Camera");
+            ControlLock.ReleaseLock("Camera");
         }
     }
 
-    IEnumerator Looking()
+    IEnumerator Looking(float y)
     {
-		Debug.Log( _theCamera.transform.position.z);
         yield return StartCoroutine(Utility.VectorLerp(_theCamera.transform
-			, _theCamera.transform.position
-			, new Vector3(_theCamera.transform.position.x, _theCamera.transform.position.y + _translatedVal * _player.GetInputY(), _theCamera.transform.position.z)
-			, .1f
-			, () => null));
+            , _theCamera.transform.position
+            , new Vector3(_theCamera.transform.position.x, _theCamera.transform.position.y + _translatedVal * y, _theCamera.transform.position.z)
+            , .1f
+            , () => new WaitForFixedUpdate()));
     }
 }

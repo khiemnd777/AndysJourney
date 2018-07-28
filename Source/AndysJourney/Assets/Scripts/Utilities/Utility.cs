@@ -87,6 +87,23 @@ public class Utility
         return new Vector3(x, y, position.z);
     }
 
+    public static Vector2 CameraBoundEdge(Camera camera, BoxCollider2D bound, Vector3 position)
+    {
+        var min = bound.bounds.min;
+        var max = bound.bounds.max;
+        var halfHeight = camera.orthographicSize;
+        var halfWidth = halfHeight * Screen.width / Screen.height;
+        var realMinX = min.x + halfWidth;
+        var realMaxX = max.x - halfWidth;
+        var realMinY = min.y + halfHeight;
+        var realMaxY = max.y - halfHeight;
+        var x = Mathf.Clamp(position.x, realMinX, realMaxX);
+        var y = Mathf.Clamp(position.y, realMinY, realMaxY);
+        var rx = Mathf.Approximately(x, realMinX) ? 0 : Mathf.Approximately(x, realMaxX) ? 1 : -1;
+        var ry = Mathf.Approximately(y, realMinY) ? 0 : Mathf.Approximately(y, realMaxY) ? 1 : -1;
+        return new Vector2(rx, ry);
+    }
+
     public static bool LayerInLayerMask(int layer, LayerMask layerMask)
     {
         return layerMask == (layerMask | (1 << layer));
@@ -110,7 +127,8 @@ public class Utility
 
     public static IEnumerator Shaking(float duration, float amount, Transform target, System.Action before, System.Action after)
     {
-        if(before != null){
+        if (before != null)
+        {
             before();
         }
         var originalPos = target.transform.localPosition;
@@ -122,11 +140,12 @@ public class Utility
             yield return null;
         }
         target.localPosition = originalPos;
-        if(after != null){
+        if (after != null)
+        {
             after();
         }
     }
-    
+
     public static IEnumerator VectorLerp(Transform owner, Vector3 source, Vector3 destination, float seconds, System.Func<YieldInstruction> returnBy, System.Action toBeAtDestination = null)
     {
         var percent = .0f;

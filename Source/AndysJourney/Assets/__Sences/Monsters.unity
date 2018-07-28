@@ -1792,6 +1792,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _theCamera: {fileID: 28925742}
+  _bound: {fileID: 1779403781}
   _translatedVal: 0.15
   _holdIn: 0.75
 --- !u!1001 &2146065616
