@@ -33,15 +33,13 @@ public class LookUpDownController : PlayerController
                 {
                     ControlLock.Lock("Camera");
                     var edge = Utility.CameraBoundEdge(_theCamera, _bound, _theCamera.transform.position);
-                    if (edge.y == 0)
+                    if (edge.y == 0 && _player.GetInputY() == 1)
                     {
-						if(_player.GetInputY() == 1)
-							return;
+						return;
                     }
-                    else if (edge.y == 1)
+                    else if (edge.y == 1 && _player.GetInputY() == -1)
                     {
-                        if(_player.GetInputY() == -1)
-							return;
+						return;
                     }
 					StartCoroutine(Looking(_player.GetInputY()));
                     _handled = true;

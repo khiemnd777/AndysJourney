@@ -14,7 +14,7 @@ public class KickDownController : PlayerController, IControlLocker, IStateHandle
     HitDetector _effect;
 
     bool _isInCooldown;
-    bool _isDown;
+    bool _isPressedDown;
     bool _lock;
     HitDetector _curFx;
 
@@ -30,15 +30,17 @@ public class KickDownController : PlayerController, IControlLocker, IStateHandle
         base.Update();
         if (_lock)
             return;
-        if (Input.GetKeyDown(KeyCode.S))
+        if(_anim.GetBool("isOnGround"))
+            return;
+        if (_player.GetInputVertical() < 0)
         {
-            _isDown = true;
+            _isPressedDown = true;
         }
-        if (Input.GetKeyUp(KeyCode.S))
+        if (_player.GetInputVertical() == 0)
         {
-            _isDown = false;
+            _isPressedDown = false;
         }
-        if (_isDown && Input.GetKeyDown(KeyCode.J) && !_isInCooldown)
+        if (_isPressedDown && Input.GetKeyDown(KeyCode.J) && !_isInCooldown)
         {
             StartCoroutine(StartKickDown());
         }

@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 9214978587e9a42b9bfc81fdd553c693
-timeCreated: 1532714975
+timeCreated: 1532767809
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -205,6 +205,14 @@ TextureImporter:
     21300396: andy-outline-pa_177
     21300398: andy-outline-pa_178
     21300400: andy-outline-pa_179
+    21300402: andy-outline-pa_180
+    21300404: andy-outline-pa_181
+    21300406: andy-outline-pa_182
+    21300408: andy-outline-pa_183
+    21300410: andy-outline-pa_184
+    21300412: andy-outline-pa_185
+    21300414: andy-outline-pa_186
+    21300416: andy-outline-pa_187
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
@@ -3085,6 +3093,118 @@ TextureImporter:
         y: 878
         width: 14
         height: 19
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: andy-outline-pa_180
+      rect:
+        serializedVersion: 2
+        x: 27
+        y: 903
+        width: 14
+        height: 18
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: andy-outline-pa_181
+      rect:
+        serializedVersion: 2
+        x: 46
+        y: 903
+        width: 14
+        height: 18
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: andy-outline-pa_182
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 903
+        width: 14
+        height: 18
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: andy-outline-pa_183
+      rect:
+        serializedVersion: 2
+        x: 84
+        y: 903
+        width: 14
+        height: 19
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: andy-outline-pa_184
+      rect:
+        serializedVersion: 2
+        x: 103
+        y: 903
+        width: 14
+        height: 19
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: andy-outline-pa_185
+      rect:
+        serializedVersion: 2
+        x: 122
+        y: 903
+        width: 14
+        height: 19
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: andy-outline-pa_186
+      rect:
+        serializedVersion: 2
+        x: 141
+        y: 902
+        width: 14
+        height: 21
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: andy-outline-pa_187
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 902
+        width: 14
+        height: 22
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
