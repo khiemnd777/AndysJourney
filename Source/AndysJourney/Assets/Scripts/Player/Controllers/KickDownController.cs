@@ -71,6 +71,7 @@ public class KickDownController : PlayerController, IControlLocker, IStateHandle
                     ControlLock.ReleaseLock("Move");
                     _anim.SetBool("isKickDown", false);
                     _isInCooldown = false;
+                    _rb.velocity = Vector2.zero;
                     Destroy(_curFx.gameObject);
                 }
             }

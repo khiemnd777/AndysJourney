@@ -21,6 +21,7 @@ public class DashController : PlayerController
         {
             if (Input.GetKeyDown(KeyCode.L))
             {
+                StateHandling.Handle("KickDown", "Off");
                 StartCoroutine(StartDashing());
             }
         }
