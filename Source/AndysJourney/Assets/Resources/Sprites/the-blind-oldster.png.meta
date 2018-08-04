@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: cba4b8644212a4f1e8700396de2a9a24
-timeCreated: 1533311138
+timeCreated: 1533379092
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -43,6 +43,22 @@ TextureImporter:
     21300072: the-blind-oldster_36
     21300074: the-blind-oldster_37
     21300076: the-blind-oldster_38
+    21300078: the-blind-oldster_39
+    21300080: the-blind-oldster_40
+    21300082: the-blind-oldster_41
+    21300084: the-blind-oldster_42
+    21300086: the-blind-oldster_43
+    21300088: the-blind-oldster_44
+    21300090: the-blind-oldster_45
+    21300092: the-blind-oldster_46
+    21300094: the-blind-oldster_47
+    21300096: the-blind-oldster_48
+    21300098: the-blind-oldster_49
+    21300100: the-blind-oldster_50
+    21300102: the-blind-oldster_51
+    21300104: the-blind-oldster_52
+    21300106: the-blind-oldster_53
+    21300108: the-blind-oldster_54
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
@@ -685,6 +701,230 @@ TextureImporter:
         height: 18
       alignment: 9
       pivot: {x: 0.32029298, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: the-blind-oldster_39
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 158
+        width: 19
+        height: 20
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: the-blind-oldster_40
+      rect:
+        serializedVersion: 2
+        x: 43
+        y: 157
+        width: 24
+        height: 20
+      alignment: 9
+      pivot: {x: 0.5401748, y: 0.060536195}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: the-blind-oldster_41
+      rect:
+        serializedVersion: 2
+        x: 75
+        y: 157
+        width: 23
+        height: 20
+      alignment: 9
+      pivot: {x: 0.40273452, y: 0.07403412}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: the-blind-oldster_42
+      rect:
+        serializedVersion: 2
+        x: 106
+        y: 157
+        width: 27
+        height: 20
+      alignment: 9
+      pivot: {x: 0.35982993, y: 0.072956085}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: the-blind-oldster_43
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 157
+        width: 25
+        height: 20
+      alignment: 9
+      pivot: {x: 0.27983886, y: 0.0666008}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: the-blind-oldster_44
+      rect:
+        serializedVersion: 2
+        x: 177
+        y: 155
+        width: 29
+        height: 23
+      alignment: 9
+      pivot: {x: 0.38057315, y: 0.14476213}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: the-blind-oldster_45
+      rect:
+        serializedVersion: 2
+        x: 216
+        y: 153
+        width: 30
+        height: 31
+      alignment: 9
+      pivot: {x: 0.380573, y: 0.18429811}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: the-blind-oldster_46
+      rect:
+        serializedVersion: 2
+        x: 254
+        y: 153
+        width: 30
+        height: 41
+      alignment: 9
+      pivot: {x: 0.24, y: 0.15596864}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: the-blind-oldster_47
+      rect:
+        serializedVersion: 2
+        x: 293
+        y: 153
+        width: 32
+        height: 50
+      alignment: 9
+      pivot: {x: 0.24, y: 0.13271302}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: the-blind-oldster_48
+      rect:
+        serializedVersion: 2
+        x: 332
+        y: 153
+        width: 32
+        height: 66
+      alignment: 9
+      pivot: {x: 0.24, y: 0.102542296}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: the-blind-oldster_49
+      rect:
+        serializedVersion: 2
+        x: 374
+        y: 153
+        width: 32
+        height: 66
+      alignment: 9
+      pivot: {x: 0.24, y: 0.102542296}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: the-blind-oldster_50
+      rect:
+        serializedVersion: 2
+        x: 417
+        y: 153
+        width: 32
+        height: 66
+      alignment: 9
+      pivot: {x: 0.24, y: 0.102542296}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: the-blind-oldster_51
+      rect:
+        serializedVersion: 2
+        x: 461
+        y: 153
+        width: 32
+        height: 66
+      alignment: 9
+      pivot: {x: 0.24, y: 0.102542296}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: the-blind-oldster_52
+      rect:
+        serializedVersion: 2
+        x: 503
+        y: 153
+        width: 32
+        height: 66
+      alignment: 9
+      pivot: {x: 0.24, y: 0.102542296}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: the-blind-oldster_53
+      rect:
+        serializedVersion: 2
+        x: 543
+        y: 154
+        width: 32
+        height: 66
+      alignment: 9
+      pivot: {x: 0.24, y: 0.102542296}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: the-blind-oldster_54
+      rect:
+        serializedVersion: 2
+        x: 583
+        y: 154
+        width: 32
+        height: 66
+      alignment: 9
+      pivot: {x: 0.24, y: 0.102542296}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
