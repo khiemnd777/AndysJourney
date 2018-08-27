@@ -14,7 +14,32 @@ AnimationClip:
   m_CompressedRotationCurves: []
   m_EulerCurves: []
   m_PositionCurves: []
-  m_ScaleCurves: []
+  m_ScaleCurves:
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: {x: 1, y: 1, z: 1}
+        inSlope: {x: 0, y: 0, z: 0}
+        outSlope: {x: 0, y: 0, z: 0}
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 0.047058824
+        value: {x: 1.37, y: 1, z: 1}
+        inSlope: {x: 0, y: 0, z: 0}
+        outSlope: {x: 0, y: 0, z: 0}
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 0.9006536
+        value: {x: 1, y: 1, z: 1}
+        inSlope: {x: 0, y: 0, z: 0}
+        outSlope: {x: 0, y: 0, z: 0}
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    path: Damping Down Effect
   m_FloatCurves: []
   m_PPtrCurves:
   - curve:
@@ -48,6 +73,25 @@ AnimationClip:
     path: 
     classID: 212
     script: {fileID: 0}
+  - curve:
+    - time: 0
+      value: {fileID: 0}
+    - time: 0.047058824
+      value: {fileID: 21300350, guid: cba4b8644212a4f1e8700396de2a9a24, type: 3}
+    - time: 0.08235294
+      value: {fileID: 21300352, guid: cba4b8644212a4f1e8700396de2a9a24, type: 3}
+    - time: 0.12941177
+      value: {fileID: 21300354, guid: cba4b8644212a4f1e8700396de2a9a24, type: 3}
+    - time: 0.1764706
+      value: {fileID: 21300356, guid: cba4b8644212a4f1e8700396de2a9a24, type: 3}
+    - time: 0.22352941
+      value: {fileID: 21300358, guid: cba4b8644212a4f1e8700396de2a9a24, type: 3}
+    - time: 0.28235295
+      value: {fileID: 0}
+    attribute: m_Sprite
+    path: Damping Down Effect
+    classID: 212
+    script: {fileID: 0}
   m_SampleRate: 85
   m_WrapMode: 0
   m_Bounds:
@@ -56,7 +100,21 @@ AnimationClip:
   m_ClipBindingConstant:
     genericBindings:
     - serializedVersion: 2
+      path: 135969588
+      attribute: 3
+      script: {fileID: 0}
+      typeID: 4
+      customType: 0
+      isPPtrCurve: 0
+    - serializedVersion: 2
       path: 0
+      attribute: 0
+      script: {fileID: 0}
+      typeID: 212
+      customType: 23
+      isPPtrCurve: 1
+    - serializedVersion: 2
+      path: 135969588
       attribute: 0
       script: {fileID: 0}
       typeID: 212
@@ -76,12 +134,19 @@ AnimationClip:
     - {fileID: 21300142, guid: cba4b8644212a4f1e8700396de2a9a24, type: 3}
     - {fileID: 21300144, guid: cba4b8644212a4f1e8700396de2a9a24, type: 3}
     - {fileID: 21300144, guid: cba4b8644212a4f1e8700396de2a9a24, type: 3}
+    - {fileID: 0}
+    - {fileID: 21300350, guid: cba4b8644212a4f1e8700396de2a9a24, type: 3}
+    - {fileID: 21300352, guid: cba4b8644212a4f1e8700396de2a9a24, type: 3}
+    - {fileID: 21300354, guid: cba4b8644212a4f1e8700396de2a9a24, type: 3}
+    - {fileID: 21300356, guid: cba4b8644212a4f1e8700396de2a9a24, type: 3}
+    - {fileID: 21300358, guid: cba4b8644212a4f1e8700396de2a9a24, type: 3}
+    - {fileID: 0}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.4117647
+    m_StopTime: 0.9006536
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -96,7 +161,91 @@ AnimationClip:
     m_KeepOriginalPositionXZ: 0
     m_HeightFromFeet: 0
     m_Mirror: 0
-  m_EditorCurves: []
+  m_EditorCurves:
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+      - serializedVersion: 2
+        time: 0.047058824
+        value: 1.37
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+      - serializedVersion: 2
+        time: 0.9006536
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalScale.x
+    path: Damping Down Effect
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+      - serializedVersion: 2
+        time: 0.047058824
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+      - serializedVersion: 2
+        time: 0.9006536
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalScale.y
+    path: Damping Down Effect
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+      - serializedVersion: 2
+        time: 0.047058824
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+      - serializedVersion: 2
+        time: 0.9006536
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalScale.z
+    path: Damping Down Effect
+    classID: 4
+    script: {fileID: 0}
   m_EulerEditorCurves: []
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
