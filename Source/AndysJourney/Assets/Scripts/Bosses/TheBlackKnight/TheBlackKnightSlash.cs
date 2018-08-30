@@ -7,6 +7,10 @@ public class TheBlackKnightSlash : MonoBehaviour
     [SerializeField]
     Animator _dustFxPrefab;
 	[SerializeField]
+	Animator _smashThunderFxPrefab;
+	[SerializeField]
+	Transform _smashThunderFxPoint;
+	[SerializeField]
 	AnimationClip[] _sequence;
 	[SerializeField]
 	float[] _velocities;
@@ -36,6 +40,11 @@ public class TheBlackKnightSlash : MonoBehaviour
 	IEnumerator Dash(){
 		_rigid.velocity = Vector2.right * Time.deltaTime * 25f;
 		yield return new WaitForFixedUpdate();
+	}
+
+	void InstantiateTheSmashThunderFx(){
+		var ins = Instantiate<Animator>(_smashThunderFxPrefab, _smashThunderFxPoint.position, Quaternion.identity);
+		Destroy(ins.gameObject, ins.GetCurrentAnimatorStateInfo(0).length);
 	}
 
 	void InstantiateTheDust(int index){

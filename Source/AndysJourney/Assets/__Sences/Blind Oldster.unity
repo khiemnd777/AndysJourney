@@ -355,6 +355,34 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
+--- !u!1 &689282907
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 689282908}
+  m_Layer: 0
+  m_Name: Smash Thunder Effect Point
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &689282908
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 689282907}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.59, y: 0.024, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2079496812}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &749155679
 GameObject:
   m_ObjectHideFlags: 0
@@ -939,6 +967,67 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.171383, y: 0.11156821}
   m_EdgeRadius: 0
+--- !u!1001 &1489512678
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4842296663875216, guid: 3540906c368374af996887d791a74e44, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0.984
+      objectReference: {fileID: 0}
+    - target: {fileID: 4842296663875216, guid: 3540906c368374af996887d791a74e44, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -0.378
+      objectReference: {fileID: 0}
+    - target: {fileID: 4842296663875216, guid: 3540906c368374af996887d791a74e44, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0.17420289
+      objectReference: {fileID: 0}
+    - target: {fileID: 4842296663875216, guid: 3540906c368374af996887d791a74e44, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4842296663875216, guid: 3540906c368374af996887d791a74e44, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4842296663875216, guid: 3540906c368374af996887d791a74e44, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4842296663875216, guid: 3540906c368374af996887d791a74e44, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4842296663875216, guid: 3540906c368374af996887d791a74e44, type: 2}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1283624872947430, guid: 3540906c368374af996887d791a74e44, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 212973444538929682, guid: 3540906c368374af996887d791a74e44,
+        type: 2}
+      propertyPath: m_Size.x
+      value: 2.02
+      objectReference: {fileID: 0}
+    - target: {fileID: 212973444538929682, guid: 3540906c368374af996887d791a74e44,
+        type: 2}
+      propertyPath: m_Size.y
+      value: 0.59
+      objectReference: {fileID: 0}
+    - target: {fileID: 212973444538929682, guid: 3540906c368374af996887d791a74e44,
+        type: 2}
+      propertyPath: m_WasSpriteAssigned
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 3540906c368374af996887d791a74e44, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &1617367540
 GameObject:
   m_ObjectHideFlags: 0
@@ -1552,6 +1641,7 @@ Transform:
   - {fileID: 1769668222}
   - {fileID: 1620217994}
   - {fileID: 1818161860}
+  - {fileID: 689282908}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1568,6 +1658,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _dustFxPrefab: {fileID: 95737024899627368, guid: b16f92286e45b4dc6b8f6dfdfaabb16c,
     type: 2}
+  _smashThunderFxPrefab: {fileID: 95735108462553452, guid: 3540906c368374af996887d791a74e44,
+    type: 2}
+  _smashThunderFxPoint: {fileID: 689282908}
   _sequence:
   - {fileID: 7400000, guid: b1c1484af0dbf490dbbc02e5c20967b2, type: 2}
   - {fileID: 7400000, guid: 5f718450114c041c1a4be870c362e475, type: 2}
