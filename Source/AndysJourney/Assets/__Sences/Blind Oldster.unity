@@ -112,6 +112,67 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1001 &283274043
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4623899861510774, guid: d58a5c5853bde4360b82404da791fb5d, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0.097
+      objectReference: {fileID: 0}
+    - target: {fileID: 4623899861510774, guid: d58a5c5853bde4360b82404da791fb5d, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -0.602
+      objectReference: {fileID: 0}
+    - target: {fileID: 4623899861510774, guid: d58a5c5853bde4360b82404da791fb5d, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0.18863748
+      objectReference: {fileID: 0}
+    - target: {fileID: 4623899861510774, guid: d58a5c5853bde4360b82404da791fb5d, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4623899861510774, guid: d58a5c5853bde4360b82404da791fb5d, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4623899861510774, guid: d58a5c5853bde4360b82404da791fb5d, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4623899861510774, guid: d58a5c5853bde4360b82404da791fb5d, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4623899861510774, guid: d58a5c5853bde4360b82404da791fb5d, type: 2}
+      propertyPath: m_RootOrder
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 212432797797556830, guid: d58a5c5853bde4360b82404da791fb5d,
+        type: 2}
+      propertyPath: m_WasSpriteAssigned
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 212432797797556830, guid: d58a5c5853bde4360b82404da791fb5d,
+        type: 2}
+      propertyPath: m_Size.x
+      value: 0.72
+      objectReference: {fileID: 0}
+    - target: {fileID: 212432797797556830, guid: d58a5c5853bde4360b82404da791fb5d,
+        type: 2}
+      propertyPath: m_Size.y
+      value: 0.42
+      objectReference: {fileID: 0}
+    - target: {fileID: 1695455690484482, guid: d58a5c5853bde4360b82404da791fb5d, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: d58a5c5853bde4360b82404da791fb5d, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &346704760
 GameObject:
   m_ObjectHideFlags: 0
@@ -1008,17 +1069,17 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1283624872947430, guid: 3540906c368374af996887d791a74e44, type: 2}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 212973444538929682, guid: 3540906c368374af996887d791a74e44,
         type: 2}
       propertyPath: m_Size.x
-      value: 2.02
+      value: 1.3
       objectReference: {fileID: 0}
     - target: {fileID: 212973444538929682, guid: 3540906c368374af996887d791a74e44,
         type: 2}
       propertyPath: m_Size.y
-      value: 0.59
+      value: 1.32
       objectReference: {fileID: 0}
     - target: {fileID: 212973444538929682, guid: 3540906c368374af996887d791a74e44,
         type: 2}
@@ -1615,7 +1676,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.17, y: 0.21}
+  m_Size: {x: 0.29, y: 0.21}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -1660,15 +1721,19 @@ MonoBehaviour:
     type: 2}
   _smashThunderFxPrefab: {fileID: 95735108462553452, guid: 3540906c368374af996887d791a74e44,
     type: 2}
+  _dashingSmashingFireFxPrefab: {fileID: 95110964327406168, guid: d58a5c5853bde4360b82404da791fb5d,
+    type: 2}
   _smashThunderFxPoint: {fileID: 689282908}
   _sequence:
   - {fileID: 7400000, guid: b1c1484af0dbf490dbbc02e5c20967b2, type: 2}
   - {fileID: 7400000, guid: 5f718450114c041c1a4be870c362e475, type: 2}
   - {fileID: 7400000, guid: 12765987f037246c3a9728b91998f667, type: 2}
+  - {fileID: 7400000, guid: 0fb95e37766c94077a114163bb232322, type: 2}
   _velocities:
   - 25
   - 55
   - 245
+  - 0
 --- !u!50 &2079496814
 Rigidbody2D:
   serializedVersion: 4
@@ -1706,7 +1771,7 @@ BoxCollider2D:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0}
     oldSize: {x: 0.17, y: 0.21}
-    newSize: {x: 0.17, y: 0.21}
+    newSize: {x: 0.29, y: 0.21}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
