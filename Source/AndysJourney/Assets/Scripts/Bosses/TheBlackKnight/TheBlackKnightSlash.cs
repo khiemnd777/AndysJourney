@@ -18,6 +18,8 @@ public class TheBlackKnightSlash : MonoBehaviour
     float[] _velocities;
     [SerializeField]
     Transform _target;
+    [SerializeField]
+    Camera _theCamera;
 
     Vector2 _lastPos;
     Animator _anim;
@@ -64,7 +66,9 @@ public class TheBlackKnightSlash : MonoBehaviour
                 _anim.Play(sq.name);
                 // Calculate velocity by direction
                 var vel = Vector2.right * Time.fixedDeltaTime * _velocities[inx];
-                vel.x *= directionOfTarget.x;
+                if(directionOfTarget.x != 0){
+                    vel.x *= directionOfTarget.x;
+                }
                 _rigid.velocity = vel;
                 // Wait for the next sequence.
                 yield return new WaitForSeconds(sq.length + .0625f);
@@ -100,10 +104,20 @@ public class TheBlackKnightSlash : MonoBehaviour
         }
     }
 
+    // Invoke from Animation Event
     void InstantiateTheSmashThunderFx()
     {
         var ins = Instantiate<Animator>(_smashThunderFxPrefab, _smashThunderFxPoint.position, Quaternion.identity);
+        // Flip X by own transform.
+        var scale = ins.transform.localScale;
+        scale.x = transform.localScale.x;
+        ins.transform.localScale = scale;
         Destroy(ins.gameObject, ins.GetCurrentAnimatorStateInfo(0).length);
+    }
+
+    // Invoke from Animation Event
+    void EarthQuake(){
+        StartCoroutine(Utility.Shaking(.175f, .02f, _theCamera.transform, null, null));
     }
 
     void InstantiateTheDust(int index)

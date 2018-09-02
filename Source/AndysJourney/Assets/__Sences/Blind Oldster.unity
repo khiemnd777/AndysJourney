@@ -1819,6 +1819,7 @@ MonoBehaviour:
   - 245
   - 0
   _target: {fileID: 977816910}
+  _theCamera: {fileID: 801326282}
 --- !u!50 &2079496814
 Rigidbody2D:
   serializedVersion: 4

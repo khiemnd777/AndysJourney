@@ -107,6 +107,7 @@ public class KickDownController : PlayerController, IControlLocker, IStateHandle
         if ("Ground".Equals(LayerMask.LayerToName(other.gameObject.layer)))
         {
             _anim.SetBool("isOnGround", true);
+            // Shake the screen when character kicks on ground.
             StartCoroutine(Utility.Shaking(_shakingDuration, _shakingAmount, _theCamera.transform
             , () => ControlLock.Lock("Camera1")
             , () => ControlLock.ReleaseLock("Camera1")));
