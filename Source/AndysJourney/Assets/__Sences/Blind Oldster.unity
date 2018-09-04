@@ -851,6 +851,7 @@ GameObject:
   - component: {fileID: 977816911}
   - component: {fileID: 977816913}
   - component: {fileID: 977816912}
+  - component: {fileID: 977816914}
   m_Layer: 0
   m_Name: Target Test
   m_TagString: Untagged
@@ -924,6 +925,31 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 977816909}
   m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!61 &977816914
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 977816909}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
 --- !u!1001 &1360335042
 Prefab:
   m_ObjectHideFlags: 0
@@ -1808,6 +1834,7 @@ MonoBehaviour:
   _dashingSmashingFireFxPrefab: {fileID: 95110964327406168, guid: d58a5c5853bde4360b82404da791fb5d,
     type: 2}
   _smashThunderFxPoint: {fileID: 689282908}
+  _dashing: {fileID: 7400000, guid: 201fe1fc0320849f28ea87102a8b8137, type: 2}
   _sequence:
   - {fileID: 7400000, guid: b1c1484af0dbf490dbbc02e5c20967b2, type: 2}
   - {fileID: 7400000, guid: 5f718450114c041c1a4be870c362e475, type: 2}

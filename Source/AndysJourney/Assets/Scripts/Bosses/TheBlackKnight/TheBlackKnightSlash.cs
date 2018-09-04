@@ -13,6 +13,8 @@ public class TheBlackKnightSlash : MonoBehaviour
     [SerializeField]
     Transform _smashThunderFxPoint;
     [SerializeField]
+    AnimationClip _dashing;
+    [SerializeField]
     AnimationClip[] _sequence;
     [SerializeField]
     float[] _velocities;
@@ -38,6 +40,7 @@ public class TheBlackKnightSlash : MonoBehaviour
         var inx = 0;
         while (true)
         {
+            yield return StartCoroutine(Dash());
             inx = 0;
             foreach (var sq in _sequence)
             {
@@ -52,7 +55,7 @@ public class TheBlackKnightSlash : MonoBehaviour
                 // Instantiate the dust.
                 if (inx != _sequence.Length - 1)
                 {
-                    InstantiateTheDust(inx);
+                    InstantiateTheDust(inx == _sequence.Length - 2 ? 1.45f : 1);
                 }
                 else
                 {
@@ -65,10 +68,7 @@ public class TheBlackKnightSlash : MonoBehaviour
                 }
                 _anim.Play(sq.name);
                 // Calculate velocity by direction
-                var vel = Vector2.right * Time.fixedDeltaTime * _velocities[inx];
-                if(directionOfTarget.x != 0){
-                    vel.x *= directionOfTarget.x;
-                }
+                var vel = Vector2.right * Time.fixedDeltaTime * _velocities[inx] * scale.x;
                 _rigid.velocity = vel;
                 // Wait for the next sequence.
                 yield return new WaitForSeconds(sq.length + .0625f);
@@ -84,8 +84,30 @@ public class TheBlackKnightSlash : MonoBehaviour
 
     IEnumerator Dash()
     {
-        _rigid.velocity = Vector2.right * Time.deltaTime * 25f;
-        yield return new WaitForFixedUpdate();
+        var dis = Vector2.Distance(transform.position, _target.position);
+        if(dis <= .5f * 2){
+            yield break;
+        }
+        InstantiateTheDust(1.45f);
+        _anim.Play(_dashing.name);
+        var pc = 0f;
+        var directionOfTarget = DetectTargetDirection();
+        // Flip X by direction
+        var scale = transform.localScale;
+        if (scale.x < 0 && directionOfTarget.x > 0 || scale.x > 0 && directionOfTarget.x < 0)
+        {
+            scale.x = directionOfTarget.x < 0 ? -1 : 1;
+            transform.localScale = scale;
+        }
+        var targetPosX = _target.position.x - .5f * scale.x;
+        var targetPos = new Vector2(targetPosX, _target.position.y);
+        var currentPos = _rigid.position;
+        while(pc <= 1f){
+            pc += Time.fixedDeltaTime / .25f;
+            var newX = Mathf.Lerp(currentPos.x, targetPosX, pc);
+            _rigid.position = new Vector2(newX, _rigid.position.y);
+            yield return null;
+        }
     }
 
     IEnumerator InstantiateDashingSmashingFire()
@@ -111,7 +133,7 @@ public class TheBlackKnightSlash : MonoBehaviour
         // Flip X by own transform.
         var scale = ins.transform.localScale;
         scale.x = transform.localScale.x;
-        ins.transform.localScale = scale;
+        ins.transform.localScale = scale * .65f;
         Destroy(ins.gameObject, ins.GetCurrentAnimatorStateInfo(0).length);
     }
 
@@ -120,17 +142,14 @@ public class TheBlackKnightSlash : MonoBehaviour
         StartCoroutine(Utility.Shaking(.175f, .02f, _theCamera.transform, null, null));
     }
 
-    void InstantiateTheDust(int index)
+    void InstantiateTheDust(float size = 1f)
     {
         var ins = Instantiate<Animator>(_dustFxPrefab, transform.position, Quaternion.identity);
+        var dir = DetectTargetDirection();
         // Flip X by own transform.
         var scale = ins.transform.localScale;
-        scale.x = transform.localScale.x;
-        ins.transform.localScale = scale;
-        if (index == _sequence.Length - 2)
-        {
-            ins.transform.localScale = scale * 1.45f;
-        }
+        scale.x = dir.x < 0 ? -1 : dir.x == 0 ? transform.localScale.x : 1;
+        ins.transform.localScale = scale * size;
         Destroy(ins.gameObject, ins.GetCurrentAnimatorStateInfo(0).length);
     }
 
