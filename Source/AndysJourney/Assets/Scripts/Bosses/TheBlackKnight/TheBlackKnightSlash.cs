@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TheBlackKnightSlash : MonoBehaviour
+public class TheBlackKnightSlash : Skill
 {
     [SerializeField]
     Animator _dustFxPrefab;
@@ -27,18 +27,19 @@ public class TheBlackKnightSlash : MonoBehaviour
     Animator _anim;
     Rigidbody2D _rigid;
 
-    void Start()
+    void Awake()
     {
         _anim = GetComponent<Animator>();
         _rigid = GetComponent<Rigidbody2D>();
 
-        StartCoroutine(Play());
+        // StartCoroutine(Play());
     }
 
-    public IEnumerator Play()
+    public override IEnumerator Play()
     {
         var inx = 0;
-        while (true)
+        var actTimes = Random.Range(1, 2);
+        while (actTimes-- > 0)
         {
             yield return StartCoroutine(Dash());
             inx = 0;
@@ -120,7 +121,7 @@ public class TheBlackKnightSlash : MonoBehaviour
             // Flip X by own transform.
             var scale = ins.transform.localScale;
             scale.x = transform.localScale.x;
-            ins.transform.localScale = scale;
+            ins.transform.localScale = scale * .7f;
             Destroy(ins.gameObject, ins.GetCurrentAnimatorStateInfo(0).length);
             yield return new WaitForSeconds(fxLength / 5f);
         }
