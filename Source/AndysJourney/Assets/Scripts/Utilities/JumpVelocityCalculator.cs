@@ -4,12 +4,12 @@ public class JumpVelocityCalculator
 {
     public JumpVelocityData Calculate(Transform own, Transform target, float gravity, float height, bool updateHeight)
     {
-        var displacementY = target.position.y - own.position.y;
-        var displacementXZ = new Vector3(target.position.x - own.position.x, 0, target.position.z - own.position.z);
-        var updatedHeight = displacementY - height > 0 ? displacementY + height : height;
-        var time = Mathf.Sqrt(-2 * updatedHeight / gravity) + Mathf.Sqrt(2 * (displacementY - updatedHeight) / gravity);
+        var offsetY = target.position.y - own.position.y;
+        var offsetXZ = new Vector3(target.position.x - own.position.x, 0, target.position.z - own.position.z);
+        var updatedHeight = offsetY - height > 0 ? offsetY + height : height;
+        var time = Mathf.Sqrt(-2 * updatedHeight / gravity) + Mathf.Sqrt(2 * (offsetY - updatedHeight) / gravity);
         var velocityY = Vector3.up * Mathf.Sqrt(-2 * gravity * updatedHeight);
-        var velocityXZ = displacementXZ / time;
+        var velocityXZ = offsetXZ / time;
 
         return new JumpVelocityData(velocityXZ + velocityY * -Mathf.Sign(gravity), time);
     }
