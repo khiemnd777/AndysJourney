@@ -7,6 +7,7 @@ public class TheBlackKnightSkillControl : MonoBehaviour
 
     TheBlackKnightSlash _slash;
     TheSlashingKi _slashingKi;
+    TheJumpAndDampingFire _jumpAndDampingFire;
     Skill[] _skills;
 
     // Use this for initialization
@@ -14,7 +15,9 @@ public class TheBlackKnightSkillControl : MonoBehaviour
     {
         _slash = GetComponent<TheBlackKnightSlash>();
         _slashingKi = GetComponent<TheSlashingKi>();
-        _skills = new Skill[] { _slash, _slashingKi };
+        _jumpAndDampingFire = GetComponent<TheJumpAndDampingFire>();
+        // _skills = new Skill[] { _slash, _slashingKi, _jumpAndDampingFire };
+        _skills = new Skill[] { _jumpAndDampingFire };
 		StartCoroutine(Play());
     }
 
@@ -24,10 +27,4 @@ public class TheBlackKnightSkillControl : MonoBehaviour
 			yield return StartCoroutine(_skills[rand].Play());
 		}
 	}
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
 }

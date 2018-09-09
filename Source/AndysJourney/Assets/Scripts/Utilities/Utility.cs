@@ -76,6 +76,17 @@ public class Utility
             toBeAtDestination();
     }
 
+    public static Vector2 CalculateJumpVelocity2(Vector2 own, Vector2 target, float height, float gravity)
+    {
+        var offsetY = target.y - own.y;
+        var offsetX = target.x - own.x;
+        var time = Mathf.Sqrt(-2 * height / gravity) + Mathf.Sqrt(2 * (offsetY - height) / gravity);
+        var velY = Vector2.up * Mathf.Sqrt(-2 * gravity * height);
+        var velX = new Vector2(offsetX, 0) / time;
+        var vel = velX + velY * -Mathf.Sign(gravity);
+        return vel;
+    }
+
     public static Vector3 CameraInBound(Camera camera, BoxCollider2D bound, Vector3 position)
     {
         var min = bound.bounds.min;
