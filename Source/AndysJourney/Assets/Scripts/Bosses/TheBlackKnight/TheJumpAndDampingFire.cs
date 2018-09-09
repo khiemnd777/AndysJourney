@@ -11,49 +11,108 @@ public class TheJumpAndDampingFire : Skill
     [SerializeField]
     AnimationClip _jump;
     [SerializeField]
-    AnimationClip _damping;
+    AnimationClip _smashDown;
+	[SerializeField]
+    AnimationClip _smashDownOnGround;
     [SerializeField]
-    float _height;
+    float _jumpMaxHeight;
     [SerializeField]
-    bool _debug;
+	Transform _executedPoint;
+	[SerializeField]
+    Animator _dustFxPrefab;
+	[SerializeField]
+	Transform _groundCheck;
+	[SerializeField]
+	float _smashDownVelocity;
+	[SerializeField]
+	LayerMask _groundLayer;
 
+	BoxCollider2D _boxCollider;
     Animator _anim;
     Rigidbody2D _rb;
     Transform _cachedTransform;
+	bool _isOnGround;
 
-    JumpVelocityCalculator _jumpCalc;
-
-    void Start()
+    void Awake()
     {
         _cachedTransform = transform;
-        _jumpCalc = new JumpVelocityCalculator();
         _anim = GetComponent<Animator>();
         _rb = GetComponent<Rigidbody2D>();
+		_boxCollider = GetComponent<BoxCollider2D>();
     }
 
-    void Update()
+	void Update(){
+		var targetPos = DetectExecutedJump();
+		var gravity = JumpVelocityCalculator.GetGravity2D(_rb);
+		JumpVelocityCalculator.DrawPath(_cachedTransform.position, targetPos, gravity, _jumpMaxHeight, true);
+	}
+
+	void FixedUpdate()
+	{
+		// Ground check
+		var state = Physics2D.OverlapBox(_groundCheck.position, _boxCollider.bounds.extents, 90, _groundLayer);	
+		_isOnGround = state == true;
+	}
+
+	Vector2 DetectExecutedJump(){
+		var executedPos = _target.position;
+		executedPos.y = _executedPoint.position.y;
+		return executedPos;
+	}
+
+	IEnumerator Jump()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            Jump();
-        }
-        if (_debug)
-        {
-			var gravity = _jumpCalc.GetGravity2D(_rb);
-            _jumpCalc.DrawPath(transform, _target.transform, gravity, _height, true);
-        }
+		var targetPos = DetectExecutedJump();
+		var gravity = JumpVelocityCalculator.GetGravity2D(_rb);
+		var jumpVel = JumpVelocityCalculator.Calculate(_cachedTransform.position, targetPos, gravity, _jumpMaxHeight, true);
+        _rb.velocity = jumpVel.velocity;
+		yield return new WaitForSeconds(jumpVel.simulatedTime);
     }
 
-    void Jump()
+	void InstantiateTheDust(float size = 1f)
     {
-		var gravity = _jumpCalc.GetGravity2D(_rb);
-        _rb.velocity = _jumpCalc.Calculate(transform, _target.transform, gravity, _height, true).velocity;
+        var ins = Instantiate<Animator>(_dustFxPrefab, _cachedTransform.position, Quaternion.identity);
+        var dir = DetectTargetDirection();
+        // Flip X by own transform.
+        var scale = ins.transform.localScale;
+        scale.x = dir.x < 0 ? -1 : dir.x == 0 ? _cachedTransform.localScale.x : 1;
+        ins.transform.localScale = scale * size;
+        Destroy(ins.gameObject, ins.GetCurrentAnimatorStateInfo(0).length);
     }
+
+	Vector2Int DetectTargetDirection()
+    {
+        var dir = (_target.position - _cachedTransform.position).normalized;
+        return Vector2Int.RoundToInt(dir);
+    }
+
+	void FlipX(){
+		var dir = DetectTargetDirection();
+        // Flip X by own transform.
+        var scale = _cachedTransform.localScale;
+        scale.x = dir.x < 0 ? -1 : dir.x == 0 ? _cachedTransform.localScale.x : 1;
+        _cachedTransform.localScale = scale;
+	}
 
     public override IEnumerator Play()
     {
-        // yield return StartCoroutine(Utility.JumpToDestination(_cachedTransform, _cachedTransform.position, _target.position));
-        // _rb.velocity = Utility.CalculateJumpVelocity2(_cachedTransform.position, _target.position, .2f, Physics2D.gravity.magnitude);
-        yield break;
+		if(!_isOnGround)
+			yield break;
+		FlipX();
+		// Prepare
+		_anim.Play(_prepare.name);
+		yield return new WaitForSeconds(_prepare.length);
+		// Jump
+		InstantiateTheDust(1.325f);
+		_anim.Play(_jump.name);
+		yield return StartCoroutine(Jump());
+		// Smash down
+		_anim.Play(_smashDown.name);
+		_rb.velocity = Vector2.up * _smashDownVelocity;
+		yield return new WaitUntil(() => _isOnGround);
+		_rb.velocity = Vector2.zero;
+		// Smash down on ground
+		_anim.Play(_smashDownOnGround.name);
+		yield return new WaitForSeconds(_smashDownOnGround.length);
     }
 }

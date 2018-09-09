@@ -2,10 +2,10 @@ using UnityEngine;
 
 public class JumpVelocityCalculator
 {
-    public JumpVelocityData Calculate(Transform own, Transform target, float gravity, float height, bool updateHeight)
+    public static JumpVelocityData Calculate(Vector3 ownerPosition, Vector3 targetPosition, float gravity, float height, bool updateHeight)
     {
-        var offsetY = target.position.y - own.position.y;
-        var offsetXZ = new Vector3(target.position.x - own.position.x, 0, target.position.z - own.position.z);
+        var offsetY = targetPosition.y - ownerPosition.y;
+        var offsetXZ = new Vector3(targetPosition.x - ownerPosition.x, 0, targetPosition.z - ownerPosition.z);
         var updatedHeight = offsetY - height > 0 ? offsetY + height : height;
         var time = Mathf.Sqrt(-2 * updatedHeight / gravity) + Mathf.Sqrt(2 * (offsetY - updatedHeight) / gravity);
         var velocityY = Vector3.up * Mathf.Sqrt(-2 * gravity * updatedHeight);
@@ -14,23 +14,23 @@ public class JumpVelocityCalculator
         return new JumpVelocityData(velocityXZ + velocityY * -Mathf.Sign(gravity), time);
     }
 
-    public void DrawPath(Transform own, Transform target, float gravity, float height, bool updateHeight)
+    public static void DrawPath(Vector3 ownerPosition, Vector3 targetPosition, float gravity, float height, bool updateHeight)
     {
-        var calculatedJump = Calculate(own, target.transform, gravity, height, updateHeight);
-        var previousDrawPoint = own.position;
+        var calculatedJump = Calculate(ownerPosition, targetPosition, gravity, height, updateHeight);
+        var previousDrawPoint = ownerPosition;
 
         int resolution = 30;
         for (int i = 1; i <= resolution; i++)
         {
             var simulationTime = i / (float)resolution * calculatedJump.simulatedTime;
             var displacement = calculatedJump.velocity * simulationTime + Vector3.up * gravity * simulationTime * simulationTime / 2f;
-            var drawPoint = own.position + displacement;
+            var drawPoint = ownerPosition + displacement;
             Debug.DrawLine(previousDrawPoint, drawPoint, Color.green);
             previousDrawPoint = drawPoint;
         }
     }
 
-    public float GetGravity2D(Rigidbody2D rb){
+    public static float GetGravity2D(Rigidbody2D rb){
         return -rb.gravityScale * Physics2D.gravity.magnitude;
     }
 
