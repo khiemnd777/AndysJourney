@@ -26,6 +26,12 @@ public class TheJumpAndDampingFire : Skill
 	float _smashDownVelocity;
 	[SerializeField]
 	LayerMask _groundLayer;
+	[SerializeField]
+	Camera _theCamera;
+	[SerializeField]
+	float _earthQuakeDuration;
+	[SerializeField]
+	float _earthQuakeAmount;
 
 	BoxCollider2D _boxCollider;
     Animator _anim;
@@ -102,6 +108,7 @@ public class TheJumpAndDampingFire : Skill
 		// Prepare
 		_anim.Play(_prepare.name);
 		yield return new WaitForSeconds(_prepare.length);
+		FlipX();
 		// Jump
 		InstantiateTheDust(1.325f);
 		_anim.Play(_jump.name);
@@ -112,7 +119,12 @@ public class TheJumpAndDampingFire : Skill
 		yield return new WaitUntil(() => _isOnGround);
 		_rb.velocity = Vector2.zero;
 		// Smash down on ground
+		EarthQuake();
 		_anim.Play(_smashDownOnGround.name);
 		yield return new WaitForSeconds(_smashDownOnGround.length);
+    }
+
+	void EarthQuake(){
+        StartCoroutine(Utility.Shaking(_earthQuakeDuration, _earthQuakeAmount, _theCamera.transform, null, null));
     }
 }
