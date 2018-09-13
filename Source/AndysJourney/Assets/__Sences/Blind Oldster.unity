@@ -180,7 +180,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.22, y: 0.26}
+  m_Size: {x: 0.31, y: 0.44}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 0
@@ -538,7 +538,7 @@ SpriteRenderer:
   m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.22, y: 0.26}
+  m_Size: {x: 0.31, y: 0.44}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 0
@@ -2504,6 +2504,8 @@ MonoBehaviour:
   _smashDownOnGround: {fileID: 7400000, guid: 8608cbd7ac71249a9af64ddab7b9f7ae, type: 2}
   _jumpMaxHeight: 0.18
   _executedPoint: {fileID: 560966966}
+  _directedDust: {fileID: 114210533861932906, guid: 2b78c939b19294f3faefe31b7eb598ac,
+    type: 2}
   _dustFxPrefab: {fileID: 95737024899627368, guid: b16f92286e45b4dc6b8f6dfdfaabb16c,
     type: 2}
   _groundCheck: {fileID: 878514077}

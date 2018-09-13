@@ -19,6 +19,8 @@ public class TheJumpAndDampingFire : Skill
     [SerializeField]
 	Transform _executedPoint;
 	[SerializeField]
+	DirectedDust _directedDust;
+	[SerializeField]
     Animator _dustFxPrefab;
 	[SerializeField]
 	Transform _groundCheck;
@@ -111,6 +113,7 @@ public class TheJumpAndDampingFire : Skill
 		FlipX();
 		// Jump
 		InstantiateTheDust(1.325f);
+		InstantiateTheDirectedDust();
 		_anim.Play(_jump.name);
 		yield return StartCoroutine(Jump());
 		// Smash down
@@ -127,4 +130,9 @@ public class TheJumpAndDampingFire : Skill
 	void EarthQuake(){
         StartCoroutine(Utility.Shaking(_earthQuakeDuration, _earthQuakeAmount, _theCamera.transform, null, null));
     }
+
+	void InstantiateTheDirectedDust(){
+		var ins = Instantiate<DirectedDust>(_directedDust, _cachedTransform.position, Quaternion.identity);
+		StartCoroutine(ins.Play(_cachedTransform));
+	}
 }
