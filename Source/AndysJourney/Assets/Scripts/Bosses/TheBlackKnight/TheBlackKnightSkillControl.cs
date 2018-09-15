@@ -8,6 +8,7 @@ public class TheBlackKnightSkillControl : MonoBehaviour
     TheBlackKnightSlash _slash;
     TheSlashingKi _slashingKi;
     TheJumpAndDampingFire _jumpAndDampingFire;
+    TheDashingDownWithPower _dashingDownWithPower;
     Skill[] _skills;
 
     // Use this for initialization
@@ -16,8 +17,9 @@ public class TheBlackKnightSkillControl : MonoBehaviour
         _slash = GetComponent<TheBlackKnightSlash>();
         _slashingKi = GetComponent<TheSlashingKi>();
         _jumpAndDampingFire = GetComponent<TheJumpAndDampingFire>();
+        _dashingDownWithPower = GetComponent<TheDashingDownWithPower>();
         // _skills = new Skill[] { _slash, _slashingKi, _jumpAndDampingFire };
-        _skills = new Skill[] { _jumpAndDampingFire };
+        _skills = new Skill[] { _dashingDownWithPower };
 		StartCoroutine(Play());
     }
 
