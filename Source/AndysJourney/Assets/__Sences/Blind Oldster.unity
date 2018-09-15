@@ -1509,7 +1509,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 977816909}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.472, y: -0.328, z: 0.18326616}
+  m_LocalPosition: {x: 0.663, y: -0.328, z: 0.18326616}
   m_LocalScale: {x: 0.15691087, y: 0.15691087, z: 0.15691087}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1650,34 +1650,6 @@ Transform:
   m_GameObject: {fileID: 1108565362}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.17274033, y: -0.588, z: -0.028306302}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 12
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1323082365
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 1323082366}
-  m_Layer: 0
-  m_Name: Dashing Down Executed Point
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1323082366
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1323082365}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.05, y: 0.308, z: -0.028306302}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -2716,7 +2688,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _target: {fileID: 977816910}
-  _executedPoint: {fileID: 1323082366}
+  _executedPoint: {fileID: 560966966}
   _jumpMaxHeight: 0.18
   _smashDownVelocity: -5
   _preparedDashingDownVelocity: 0.675

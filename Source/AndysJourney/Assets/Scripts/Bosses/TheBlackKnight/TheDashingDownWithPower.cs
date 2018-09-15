@@ -82,7 +82,7 @@ public class TheDashingDownWithPower : Skill
 
     IEnumerator Jump()
     {
-        var targetPos = _executedPoint.position;
+        var targetPos = new Vector3(_boundary.transform.position.x, _executedPoint.position.y, 0);
         var gravity = JumpVelocityCalculator.GetGravity2D(_rb);
         var jumpVel = JumpVelocityCalculator.Calculate(_cachedTransform.position, targetPos, gravity, _jumpMaxHeight, true);
         _rb.velocity = jumpVel.velocity;
@@ -125,7 +125,7 @@ public class TheDashingDownWithPower : Skill
 
     IEnumerator GenerateBlackFire(int side)
     {
-        var generatedDeltaTime = Time.fixedDeltaTime * 2.25f;
+        var generatedDeltaTime = Time.fixedDeltaTime * 4f;
         var min = _boundary.bounds.min;
         var max = _boundary.bounds.max;
         var half = max / 2;
