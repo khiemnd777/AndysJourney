@@ -13,56 +13,9 @@ AnimationClip:
   m_RotationCurves: []
   m_CompressedRotationCurves: []
   m_EulerCurves: []
-  m_PositionCurves:
-  - curve:
-      serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 2
-        time: 0
-        value: {x: 0.434, y: 0.109, z: 0}
-        inSlope: {x: 0, y: 0, z: 0}
-        outSlope: {x: 0, y: 0, z: 0}
-        tangentMode: 0
-      - serializedVersion: 2
-        time: 0.5538462
-        value: {x: 1.881, y: 0.109, z: 0}
-        inSlope: {x: 0, y: 0, z: 0}
-        outSlope: {x: 0, y: 0, z: 0}
-        tangentMode: 0
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    path: Slashing Ki Effect
+  m_PositionCurves: []
   m_ScaleCurves: []
-  m_FloatCurves:
-  - curve:
-      serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 2
-        time: 0
-        value: 0
-        inSlope: Infinity
-        outSlope: Infinity
-        tangentMode: 103
-      - serializedVersion: 2
-        time: 0.046153847
-        value: 1
-        inSlope: Infinity
-        outSlope: Infinity
-        tangentMode: 103
-      - serializedVersion: 2
-        time: 0.3846154
-        value: 0
-        inSlope: Infinity
-        outSlope: Infinity
-        tangentMode: 103
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_Enabled
-    path: Slashing Ki Effect
-    classID: 61
-    script: {fileID: 0}
+  m_FloatCurves: []
   m_PPtrCurves:
   - curve:
     - time: 0
@@ -70,6 +23,8 @@ AnimationClip:
     - time: 0.03076923
       value: {fileID: 21300200, guid: cba4b8644212a4f1e8700396de2a9a24, type: 3}
     - time: 0.06153846
+      value: {fileID: 21300202, guid: cba4b8644212a4f1e8700396de2a9a24, type: 3}
+    - time: 0.07692308
       value: {fileID: 21300202, guid: cba4b8644212a4f1e8700396de2a9a24, type: 3}
     - time: 0.092307694
       value: {fileID: 21300204, guid: cba4b8644212a4f1e8700396de2a9a24, type: 3}
@@ -89,37 +44,6 @@ AnimationClip:
     path: 
     classID: 212
     script: {fileID: 0}
-  - curve:
-    - time: 0
-      value: {fileID: 0}
-    - time: 0.046153847
-      value: {fileID: 21300218, guid: cba4b8644212a4f1e8700396de2a9a24, type: 3}
-    - time: 0.092307694
-      value: {fileID: 21300220, guid: cba4b8644212a4f1e8700396de2a9a24, type: 3}
-    - time: 0.13846155
-      value: {fileID: 21300222, guid: cba4b8644212a4f1e8700396de2a9a24, type: 3}
-    - time: 0.18461539
-      value: {fileID: 21300224, guid: cba4b8644212a4f1e8700396de2a9a24, type: 3}
-    - time: 0.23076923
-      value: {fileID: 21300226, guid: cba4b8644212a4f1e8700396de2a9a24, type: 3}
-    - time: 0.2769231
-      value: {fileID: 21300228, guid: cba4b8644212a4f1e8700396de2a9a24, type: 3}
-    - time: 0.32307693
-      value: {fileID: 21300230, guid: cba4b8644212a4f1e8700396de2a9a24, type: 3}
-    - time: 0.36923078
-      value: {fileID: 21300232, guid: cba4b8644212a4f1e8700396de2a9a24, type: 3}
-    - time: 0.41538462
-      value: {fileID: 21300234, guid: cba4b8644212a4f1e8700396de2a9a24, type: 3}
-    - time: 0.46153846
-      value: {fileID: 21300236, guid: cba4b8644212a4f1e8700396de2a9a24, type: 3}
-    - time: 0.50769234
-      value: {fileID: 21300238, guid: cba4b8644212a4f1e8700396de2a9a24, type: 3}
-    - time: 0.5538462
-      value: {fileID: 0}
-    attribute: m_Sprite
-    path: Slashing Ki Effect
-    classID: 212
-    script: {fileID: 0}
   m_SampleRate: 65
   m_WrapMode: 0
   m_Bounds:
@@ -128,28 +52,7 @@ AnimationClip:
   m_ClipBindingConstant:
     genericBindings:
     - serializedVersion: 2
-      path: 3802528174
-      attribute: 1
-      script: {fileID: 0}
-      typeID: 4
-      customType: 0
-      isPPtrCurve: 0
-    - serializedVersion: 2
-      path: 3802528174
-      attribute: 3305885265
-      script: {fileID: 0}
-      typeID: 61
-      customType: 0
-      isPPtrCurve: 0
-    - serializedVersion: 2
       path: 0
-      attribute: 0
-      script: {fileID: 0}
-      typeID: 212
-      customType: 23
-      isPPtrCurve: 1
-    - serializedVersion: 2
-      path: 3802528174
       attribute: 0
       script: {fileID: 0}
       typeID: 212
@@ -159,6 +62,7 @@ AnimationClip:
     - {fileID: 21300198, guid: cba4b8644212a4f1e8700396de2a9a24, type: 3}
     - {fileID: 21300200, guid: cba4b8644212a4f1e8700396de2a9a24, type: 3}
     - {fileID: 21300202, guid: cba4b8644212a4f1e8700396de2a9a24, type: 3}
+    - {fileID: 21300202, guid: cba4b8644212a4f1e8700396de2a9a24, type: 3}
     - {fileID: 21300204, guid: cba4b8644212a4f1e8700396de2a9a24, type: 3}
     - {fileID: 21300206, guid: cba4b8644212a4f1e8700396de2a9a24, type: 3}
     - {fileID: 21300208, guid: cba4b8644212a4f1e8700396de2a9a24, type: 3}
@@ -166,25 +70,12 @@ AnimationClip:
     - {fileID: 21300212, guid: cba4b8644212a4f1e8700396de2a9a24, type: 3}
     - {fileID: 21300214, guid: cba4b8644212a4f1e8700396de2a9a24, type: 3}
     - {fileID: 21300214, guid: cba4b8644212a4f1e8700396de2a9a24, type: 3}
-    - {fileID: 0}
-    - {fileID: 21300218, guid: cba4b8644212a4f1e8700396de2a9a24, type: 3}
-    - {fileID: 21300220, guid: cba4b8644212a4f1e8700396de2a9a24, type: 3}
-    - {fileID: 21300222, guid: cba4b8644212a4f1e8700396de2a9a24, type: 3}
-    - {fileID: 21300224, guid: cba4b8644212a4f1e8700396de2a9a24, type: 3}
-    - {fileID: 21300226, guid: cba4b8644212a4f1e8700396de2a9a24, type: 3}
-    - {fileID: 21300228, guid: cba4b8644212a4f1e8700396de2a9a24, type: 3}
-    - {fileID: 21300230, guid: cba4b8644212a4f1e8700396de2a9a24, type: 3}
-    - {fileID: 21300232, guid: cba4b8644212a4f1e8700396de2a9a24, type: 3}
-    - {fileID: 21300234, guid: cba4b8644212a4f1e8700396de2a9a24, type: 3}
-    - {fileID: 21300236, guid: cba4b8644212a4f1e8700396de2a9a24, type: 3}
-    - {fileID: 21300238, guid: cba4b8644212a4f1e8700396de2a9a24, type: 3}
-    - {fileID: 0}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.5692308
+    m_StopTime: 0.2923077
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -199,101 +90,7 @@ AnimationClip:
     m_KeepOriginalPositionXZ: 0
     m_HeightFromFeet: 0
     m_Mirror: 0
-  m_EditorCurves:
-  - curve:
-      serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 2
-        time: 0
-        value: 0.434
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 136
-      - serializedVersion: 2
-        time: 0.5538462
-        value: 1.881
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 136
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_LocalPosition.x
-    path: Slashing Ki Effect
-    classID: 4
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 2
-        time: 0
-        value: 0.109
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 136
-      - serializedVersion: 2
-        time: 0.5538462
-        value: 0.109
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 136
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_LocalPosition.y
-    path: Slashing Ki Effect
-    classID: 4
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 2
-        time: 0
-        value: 0
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 136
-      - serializedVersion: 2
-        time: 0.5538462
-        value: 0
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 136
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_LocalPosition.z
-    path: Slashing Ki Effect
-    classID: 4
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 2
-        time: 0
-        value: 0
-        inSlope: Infinity
-        outSlope: Infinity
-        tangentMode: 103
-      - serializedVersion: 2
-        time: 0.046153847
-        value: 1
-        inSlope: Infinity
-        outSlope: Infinity
-        tangentMode: 103
-      - serializedVersion: 2
-        time: 0.3846154
-        value: 0
-        inSlope: Infinity
-        outSlope: Infinity
-        tangentMode: 103
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_Enabled
-    path: Slashing Ki Effect
-    classID: 61
-    script: {fileID: 0}
+  m_EditorCurves: []
   m_EulerEditorCurves: []
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0

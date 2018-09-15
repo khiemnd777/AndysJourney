@@ -51,6 +51,14 @@ public class Utility
         return 0;
     }
 
+    public static Quaternion RotateToTarget(Transform own, Transform target, float maxDegreesDelta)
+    {
+        var offset = target.position - own.position;
+		var angle = Mathf.Atan2(offset.y, offset.x) * Mathf.Rad2Deg;
+		var angleAxis = Quaternion.AngleAxis(angle, Vector3.forward);
+		return Quaternion.RotateTowards(own.rotation, angleAxis, maxDegreesDelta);
+    }
+
     public static IEnumerator JumpToDestination(Transform owner, Vector3 source, Vector3 destination, System.Action toBeAtDestination = null)
     {
         var percent = .0f;

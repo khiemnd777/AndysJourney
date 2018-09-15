@@ -127,10 +127,8 @@ public class TheDashingDownWithPower : Skill
     {
         var generatedDeltaTime = Time.fixedDeltaTime * 4f;
         var min = _boundary.bounds.min;
-        var max = _boundary.bounds.max;
-        var half = max / 2;
         var fireDeltaSpace = .4f;
-        var offsetX = half.x - fireDeltaSpace - min.x;
+        var offsetX = _boundary.transform.position.x - fireDeltaSpace - min.x;
         var numberOfFires = Mathf.FloorToInt(offsetX / fireDeltaSpace);
         var count = 0;
         var y = min.y;
@@ -171,8 +169,9 @@ public class TheDashingDownWithPower : Skill
         EarthQuake();
         _anim.Play(_smashDownOnGround.name);
         // Generate black fires
-        StartCoroutine(GenerateBlackFire(1));
-        StartCoroutine(GenerateBlackFire(-1));
+        // StartCoroutine(GenerateBlackFire(1));
+        // StartCoroutine(GenerateBlackFire(-1));
+		
         yield return new WaitForSeconds(_smashDownOnGround.length + _totalGenerateBlackFireTime);
     }
 }

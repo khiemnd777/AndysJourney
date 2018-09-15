@@ -13,10 +13,7 @@ public class DirectedDust : MonoBehaviour {
 
 	public IEnumerator Play(Transform target){
 		yield return new WaitForSeconds(.02f);
-		var offset = target.position - transform.position;
-		var angle = Mathf.Atan2(offset.y, offset.x) * Mathf.Rad2Deg;
-		var angleAxis = Quaternion.AngleAxis(angle, Vector3.forward);
-		transform.rotation = Quaternion.RotateTowards(transform.rotation, angleAxis, Time.deltaTime * 10000f);
+		transform.rotation = Utility.RotateToTarget(transform, target, Time.deltaTime * 10000f);
 		_anim.enabled = true;
 		_anim.Play("Directed Dust");
 		yield return new WaitForSeconds(_anim.GetCurrentAnimatorStateInfo(0).length);
