@@ -2882,7 +2882,7 @@ MonoBehaviour:
   _kiDown: {fileID: 7400000, guid: 1ee9a424f850a4f938754bd58b56968f, type: 2}
   _theKiSpawnPoint: {fileID: 1422424618}
   _kiMaxSpeed: 7.5
-  _delay: 0.25
+  _delay: 0.3
   _spawnPoint1:
     spawn: {fileID: 1443450588}
     flipX: 0
