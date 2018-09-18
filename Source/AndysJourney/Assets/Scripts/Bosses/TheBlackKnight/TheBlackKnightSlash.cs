@@ -121,7 +121,7 @@ public class TheBlackKnightSlash : Skill
             // Flip X by own transform.
             var scale = ins.transform.localScale;
             scale.x = transform.localScale.x;
-            ins.transform.localScale = scale * .7f;
+            ins.transform.localScale = scale * .625f;
             Destroy(ins.gameObject, ins.GetCurrentAnimatorStateInfo(0).length);
             yield return new WaitForSeconds(fxLength / 5f);
         }
@@ -134,7 +134,7 @@ public class TheBlackKnightSlash : Skill
         // Flip X by own transform.
         var scale = ins.transform.localScale;
         scale.x = transform.localScale.x;
-        ins.transform.localScale = scale * .65f;
+        ins.transform.localScale = scale * .6f;
         Destroy(ins.gameObject, ins.GetCurrentAnimatorStateInfo(0).length);
     }
 

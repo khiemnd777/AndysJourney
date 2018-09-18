@@ -80,13 +80,23 @@ public class TheDashingDownWithPower : Skill
         _cachedTransform.localScale = scale;
     }
 
+    Vector2 DetectExecutedJump(){
+		var executedPos = _target.position;
+		executedPos.y = _executedPoint.position.y;
+		return executedPos;
+	}
+
     IEnumerator Jump()
     {
-        var targetPos = new Vector3(_boundary.transform.position.x, _executedPoint.position.y, 0);
+        // var targetPos = new Vector3(_boundary.transform.position.x, _executedPoint.position.y, 0);
+        var targetPos = DetectExecutedJump();
+        var storedGravityScale = _rb.gravityScale;
+        _rb.gravityScale *= 1.5f;
         var gravity = JumpVelocityCalculator.GetGravity2D(_rb);
         var jumpVel = JumpVelocityCalculator.Calculate(_cachedTransform.position, targetPos, gravity, _jumpMaxHeight, true);
         _rb.velocity = jumpVel.velocity;
         yield return new WaitForSeconds(jumpVel.simulatedTime);
+        _rb.gravityScale = storedGravityScale;
     }
 
     void EarthQuake()
@@ -116,8 +126,8 @@ public class TheDashingDownWithPower : Skill
         var gs = _rb.gravityScale;
         _anim.Play(_prepareDashingDown.name);
         _rb.velocity = Vector2.up * _preparedDashingDownVelocity;
-        _rb.gravityScale = gs / 10f;
-        yield return new WaitForSeconds(_prepareDashingDown.length);
+        _rb.gravityScale = gs / 5f;
+        yield return new WaitForSeconds(_prepareDashingDown.length / 2.25f);
         _rb.gravityScale = gs;
     }
 
@@ -160,7 +170,7 @@ public class TheDashingDownWithPower : Skill
         yield return StartCoroutine(Jump());
         // Prepare to Dashing down
         yield return StartCoroutine(PrepareDashingDown());
-        // Smash down
+        // Slam down
         _anim.Play(_smashDown.name);
         _rb.velocity = Vector2.up * _smashDownVelocity;
         yield return new WaitUntil(() => _isOnGround);

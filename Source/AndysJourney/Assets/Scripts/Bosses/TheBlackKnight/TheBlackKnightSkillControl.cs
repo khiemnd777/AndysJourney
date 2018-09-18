@@ -18,8 +18,8 @@ public class TheBlackKnightSkillControl : MonoBehaviour
         _slashingKi = GetComponent<TheSlashingKi>();
         _jumpAndDampingFire = GetComponent<TheJumpAndDampingFire>();
         _dashingDownWithPower = GetComponent<TheDashingDownWithPower>();
-        // _skills = new Skill[] { _slash, _slashingKi, _jumpAndDampingFire, _dashingDownWithPower };
-        _skills = new Skill[] { _dashingDownWithPower };
+        _skills = new Skill[] { _slash, _slashingKi, _dashingDownWithPower };
+        // _skills = new Skill[] { _dashingDownWithPower };
 		StartCoroutine(Play());
     }
 

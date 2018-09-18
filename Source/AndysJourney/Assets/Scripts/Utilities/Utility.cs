@@ -159,7 +159,7 @@ public class Utility
         }
         var originalPos = target.transform.localPosition;
         float endTime = Time.time + duration;
-        while (Time.time < endTime)
+        while (Time.time <= endTime)
         {
             target.localPosition = originalPos + Random.insideUnitSphere * amount;
             duration -= Time.deltaTime;
