@@ -13,6 +13,8 @@ public class TheBlackKnightSlash : Skill
     [SerializeField]
     Transform _smashThunderFxPoint;
     [SerializeField]
+    AnimationClip _prepare;
+    [SerializeField]
     AnimationClip _dashing;
     [SerializeField]
     AnimationClip[] _sequence;
@@ -35,27 +37,36 @@ public class TheBlackKnightSlash : Skill
         // StartCoroutine(Play());
     }
 
+    void FlipX()
+    {
+        var directionOfTarget = DetectTargetDirection();
+        // Flip X by direction
+        var scale = transform.localScale;
+        if (scale.x < 0 && directionOfTarget.x > 0 || scale.x > 0 && directionOfTarget.x < 0)
+        {
+            scale.x = directionOfTarget.x < 0 ? -1 : 1;
+            transform.localScale = scale;
+        }
+    }
+
     public override IEnumerator Play()
     {
         var inx = 0;
         var actTimes = Random.Range(1, 2);
         while (actTimes-- > 0)
         {
-            yield return StartCoroutine(Dash());
+            FlipX();
+            _anim.Play(_prepare.name);
+            yield return new WaitForSeconds(_prepare.length);
+            // yield return StartCoroutine(Dash());
             inx = 0;
             foreach (var sq in _sequence)
             {
-                var directionOfTarget = DetectTargetDirection();
-                // Flip X by direction
-                var scale = transform.localScale;
-                if (scale.x < 0 && directionOfTarget.x > 0 || scale.x > 0 && directionOfTarget.x < 0)
-                {
-                    scale.x = directionOfTarget.x < 0 ? -1 : 1;
-                    transform.localScale = scale;
-                }
+                FlipX();
                 // Instantiate the dust.
                 if (inx != _sequence.Length - 1)
                 {
+                    yield return StartCoroutine(Dash());
                     InstantiateTheDust(inx == _sequence.Length - 2 ? 1.45f : 1);
                 }
                 else
@@ -69,7 +80,7 @@ public class TheBlackKnightSlash : Skill
                 }
                 _anim.Play(sq.name);
                 // Calculate velocity by direction
-                var vel = Vector2.right * Time.fixedDeltaTime * _velocities[inx] * scale.x;
+                var vel = Vector2.right * Time.fixedDeltaTime * _velocities[inx] * transform.localScale.x;
                 _rigid.velocity = vel;
                 // Wait for the next sequence.
                 yield return new WaitForSeconds(sq.length + .0625f);
@@ -86,7 +97,8 @@ public class TheBlackKnightSlash : Skill
     IEnumerator Dash()
     {
         var dis = Vector2.Distance(transform.position, _target.position);
-        if(dis <= .5f * 2){
+        if (dis <= .5f * 2)
+        {
             yield break;
         }
         InstantiateTheDust(1.45f);
@@ -103,7 +115,8 @@ public class TheBlackKnightSlash : Skill
         var targetPosX = _target.position.x - .5f * scale.x;
         var targetPos = new Vector2(targetPosX, _target.position.y);
         var currentPos = _rigid.position;
-        while(pc <= 1f){
+        while (pc <= 1f)
+        {
             pc += Time.fixedDeltaTime / .25f;
             var newX = Mathf.Lerp(currentPos.x, targetPosX, pc);
             _rigid.position = new Vector2(newX, _rigid.position.y);
@@ -139,7 +152,8 @@ public class TheBlackKnightSlash : Skill
     }
 
     // Invoke from Animation Event
-    void EarthQuake(){
+    void EarthQuake()
+    {
         StartCoroutine(Utility.Shaking(.175f, .02f, _theCamera.transform, null, null));
     }
 
