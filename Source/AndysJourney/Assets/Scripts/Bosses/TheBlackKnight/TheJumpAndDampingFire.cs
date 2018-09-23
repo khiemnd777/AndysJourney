@@ -50,9 +50,9 @@ public class TheJumpAndDampingFire : Skill
     }
 
 	void Update(){
-		var targetPos = DetectExecutedJump();
-		var gravity = JumpVelocityCalculator.GetGravity2D(_rb);
-		JumpVelocityCalculator.DrawPath(_cachedTransform.position, targetPos, gravity, _jumpMaxHeight, true);
+		// var targetPos = DetectExecutedJump();
+		// var gravity = JumpVelocityCalculator.GetGravity2D(_rb);
+		// JumpVelocityCalculator.DrawPath(_cachedTransform.position, targetPos, gravity, _jumpMaxHeight, true);
 	}
 
 	void FixedUpdate()

@@ -58,6 +58,13 @@ public class TheDashingDownWithPower : Skill
         _boxCollider = GetComponent<BoxCollider2D>();
     }
 
+    void Update(){
+        var targetPos = DetectExecutedJump();
+        var storedGravityScale = _rb.gravityScale;
+        var gravity = JumpVelocityCalculator.GetGravity2D(_rb);
+        JumpVelocityCalculator.DrawPath(_cachedTransform.position, targetPos, gravity, _jumpMaxHeight, false);
+    }
+
     void FixedUpdate()
     {
         // Ground check
@@ -91,9 +98,10 @@ public class TheDashingDownWithPower : Skill
         // var targetPos = new Vector3(_boundary.transform.position.x, _executedPoint.position.y, 0);
         var targetPos = DetectExecutedJump();
         var storedGravityScale = _rb.gravityScale;
-        _rb.gravityScale *= 1.5f;
+        _rb.gravityScale /= 5f;
         var gravity = JumpVelocityCalculator.GetGravity2D(_rb);
         var jumpVel = JumpVelocityCalculator.Calculate(_cachedTransform.position, targetPos, gravity, _jumpMaxHeight, true);
+        Debug.Log(jumpVel.velocity);
         _rb.velocity = jumpVel.velocity;
         yield return new WaitForSeconds(jumpVel.simulatedTime);
         _rb.gravityScale = storedGravityScale;

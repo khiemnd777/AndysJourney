@@ -2864,6 +2864,8 @@ GameObject:
   - component: {fileID: 2079496818}
   - component: {fileID: 2079496819}
   - component: {fileID: 2079496820}
+  - component: {fileID: 2079496821}
+  - component: {fileID: 2079496822}
   m_Layer: 0
   m_Name: The Blind Eldster
   m_TagString: Untagged
@@ -2939,7 +2941,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2079496809}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.778, y: -0.592, z: 0}
+  m_LocalPosition: {x: 0.265, y: -0.592, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 749155680}
@@ -3156,6 +3158,46 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _idle: {fileID: 7400000, guid: 7db8795c41edf44b8a7793195982bce2, type: 2}
+--- !u!114 &2079496821
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2079496809}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 777133c4e4cf34541b6f4f1a311feaf7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _target: {fileID: 977816910}
+  _getBack: {fileID: 7400000, guid: 63c7d600f98a04ea196223b406d16679, type: 2}
+  _idle: {fileID: 7400000, guid: 7db8795c41edf44b8a7793195982bce2, type: 2}
+  _boundary: {fileID: 210170250}
+  _slashingKiPrefab: {fileID: 95914979196068590, guid: a2b2a7a81de554600ae4ddf9f8ef92d0,
+    type: 2}
+  _theKiSpawnPoint: {fileID: 1422424618}
+  _kiMaxSpeed: 5.5
+  _dustFxPrefab: {fileID: 95737024899627368, guid: b16f92286e45b4dc6b8f6dfdfaabb16c,
+    type: 2}
+--- !u!114 &2079496822
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2079496809}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c2a7f4281b3a43f8979798be1c0871b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _target: {fileID: 977816910}
+  _backVelocity: 3
+  _backGravity: 2
+  _getBack: {fileID: 7400000, guid: 63c7d600f98a04ea196223b406d16679, type: 2}
+  _idle: {fileID: 7400000, guid: 7db8795c41edf44b8a7793195982bce2, type: 2}
+  _boundary: {fileID: 210170250}
+  _dustFxPrefab: {fileID: 95737024899627368, guid: b16f92286e45b4dc6b8f6dfdfaabb16c,
+    type: 2}
 --- !u!1 &2092918055
 GameObject:
   m_ObjectHideFlags: 0
