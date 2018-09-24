@@ -7,6 +7,8 @@ public class TheDashingDownWithPower : Skill
     [SerializeField]
     Transform _target;
     [SerializeField]
+    AnimationClip _slide;
+    [SerializeField]
     Transform _executedPoint;
     [SerializeField]
     float _jumpMaxHeight;
@@ -14,6 +16,8 @@ public class TheDashingDownWithPower : Skill
     float _smashDownVelocity;
     [SerializeField]
     float _preparedDashingDownVelocity;
+    [SerializeField]
+    float maxDisplacementToSlide;
     [SerializeField]
     Transform _groundCheck;
     [SerializeField]
@@ -72,6 +76,11 @@ public class TheDashingDownWithPower : Skill
         _isOnGround = state == true;
     }
 
+    bool DetectTargetDisplacementToSlide(){
+        var displacement = _target.position - _cachedTransform.position;
+        return Mathf.Abs(displacement.x) - maxDisplacementToSlide >= 0;
+    }
+
     Vector2Int DetectTargetDirection()
     {
         var dir = (_target.position - _cachedTransform.position).normalized;
@@ -98,13 +107,26 @@ public class TheDashingDownWithPower : Skill
         // var targetPos = new Vector3(_boundary.transform.position.x, _executedPoint.position.y, 0);
         var targetPos = DetectExecutedJump();
         var storedGravityScale = _rb.gravityScale;
-        _rb.gravityScale /= 5f;
+        _rb.gravityScale *= 1.125f;
         var gravity = JumpVelocityCalculator.GetGravity2D(_rb);
         var jumpVel = JumpVelocityCalculator.Calculate(_cachedTransform.position, targetPos, gravity, _jumpMaxHeight, true);
-        Debug.Log(jumpVel.velocity);
         _rb.velocity = jumpVel.velocity;
         yield return new WaitForSeconds(jumpVel.simulatedTime);
         _rb.gravityScale = storedGravityScale;
+    }
+
+    IEnumerator Slide(){
+        FlipX();
+        InstantiateTheDust();
+        var faceDir = _cachedTransform.localScale.x > 0 ? 1 : -1;
+        var currentGravityScale = _rb.gravityScale;
+        // _rb.gravityScale = 1f;
+        _rb.velocity = new Vector3(2.75f *  faceDir, 0f);
+        _anim.Play(_slide.name);
+        // yield return new WaitUntil(() => Mathf.Approximately(_rb.velocity.x, 0));
+        yield return new WaitForSeconds(_slide.length);
+        _rb.velocity = Vector2.zero;
+        _rb.gravityScale = currentGravityScale;
     }
 
     void EarthQuake()
@@ -170,6 +192,9 @@ public class TheDashingDownWithPower : Skill
         // Prepare
         _anim.Play(_prepare.name);
         yield return new WaitForSeconds(_prepare.length);
+        if(DetectTargetDisplacementToSlide()){
+            yield return StartCoroutine(Slide());
+        }
         FlipX();
         // Jump
         InstantiateTheDust(1.325f);

@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: cba4b8644212a4f1e8700396de2a9a24
-timeCreated: 1537698006
+timeCreated: 1537825536
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -292,6 +292,9 @@ TextureImporter:
     21300570: the-blind-oldster_285
     21300572: the-blind-oldster_286
     21300574: the-blind-oldster_287
+    21300576: the-blind-oldster_288
+    21300578: the-blind-oldster_289
+    21300580: the-blind-oldster_290
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
@@ -4420,6 +4423,48 @@ TextureImporter:
         height: 21
       alignment: 9
       pivot: {x: 0.58676314, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: the-blind-oldster_288
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 1667
+        width: 31
+        height: 19
+      alignment: 9
+      pivot: {x: 0.7560309, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: the-blind-oldster_289
+      rect:
+        serializedVersion: 2
+        x: 47
+        y: 1667
+        width: 29
+        height: 18
+      alignment: 9
+      pivot: {x: 0.74071294, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: the-blind-oldster_290
+      rect:
+        serializedVersion: 2
+        x: 79
+        y: 1667
+        width: 25
+        height: 18
+      alignment: 9
+      pivot: {x: 0.69890195, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []

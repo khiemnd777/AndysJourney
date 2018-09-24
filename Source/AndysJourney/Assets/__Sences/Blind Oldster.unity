@@ -2941,7 +2941,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2079496809}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.265, y: -0.592, z: 0}
+  m_LocalPosition: {x: -0.809, y: -0.592, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 749155680}
@@ -3123,10 +3123,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _target: {fileID: 977816910}
+  _slide: {fileID: 7400000, guid: 8ece37dec9cd04d28a93c723ec42bc5c, type: 2}
   _executedPoint: {fileID: 560966966}
   _jumpMaxHeight: 0.18
   _smashDownVelocity: -5
   _preparedDashingDownVelocity: 0.675
+  maxDisplacementToSlide: 1.75
   _groundCheck: {fileID: 878514077}
   _groundLayer:
     serializedVersion: 2
