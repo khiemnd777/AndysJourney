@@ -3200,6 +3200,7 @@ MonoBehaviour:
   _boundary: {fileID: 210170250}
   _dustFxPrefab: {fileID: 95737024899627368, guid: b16f92286e45b4dc6b8f6dfdfaabb16c,
     type: 2}
+  _deltaDisplacement: 0.45
 --- !u!1 &2092918055
 GameObject:
   m_ObjectHideFlags: 0

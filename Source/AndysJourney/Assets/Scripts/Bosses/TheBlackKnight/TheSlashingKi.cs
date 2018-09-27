@@ -47,19 +47,19 @@ public class TheSlashingKi : Skill
         var actTimes = Random.Range(1, 2);
         while (actTimes-- > 0)
         {
-            // Disappear
-            _anim.Play(_disappear.name);
-            yield return new WaitForSeconds(_disappear.length);
-            var spawn = GetRandomSpawnPoint();
-            // Flip X by Spawn point
-            var scale = _cachedTransform.localScale;
-            scale.x = spawn.flipX ? -1 : 1;
-            _cachedTransform.localScale = scale;
-            // Assign into spawn point
-            _cachedTransform.position = spawn.spawn.position;
-            // Appear
-            _anim.Play(_appear.name);
-            yield return new WaitForSeconds(_appear.length);
+            // // Disappear
+            // _anim.Play(_disappear.name);
+            // yield return new WaitForSeconds(_disappear.length);
+            // var spawn = GetRandomSpawnPoint();
+            // // Flip X by Spawn point
+            // var scale = _cachedTransform.localScale;
+            // scale.x = spawn.flipX ? -1 : 1;
+            // _cachedTransform.localScale = scale;
+            // // Assign into spawn point
+            // _cachedTransform.position = spawn.spawn.position;
+            // // Appear
+            // _anim.Play(_appear.name);
+            // yield return new WaitForSeconds(_appear.length);
             // Prepare
             _anim.Play(_prepare.name);
             yield return new WaitForSeconds(_prepare.length);

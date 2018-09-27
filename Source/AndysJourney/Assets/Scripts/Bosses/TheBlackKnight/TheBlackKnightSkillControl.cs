@@ -24,8 +24,8 @@ public class TheBlackKnightSkillControl : MonoBehaviour
         _slashingKiWhenGetBack = GetComponent<TheSlashingKiWhenGetBack>();
         _getBack = GetComponent<TheBlackKnightGetBack>();
         // _skills = new Skill[] { _slash, _slashingKi, _dashingDownWithPower };
-        _skills = new Skill[] { _dashingDownWithPower };
-        // _skills = new Skill[] { _getBack };
+        // _skills = new Skill[] { _slashingKi };
+        _skills = new Skill[] { _getBack };
 		StartCoroutine(Play());
     }
 
