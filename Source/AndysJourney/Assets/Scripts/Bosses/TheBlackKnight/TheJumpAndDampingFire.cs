@@ -49,12 +49,6 @@ public class TheJumpAndDampingFire : Skill
 		_boxCollider = GetComponent<BoxCollider2D>();
     }
 
-	void Update(){
-		// var targetPos = DetectExecutedJump();
-		// var gravity = JumpVelocityCalculator.GetGravity2D(_rb);
-		// JumpVelocityCalculator.DrawPath(_cachedTransform.position, targetPos, gravity, _jumpMaxHeight, true);
-	}
-
 	void FixedUpdate()
 	{
 		// Ground check
@@ -135,4 +129,9 @@ public class TheJumpAndDampingFire : Skill
 		var ins = Instantiate<DirectedDust>(_directedDust, _cachedTransform.position, Quaternion.identity);
 		StartCoroutine(ins.Play(_cachedTransform));
 	}
+
+    public override IEnumerator Next()
+    {
+        yield break;
+    }
 }

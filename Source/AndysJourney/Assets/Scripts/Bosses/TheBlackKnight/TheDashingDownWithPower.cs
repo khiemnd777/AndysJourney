@@ -53,6 +53,10 @@ public class TheDashingDownWithPower : Skill
     Transform _cachedTransform;
     bool _isOnGround;
 
+    TheBlackKnightGetBack _theGetBack;
+    TheBlackKnightSlash _theSlash;
+    TheSlashingKi _theSlashingKi;
+
     // Use this for initialization
     void Awake()
     {
@@ -60,6 +64,10 @@ public class TheDashingDownWithPower : Skill
         _anim = GetComponent<Animator>();
         _rb = GetComponent<Rigidbody2D>();
         _boxCollider = GetComponent<BoxCollider2D>();
+        // next skills
+        _theGetBack = GetComponent<TheBlackKnightGetBack>();
+        _theSlash = GetComponent<TheBlackKnightSlash>();
+        _theSlashingKi = GetComponent<TheSlashingKi>();
     }
 
     void Update(){
@@ -216,5 +224,14 @@ public class TheDashingDownWithPower : Skill
         // StartCoroutine(GenerateBlackFire(-1));
 		
         yield return new WaitForSeconds(_smashDownOnGround.length + _totalGenerateBlackFireTime);
+    }
+
+    public override IEnumerator Next()
+    {
+        yield return StartCoroutine(_theGetBack.Play());
+        var nextList = new Skill [] {_theSlash, _theSlashingKi};
+        var rand = Random.Range(0, nextList.Length);
+        yield return StartCoroutine(nextList[rand].Play());
+        yield return StartCoroutine(nextList[rand].Next());
     }
 }

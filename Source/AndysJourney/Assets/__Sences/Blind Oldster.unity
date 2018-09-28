@@ -2671,7 +2671,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.16, y: 0.18}
+  m_Size: {x: 0.12, y: 0.21}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 0
@@ -3070,6 +3070,12 @@ MonoBehaviour:
   _spawnPoint2:
     spawn: {fileID: 563942547}
     flipX: 1
+  _backVelocity: 3
+  _backGravity: 2
+  _getBack: {fileID: 7400000, guid: 63c7d600f98a04ea196223b406d16679, type: 2}
+  _boundary: {fileID: 210170250}
+  _dustFxPrefab: {fileID: 95737024899627368, guid: b16f92286e45b4dc6b8f6dfdfaabb16c,
+    type: 2}
 --- !u!114 &2079496817
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3196,6 +3202,8 @@ MonoBehaviour:
   _backVelocity: 3
   _backGravity: 2
   _getBack: {fileID: 7400000, guid: 63c7d600f98a04ea196223b406d16679, type: 2}
+  _jumpForward: {fileID: 7400000, guid: b85e28fb0931b46a682726a54d08cef9, type: 2}
+  _jumpMaxHeight: 0.75
   _idle: {fileID: 7400000, guid: 7db8795c41edf44b8a7793195982bce2, type: 2}
   _boundary: {fileID: 210170250}
   _dustFxPrefab: {fileID: 95737024899627368, guid: b16f92286e45b4dc6b8f6dfdfaabb16c,

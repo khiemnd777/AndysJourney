@@ -111,4 +111,9 @@ public class TheSlashingKiWhenGetBack : Skill
 		_anim.Play(_idle.name);
         yield break;
     }
+
+    public override IEnumerator Next()
+    {
+        yield break;
+    }
 }

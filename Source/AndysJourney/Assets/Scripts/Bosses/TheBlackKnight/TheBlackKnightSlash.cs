@@ -29,12 +29,18 @@ public class TheBlackKnightSlash : Skill
     Animator _anim;
     Rigidbody2D _rigid;
 
+    TheSlashingKi _theSlashingKi;
+    TheBlackKnightGetBack _theGetBack;
+    TheDashingDownWithPower _theSlamDownWithPower;
+
     void Awake()
     {
         _anim = GetComponent<Animator>();
         _rigid = GetComponent<Rigidbody2D>();
-
-        // StartCoroutine(Play());
+        // next skills
+        _theSlashingKi = GetComponent<TheSlashingKi>();
+        _theGetBack = GetComponent<TheBlackKnightGetBack>();
+        _theSlamDownWithPower = GetComponent<TheDashingDownWithPower>();
     }
 
     void FlipX()
@@ -49,49 +55,55 @@ public class TheBlackKnightSlash : Skill
         }
     }
 
+    public override IEnumerator Next()
+    {
+        yield return StartCoroutine(_theGetBack.Play());
+        var nextList = new Skill[] { _theSlamDownWithPower, _theSlashingKi };
+        var rand = Random.Range(0, nextList.Length);
+        yield return StartCoroutine(nextList[rand].Play());
+        yield return StartCoroutine(nextList[rand].Next());
+    }
+
     public override IEnumerator Play()
     {
         var inx = 0;
-        var actTimes = Random.Range(1, 2);
-        while (actTimes-- > 0)
+        FlipX();
+        _anim.Play(_prepare.name);
+        yield return new WaitForSeconds(_prepare.length);
+        yield return StartCoroutine(Dash());
+        inx = 0;
+        foreach (var sq in _sequence)
         {
+            var isTargetLeft = _target.position.x < transform.position.x;
+            var dirX = isTargetLeft ? -1 : 1;
             FlipX();
-            _anim.Play(_prepare.name);
-            yield return new WaitForSeconds(_prepare.length);
-            // yield return StartCoroutine(Dash());
-            inx = 0;
-            foreach (var sq in _sequence)
+            // Instantiate the dust.
+            if (inx != _sequence.Length - 1)
             {
-                FlipX();
-                // Instantiate the dust.
-                if (inx != _sequence.Length - 1)
-                {
-                    yield return StartCoroutine(Dash());
-                    InstantiateTheDust(inx == _sequence.Length - 2 ? 1.45f : 1);
-                }
-                else
-                {
-                    transform.position = _lastPos;
-                }
-                // Instante the Dashing Smashing Fire
-                if (inx == _sequence.Length - 2)
-                {
-                    StartCoroutine(InstantiateDashingSmashingFire());
-                }
-                _anim.Play(sq.name);
-                // Calculate velocity by direction
-                var vel = Vector2.right * Time.fixedDeltaTime * _velocities[inx] * transform.localScale.x;
-                _rigid.velocity = vel;
-                // Wait for the next sequence.
-                yield return new WaitForSeconds(sq.length + .0625f);
-                // Stop the current velocity
-                _rigid.velocity = Vector2.zero;
-                // Store the last position for the next sequence.
-                _lastPos = transform.position;
-                inx++;
+                InstantiateTheDust(inx == _sequence.Length - 2 ? 1.45f : 1);
             }
-            yield return new WaitForSeconds(.125f);
+            else
+            {
+                transform.position = _lastPos;
+            }
+            // Instante the Dashing Smashing Fire
+            // if (inx == _sequence.Length - 2)
+            // {
+            //     StartCoroutine(InstantiateDashingSmashingFire());
+            // }
+            _anim.Play(sq.name);
+            // Calculate velocity by direction
+            var vel = Vector2.right * Time.fixedDeltaTime * _velocities[inx] * dirX;
+            _rigid.velocity = vel;
+            // Wait for the next sequence.
+            yield return new WaitForSeconds(sq.length + .0625f);
+            // Stop the current velocity
+            _rigid.velocity = Vector2.zero;
+            // Store the last position for the next sequence.
+            _lastPos = transform.position;
+            inx++;
         }
+        yield return new WaitForSeconds(.125f);
     }
 
     IEnumerator Dash()
@@ -104,20 +116,17 @@ public class TheBlackKnightSlash : Skill
         InstantiateTheDust(1.45f);
         _anim.Play(_dashing.name);
         var pc = 0f;
-        var directionOfTarget = DetectTargetDirection();
         // Flip X by direction
+        var isTargetLeft = _target.position.x < transform.position.x;
         var scale = transform.localScale;
-        if (scale.x < 0 && directionOfTarget.x > 0 || scale.x > 0 && directionOfTarget.x < 0)
-        {
-            scale.x = directionOfTarget.x < 0 ? -1 : 1;
-            transform.localScale = scale;
-        }
+        scale.x = isTargetLeft ? -1 : 1;
+        transform.localScale = scale;
         var targetPosX = _target.position.x - .5f * scale.x;
         var targetPos = new Vector2(targetPosX, _target.position.y);
         var currentPos = _rigid.position;
         while (pc <= 1f)
         {
-            pc += Time.fixedDeltaTime / .25f;
+            pc += Time.fixedDeltaTime * 2.5f;
             var newX = Mathf.Lerp(currentPos.x, targetPosX, pc);
             _rigid.position = new Vector2(newX, _rigid.position.y);
             yield return null;

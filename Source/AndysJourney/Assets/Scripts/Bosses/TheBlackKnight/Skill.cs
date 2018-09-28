@@ -5,5 +5,5 @@ using UnityEngine;
 public abstract class Skill : MonoBehaviour {
 
 	public abstract IEnumerator Play();
-
+	public abstract IEnumerator Next();
 }

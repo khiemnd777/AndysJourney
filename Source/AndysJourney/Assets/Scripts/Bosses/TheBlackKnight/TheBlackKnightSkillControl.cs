@@ -26,17 +26,17 @@ public class TheBlackKnightSkillControl : MonoBehaviour
         // _skills = new Skill[] { _slash, _slashingKi, _dashingDownWithPower };
         // _skills = new Skill[] { _slashingKi };
         _skills = new Skill[] { _getBack };
-		StartCoroutine(Play());
+        StartCoroutine(Play());
     }
 
-	IEnumerator Play(){
-		while(true){
-            if(_skills.Length <= 0){
-                yield break;
-            }
-			var rand = Random.Range(0, _skills.Length);
-			yield return StartCoroutine(_skills[rand].Play());
-            yield return new WaitForSeconds(.5f);
-		}
-	}
+    IEnumerator Play()
+    {
+        if (_skills.Length <= 0)
+        {
+            yield break;
+        }
+        var rand = Random.Range(0, _skills.Length);
+        yield return StartCoroutine(_skills[rand].Play());
+        yield return StartCoroutine(_skills[rand].Next());
+    }
 }
