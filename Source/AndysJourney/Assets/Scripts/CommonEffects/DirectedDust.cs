@@ -13,7 +13,7 @@ public class DirectedDust : MonoBehaviour {
 
 	public IEnumerator Play(Transform target){
 		yield return new WaitForSeconds(.02f);
-		transform.rotation = Utility.RotateToTarget(transform, target, Time.deltaTime * 10000f);
+		transform.rotation = Utility.RotateToTarget(transform.position, target.position, Vector3.forward);
 		_anim.enabled = true;
 		_anim.Play("Directed Dust");
 		yield return new WaitForSeconds(_anim.GetCurrentAnimatorStateInfo(0).length);

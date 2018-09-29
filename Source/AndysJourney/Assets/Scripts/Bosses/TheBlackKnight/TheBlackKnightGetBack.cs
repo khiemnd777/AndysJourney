@@ -23,6 +23,8 @@ public class TheBlackKnightGetBack : Skill
     [SerializeField]
     Animator _dustFxPrefab;
     [SerializeField]
+    DirectedDust _directedDust;
+    [SerializeField]
     float _deltaDisplacement;
 
     Animator _anim;
@@ -30,6 +32,7 @@ public class TheBlackKnightGetBack : Skill
 
     TheSlashingKi _theSlashingKi;
     TheBlackKnightSlash _theSlash;
+    TheBlackKnightJump _theJump;
 
     void Awake()
     {
@@ -38,6 +41,7 @@ public class TheBlackKnightGetBack : Skill
         // next skills
         _theSlashingKi = GetComponent<TheSlashingKi>();
         _theSlash = GetComponent<TheBlackKnightSlash>();
+        _theJump = GetComponent<TheBlackKnightJump>();
     }
 
     void FlipX()
@@ -98,6 +102,12 @@ public class TheBlackKnightGetBack : Skill
         return false;
     }
 
+    void InstantiateTheDirectedDust()
+    {
+        var ins = Instantiate<DirectedDust>(_directedDust, transform.position, Quaternion.identity);
+        StartCoroutine(ins.Play(transform));
+    }
+
     IEnumerator Jump()
     {
         var isTargetLeft = _target.position.x < transform.position.x;
@@ -106,6 +116,7 @@ public class TheBlackKnightGetBack : Skill
         var gravity = JumpVelocityCalculator.GetGravity2D(_rb);
         var jumpVel = JumpVelocityCalculator.Calculate(transform.position, targetPos, gravity, _jumpMaxHeight, true);
         _rb.velocity = jumpVel.velocity;
+        InstantiateTheDirectedDust();
         yield return new WaitForSeconds(jumpVel.simulatedTime);
     }
 
@@ -117,11 +128,11 @@ public class TheBlackKnightGetBack : Skill
             _anim.Play(_jumpForward.name);
             yield return StartCoroutine(Jump());
             _anim.Play(_idle.name);
-            yield return new WaitForSeconds(.75f);
+            yield return new WaitForSeconds(Random.Range(.1f, .625f));
             yield break;
         }
         if (!ShouldGetBack()){
-            yield return new WaitForSeconds(.75f);
+            yield return new WaitForSeconds(Random.Range(.1f, .625f));
             yield break;
         }
         InstantiateTheDust(.75f);
@@ -137,9 +148,6 @@ public class TheBlackKnightGetBack : Skill
 
     public override IEnumerator Next()
     {
-        var nextList = new Skill [] {_theSlash, _theSlashingKi};
-        var rand = Random.Range(0, nextList.Length);
-        yield return StartCoroutine(nextList[rand].Play());
-        yield return StartCoroutine(nextList[rand].Next());
+        yield return StartCoroutine(Next(_theJump, _theSlash, _theSlashingKi));
     }
 }

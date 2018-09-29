@@ -32,6 +32,7 @@ public class TheBlackKnightSlash : Skill
     TheSlashingKi _theSlashingKi;
     TheBlackKnightGetBack _theGetBack;
     TheDashingDownWithPower _theSlamDownWithPower;
+    TheBlackKnightJump _theJump;
 
     void Awake()
     {
@@ -41,6 +42,7 @@ public class TheBlackKnightSlash : Skill
         _theSlashingKi = GetComponent<TheSlashingKi>();
         _theGetBack = GetComponent<TheBlackKnightGetBack>();
         _theSlamDownWithPower = GetComponent<TheDashingDownWithPower>();
+        _theJump = GetComponent<TheBlackKnightJump>();
     }
 
     void FlipX()
@@ -58,10 +60,7 @@ public class TheBlackKnightSlash : Skill
     public override IEnumerator Next()
     {
         yield return StartCoroutine(_theGetBack.Play());
-        var nextList = new Skill[] { _theSlamDownWithPower, _theSlashingKi };
-        var rand = Random.Range(0, nextList.Length);
-        yield return StartCoroutine(nextList[rand].Play());
-        yield return StartCoroutine(nextList[rand].Next());
+        yield return StartCoroutine(Next(_theJump, _theSlamDownWithPower, _theSlashingKi));
     }
 
     public override IEnumerator Play()
@@ -126,7 +125,7 @@ public class TheBlackKnightSlash : Skill
         var currentPos = _rigid.position;
         while (pc <= 1f)
         {
-            pc += Time.fixedDeltaTime * 2.5f;
+            pc += Time.fixedDeltaTime * 4.5f;
             var newX = Mathf.Lerp(currentPos.x, targetPosX, pc);
             _rigid.position = new Vector2(newX, _rigid.position.y);
             yield return null;

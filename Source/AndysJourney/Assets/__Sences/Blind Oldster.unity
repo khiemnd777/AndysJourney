@@ -1173,7 +1173,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.62, y: 0.21}
+  m_Size: {x: 0.53, y: 0.16}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 0
@@ -2866,6 +2866,7 @@ GameObject:
   - component: {fileID: 2079496820}
   - component: {fileID: 2079496821}
   - component: {fileID: 2079496822}
+  - component: {fileID: 2079496823}
   m_Layer: 0
   m_Name: The Blind Eldster
   m_TagString: Untagged
@@ -3208,7 +3209,29 @@ MonoBehaviour:
   _boundary: {fileID: 210170250}
   _dustFxPrefab: {fileID: 95737024899627368, guid: b16f92286e45b4dc6b8f6dfdfaabb16c,
     type: 2}
+  _directedDust: {fileID: 114210533861932906, guid: 2b78c939b19294f3faefe31b7eb598ac,
+    type: 2}
   _deltaDisplacement: 0.45
+--- !u!114 &2079496823
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2079496809}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee4ba6607d2264526a58b260f1d16e52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _target: {fileID: 977816910}
+  _jumpForward: {fileID: 7400000, guid: b85e28fb0931b46a682726a54d08cef9, type: 2}
+  _jumpMaxHeight: 0.75
+  _idle: {fileID: 7400000, guid: 7db8795c41edf44b8a7793195982bce2, type: 2}
+  _boundary: {fileID: 210170250}
+  _dustFxPrefab: {fileID: 95737024899627368, guid: b16f92286e45b4dc6b8f6dfdfaabb16c,
+    type: 2}
+  _directedDust: {fileID: 114210533861932906, guid: 2b78c939b19294f3faefe31b7eb598ac,
+    type: 2}
 --- !u!1 &2092918055
 GameObject:
   m_ObjectHideFlags: 0
@@ -3355,3 +3378,49 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
+--- !u!1001 &2132617446
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4274528877873544, guid: d8cd3779dac4a4dcb85542b580bb7c7b, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -0.244
+      objectReference: {fileID: 0}
+    - target: {fileID: 4274528877873544, guid: d8cd3779dac4a4dcb85542b580bb7c7b, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -0.442
+      objectReference: {fileID: 0}
+    - target: {fileID: 4274528877873544, guid: d8cd3779dac4a4dcb85542b580bb7c7b, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4274528877873544, guid: d8cd3779dac4a4dcb85542b580bb7c7b, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4274528877873544, guid: d8cd3779dac4a4dcb85542b580bb7c7b, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4274528877873544, guid: d8cd3779dac4a4dcb85542b580bb7c7b, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4274528877873544, guid: d8cd3779dac4a4dcb85542b580bb7c7b, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4274528877873544, guid: d8cd3779dac4a4dcb85542b580bb7c7b, type: 2}
+      propertyPath: m_RootOrder
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 1817877888960444, guid: d8cd3779dac4a4dcb85542b580bb7c7b, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: d8cd3779dac4a4dcb85542b580bb7c7b, type: 2}
+  m_IsPrefabParent: 0

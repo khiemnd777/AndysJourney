@@ -49,6 +49,7 @@ public class TheSlashingKi : Skill
     TheBlackKnightGetBack _theGetBack;
     TheDashingDownWithPower _theSlamDownWithPower;
     TheBlackKnightSlash _theSlash;
+    TheBlackKnightJump _theJump;
 
     void Awake()
     {
@@ -61,6 +62,7 @@ public class TheSlashingKi : Skill
         _theGetBack = GetComponent<TheBlackKnightGetBack>();
         _theSlamDownWithPower = GetComponent<TheDashingDownWithPower>();
         _theSlash = GetComponent<TheBlackKnightSlash>();
+        _theJump = GetComponent<TheBlackKnightJump>();
     }
 
     void FlipX()
@@ -118,10 +120,7 @@ public class TheSlashingKi : Skill
     public override IEnumerator Next()
     {
         yield return StartCoroutine(_theGetBack.Play());
-        var nextList = new Skill[] { _theSlamDownWithPower, _theSlash };
-        var rand = Random.Range(0, nextList.Length);
-        yield return StartCoroutine(nextList[rand].Play());
-        yield return StartCoroutine(nextList[rand].Next());
+        yield return StartCoroutine(Next(_theJump, _theSlamDownWithPower, _theSlash));
     }
 
     public override IEnumerator Play()

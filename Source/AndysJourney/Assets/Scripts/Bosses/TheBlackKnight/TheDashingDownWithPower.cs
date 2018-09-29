@@ -229,9 +229,6 @@ public class TheDashingDownWithPower : Skill
     public override IEnumerator Next()
     {
         yield return StartCoroutine(_theGetBack.Play());
-        var nextList = new Skill [] {_theSlash, _theSlashingKi};
-        var rand = Random.Range(0, nextList.Length);
-        yield return StartCoroutine(nextList[rand].Play());
-        yield return StartCoroutine(nextList[rand].Next());
+        yield return StartCoroutine(Next(_theSlash, _theSlashingKi));
     }
 }

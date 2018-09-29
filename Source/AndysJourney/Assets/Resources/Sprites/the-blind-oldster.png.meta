@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: cba4b8644212a4f1e8700396de2a9a24
-timeCreated: 1538152379
+timeCreated: 1538216675
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -295,6 +295,9 @@ TextureImporter:
     21300576: the-blind-oldster_288
     21300578: the-blind-oldster_289
     21300580: the-blind-oldster_290
+    21300582: the-blind-oldster_291
+    21300584: the-blind-oldster_292
+    21300586: the-blind-oldster_293
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
@@ -2684,7 +2687,7 @@ TextureImporter:
         x: 285
         y: 722
         width: 20
-        height: 24
+        height: 30
       alignment: 9
       pivot: {x: 0.4483673, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2698,7 +2701,7 @@ TextureImporter:
         x: 316
         y: 722
         width: 20
-        height: 22
+        height: 26
       alignment: 9
       pivot: {x: 0.4483673, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2712,7 +2715,7 @@ TextureImporter:
         x: 345
         y: 722
         width: 20
-        height: 21
+        height: 24
       alignment: 9
       pivot: {x: 0.4483673, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2726,7 +2729,7 @@ TextureImporter:
         x: 375
         y: 722
         width: 20
-        height: 19
+        height: 21
       alignment: 9
       pivot: {x: 0.4483673, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2768,7 +2771,7 @@ TextureImporter:
         x: 197
         y: 722
         width: 20
-        height: 21
+        height: 23
       alignment: 9
       pivot: {x: 0.5428421, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2782,7 +2785,7 @@ TextureImporter:
         x: 226
         y: 722
         width: 20
-        height: 21
+        height: 23
       alignment: 9
       pivot: {x: 0.5428421, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2796,7 +2799,7 @@ TextureImporter:
         x: 254
         y: 722
         width: 20
-        height: 21
+        height: 23
       alignment: 9
       pivot: {x: 0.5428421, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -4465,6 +4468,48 @@ TextureImporter:
         height: 18
       alignment: 9
       pivot: {x: 0.69890195, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: the-blind-oldster_291
+      rect:
+        serializedVersion: 2
+        x: 379
+        y: 754
+        width: 28
+        height: 16
+      alignment: 5
+      pivot: {x: 1, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: the-blind-oldster_292
+      rect:
+        serializedVersion: 2
+        x: 544
+        y: 722
+        width: 20
+        height: 23
+      alignment: 9
+      pivot: {x: 0.5428421, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: the-blind-oldster_293
+      rect:
+        serializedVersion: 2
+        x: 573
+        y: 722
+        width: 20
+        height: 23
+      alignment: 9
+      pivot: {x: 0.5428421, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
