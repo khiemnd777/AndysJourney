@@ -617,7 +617,7 @@ GameObject:
   - component: {fileID: 346704763}
   - component: {fileID: 346704762}
   - component: {fileID: 346704761}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Quad (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -776,6 +776,34 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
+--- !u!1 &411371350
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 411371351}
+  m_Layer: 0
+  m_Name: Slash Corner Check
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &411371351
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 411371350}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.24, y: 0.056, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1818161860}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &560966965
 GameObject:
   m_ObjectHideFlags: 0
@@ -1671,7 +1699,7 @@ GameObject:
   - component: {fileID: 964826955}
   - component: {fileID: 964826954}
   - component: {fileID: 964826953}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Quad (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2136,7 +2164,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1454694597
 Transform:
   m_ObjectHideFlags: 0
@@ -2159,7 +2187,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0.22574975, y: 0.03243172}
@@ -2600,6 +2628,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1454694597}
+  - {fileID: 411371351}
   m_Father: {fileID: 2079496812}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2867,6 +2896,7 @@ GameObject:
   - component: {fileID: 2079496821}
   - component: {fileID: 2079496822}
   - component: {fileID: 2079496823}
+  - component: {fileID: 2079496824}
   m_Layer: 0
   m_Name: The Blind Eldster
   m_TagString: Untagged
@@ -2942,7 +2972,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2079496809}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.809, y: -0.592, z: 0}
+  m_LocalPosition: {x: -0.708, y: -0.592, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 749155680}
@@ -2998,6 +3028,11 @@ MonoBehaviour:
   - 0
   _target: {fileID: 977816910}
   _theCamera: {fileID: 801326282}
+  _slashCornerCheck: {fileID: 411371351}
+  _cornerChecks:
+    serializedVersion: 2
+    m_Bits: 4096
+  _slashCollision: {fileID: 1454694598}
 --- !u!50 &2079496814
 Rigidbody2D:
   serializedVersion: 4
@@ -3227,6 +3262,31 @@ MonoBehaviour:
   _jumpForward: {fileID: 7400000, guid: b85e28fb0931b46a682726a54d08cef9, type: 2}
   _jumpMaxHeight: 0.75
   _idle: {fileID: 7400000, guid: 7db8795c41edf44b8a7793195982bce2, type: 2}
+  _boundary: {fileID: 210170250}
+  _dustFxPrefab: {fileID: 95737024899627368, guid: b16f92286e45b4dc6b8f6dfdfaabb16c,
+    type: 2}
+  _directedDust: {fileID: 114210533861932906, guid: 2b78c939b19294f3faefe31b7eb598ac,
+    type: 2}
+--- !u!114 &2079496824
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2079496809}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3df61852dcd564516acfdfae9f501566, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _target: {fileID: 977816910}
+  _theCamera: {fileID: 801326282}
+  _jump: {fileID: 7400000, guid: b85e28fb0931b46a682726a54d08cef9, type: 2}
+  _dash: {fileID: 7400000, guid: 201fe1fc0320849f28ea87102a8b8137, type: 2}
+  _getBack: {fileID: 7400000, guid: 63c7d600f98a04ea196223b406d16679, type: 2}
+  _jumpMaxHeight: 0.75
+  _deltaJumpLimit: 0.8
+  _timeDashing: 0.325
+  _dampingDown: {fileID: 7400000, guid: c8c7a4f5004f8404584546508553e983, type: 2}
   _boundary: {fileID: 210170250}
   _dustFxPrefab: {fileID: 95737024899627368, guid: b16f92286e45b4dc6b8f6dfdfaabb16c,
     type: 2}

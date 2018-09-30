@@ -11,6 +11,7 @@ public class TheBlackKnightSkillControl : MonoBehaviour
     TheDashingDownWithPower _dashingDownWithPower;
     TheSlashingKiWhenGetBack _slashingKiWhenGetBack;
     TheBlackKnightGetBack _getBack;
+    TheBlackKnightDampingDown _dampingDown;
 
     Skill[] _skills;
 
@@ -23,9 +24,9 @@ public class TheBlackKnightSkillControl : MonoBehaviour
         _dashingDownWithPower = GetComponent<TheDashingDownWithPower>();
         _slashingKiWhenGetBack = GetComponent<TheSlashingKiWhenGetBack>();
         _getBack = GetComponent<TheBlackKnightGetBack>();
+        _dampingDown = GetComponent<TheBlackKnightDampingDown>();
         // _skills = new Skill[] { _slash, _slashingKi, _dashingDownWithPower };
-        // _skills = new Skill[] { _slashingKi };
-        _skills = new Skill[] { _getBack };
+        _skills = new Skill[] { _dampingDown };
         StartCoroutine(Play());
     }
 
@@ -37,6 +38,6 @@ public class TheBlackKnightSkillControl : MonoBehaviour
         }
         var rand = Random.Range(0, _skills.Length);
         yield return StartCoroutine(_skills[rand].Play());
-        yield return StartCoroutine(_skills[rand].Next());
+        StartCoroutine(_skills[rand].Next());
     }
 }

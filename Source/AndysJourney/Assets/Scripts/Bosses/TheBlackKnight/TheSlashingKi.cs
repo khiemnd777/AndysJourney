@@ -50,6 +50,7 @@ public class TheSlashingKi : Skill
     TheDashingDownWithPower _theSlamDownWithPower;
     TheBlackKnightSlash _theSlash;
     TheBlackKnightJump _theJump;
+    TheBlackKnightDampingDown _dampingDown;
 
     void Awake()
     {
@@ -63,6 +64,7 @@ public class TheSlashingKi : Skill
         _theSlamDownWithPower = GetComponent<TheDashingDownWithPower>();
         _theSlash = GetComponent<TheBlackKnightSlash>();
         _theJump = GetComponent<TheBlackKnightJump>();
+        _dampingDown = GetComponent<TheBlackKnightDampingDown>();
     }
 
     void FlipX()
@@ -120,7 +122,7 @@ public class TheSlashingKi : Skill
     public override IEnumerator Next()
     {
         yield return StartCoroutine(_theGetBack.Play());
-        yield return StartCoroutine(Next(_theJump, _theSlamDownWithPower, _theSlash));
+        yield return StartCoroutine(Next(_theJump, _theSlamDownWithPower, _theSlash, _dampingDown));
     }
 
     public override IEnumerator Play()

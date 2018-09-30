@@ -24,6 +24,12 @@ public class TheBlackKnightSlash : Skill
     Transform _target;
     [SerializeField]
     Camera _theCamera;
+    [SerializeField]
+    Transform _slashCornerCheck;
+    [SerializeField]
+    LayerMask _cornerChecks;
+    [SerializeField]
+    BoxCollider2D _slashCollision;
 
     Vector2 _lastPos;
     Animator _anim;
@@ -33,6 +39,11 @@ public class TheBlackKnightSlash : Skill
     TheBlackKnightGetBack _theGetBack;
     TheDashingDownWithPower _theSlamDownWithPower;
     TheBlackKnightJump _theJump;
+    TheBlackKnightDampingDown _dampingDown;
+
+    int currentExecutedIndex = 0;
+    bool _isCornerCollided;
+    Collider2D currentCollidedCorner;
 
     void Awake()
     {
@@ -43,6 +54,30 @@ public class TheBlackKnightSlash : Skill
         _theGetBack = GetComponent<TheBlackKnightGetBack>();
         _theSlamDownWithPower = GetComponent<TheDashingDownWithPower>();
         _theJump = GetComponent<TheBlackKnightJump>();
+        _dampingDown = GetComponent<TheBlackKnightDampingDown>();
+    }
+
+    int numberExecuteTheSmashThunderFx;
+
+    void FixedUpdate()
+    {
+        // corner check
+        currentCollidedCorner = Physics2D.OverlapBox(_slashCornerCheck.position, _slashCollision.bounds.extents, 180, _cornerChecks);
+        if (_isCornerCollided = currentCollidedCorner == true)
+        {
+            if (currentExecutedIndex == _sequence.Length - 2)
+            {
+                if(numberExecuteTheSmashThunderFx == 0){
+                    ++numberExecuteTheSmashThunderFx;
+                    InstantiateTheSmashThunderFx();
+                    EarthQuake();
+                }   
+            }            
+        }
+
+        if(currentExecutedIndex != _sequence.Length - 2){
+            numberExecuteTheSmashThunderFx = 0;
+        }
     }
 
     void FlipX()
@@ -60,7 +95,7 @@ public class TheBlackKnightSlash : Skill
     public override IEnumerator Next()
     {
         yield return StartCoroutine(_theGetBack.Play());
-        yield return StartCoroutine(Next(_theJump, _theSlamDownWithPower, _theSlashingKi));
+        yield return StartCoroutine(Next(_theJump, _theSlamDownWithPower, _theSlashingKi, _dampingDown));
     }
 
     public override IEnumerator Play()
@@ -73,6 +108,7 @@ public class TheBlackKnightSlash : Skill
         inx = 0;
         foreach (var sq in _sequence)
         {
+            currentExecutedIndex = inx;
             var isTargetLeft = _target.position.x < transform.position.x;
             var dirX = isTargetLeft ? -1 : 1;
             FlipX();
@@ -151,7 +187,8 @@ public class TheBlackKnightSlash : Skill
     // Invoke from Animation Event
     void InstantiateTheSmashThunderFx()
     {
-        var ins = Instantiate<Animator>(_smashThunderFxPrefab, _smashThunderFxPoint.position, Quaternion.identity);
+        var insPos = new Vector3(currentCollidedCorner.transform.position.x, _slashCornerCheck.position.y, 0f);
+        var ins = Instantiate<Animator>(_smashThunderFxPrefab, insPos, Quaternion.identity);
         // Flip X by own transform.
         var scale = ins.transform.localScale;
         scale.x = transform.localScale.x;

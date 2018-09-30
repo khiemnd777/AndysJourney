@@ -70,12 +70,12 @@ public class TheDashingDownWithPower : Skill
         _theSlashingKi = GetComponent<TheSlashingKi>();
     }
 
-    void Update(){
-        var targetPos = DetectExecutedJump();
-        var storedGravityScale = _rb.gravityScale;
-        var gravity = JumpVelocityCalculator.GetGravity2D(_rb);
-        JumpVelocityCalculator.DrawPath(_cachedTransform.position, targetPos, gravity, _jumpMaxHeight, false);
-    }
+    // void Update(){
+    //     var targetPos = DetectExecutedJump();
+    //     var storedGravityScale = _rb.gravityScale;
+    //     var gravity = JumpVelocityCalculator.GetGravity2D(_rb);
+    //     JumpVelocityCalculator.DrawPath(_cachedTransform.position, targetPos, gravity, _jumpMaxHeight, false);
+    // }
 
     void FixedUpdate()
     {
