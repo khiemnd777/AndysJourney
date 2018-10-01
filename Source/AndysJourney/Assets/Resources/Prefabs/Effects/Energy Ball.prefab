@@ -20,13 +20,15 @@ GameObject:
   m_Component:
   - component: {fileID: 4274528877873544}
   - component: {fileID: 212343736109201862}
+  - component: {fileID: 58049231684184350}
+  - component: {fileID: 114580281728505364}
   m_Layer: 0
   m_Name: Energy Ball
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4274528877873544
 Transform:
   m_ObjectHideFlags: 1
@@ -40,6 +42,33 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!58 &58049231684184350
+CircleCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1817877888960444}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.08, y: -0.00023889542}
+  serializedVersion: 2
+  m_Radius: 0.07700071
+--- !u!114 &114580281728505364
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1817877888960444}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54f87a92b9ba64498b4cd977787ec846, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 1.25
 --- !u!212 &212343736109201862
 SpriteRenderer:
   m_ObjectHideFlags: 1

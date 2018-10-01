@@ -199,7 +199,7 @@ public class TheBlackKnightSlash : Skill
     // Invoke from Animation Event
     void EarthQuake()
     {
-        StartCoroutine(Utility.Shaking(.175f, .02f, _theCamera.transform, null, null));
+        StartCoroutine(Utility.Shaking2D(.175f, .02f, _theCamera.transform, null, null));
     }
 
     void InstantiateTheDust(float size = 1f)

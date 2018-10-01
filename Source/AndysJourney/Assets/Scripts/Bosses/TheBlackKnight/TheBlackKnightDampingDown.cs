@@ -28,6 +28,8 @@ public class TheBlackKnightDampingDown : Skill
     Animator _dustFxPrefab;
     [SerializeField]
     DirectedDust _directedDust;
+    [SerializeField]
+    TheBlackKnightEnergyBall _energyBallPrefab;
 
     Animator _anim;
     Rigidbody2D _rb;
@@ -121,14 +123,52 @@ public class TheBlackKnightDampingDown : Skill
     // Invoke from Animation Event
     void EarthQuake()
     {
-        StartCoroutine(Utility.Shaking(.175f, .02f, _theCamera.transform, null, null));
+        StartCoroutine(Utility.Shaking2D(.175f, .02f, _theCamera.transform, null, null));
+    }
+
+    void GenerateEnergyBalls(int number)
+    {
+        // var numbers = new int[] { 6, 8, 10 };
+        // var rand = Random.Range(0, numbers.Length);
+        // var number = numbers[rand];
+        var deltaAngle = 180f / number;
+        var angle = 0f;
+        for (var i = 0; i <= number; i++)
+        {
+            var execAngle = angle;
+            if (i == 0)
+            {
+                execAngle += Random.Range(5f, 15f);
+            }
+            else if (i == number)
+            {
+                execAngle -= Random.Range(5f, 15f);
+            }
+            else
+            {
+                execAngle = Random.Range(angle - 15f, angle + 15f);
+            }
+            var ins = Instantiate<TheBlackKnightEnergyBall>(_energyBallPrefab, transform.position, Quaternion.Euler(0f, 0f, execAngle));
+            ins.transform.localScale = Vector3.one * Random.Range(.425f, 1f);
+            ins.speed = Random.Range(1f, 2f);
+            ins.gameObject.SetActive(true);
+            Destroy(ins.gameObject, 3f);
+            angle += deltaAngle;
+        }
+    }
+
+    IEnumerator GenerateEnergyBallsCoroutine(){
+        GenerateEnergyBalls(10);
+        yield return new WaitForSeconds(.15f);
+        GenerateEnergyBalls(6);
+        yield return new WaitForSeconds(.15f);
+        GenerateEnergyBalls(4);
     }
 
     public override IEnumerator Next()
     {
         yield return StartCoroutine(_theGetBack.Play());
         yield return StartCoroutine(Next(_slash, _slashingKi));
-        // yield return StartCoroutine(Next(_theDampingDown));
     }
 
     public override IEnumerator Play()

@@ -151,21 +151,23 @@ public class Utility
         return spriteObjRenderer;
     }
 
-    public static IEnumerator Shaking(float duration, float amount, Transform target, System.Action before, System.Action after)
+    public static IEnumerator Shaking2D(float duration, float amount, Transform target, System.Action before, System.Action after)
     {
         if (before != null)
         {
             before();
         }
-        var originalPos = target.transform.localPosition;
-        float endTime = Time.time + duration;
-        while (Time.time <= endTime)
+        var originalPos = new Vector2(target.transform.localPosition.x, target.transform.localPosition.y);
+        var z = target.transform.localPosition.z;
+        var percent = 0f;
+        while (percent <= 1f)
         {
-            target.localPosition = originalPos + Random.insideUnitSphere * amount;
-            duration -= Time.deltaTime;
+            percent += Time.deltaTime / duration;
+            var newPos = originalPos + Random.insideUnitCircle * amount;
+            target.transform.localPosition = new Vector3(newPos.x, newPos.y, z);
             yield return null;
         }
-        target.localPosition = originalPos;
+        target.localPosition = new Vector3(originalPos.x, originalPos.y, z);
         if (after != null)
         {
             after();

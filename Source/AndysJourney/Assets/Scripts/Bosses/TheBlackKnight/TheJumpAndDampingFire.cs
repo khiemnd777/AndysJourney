@@ -122,7 +122,7 @@ public class TheJumpAndDampingFire : Skill
     }
 
 	void EarthQuake(){
-        StartCoroutine(Utility.Shaking(_earthQuakeDuration, _earthQuakeAmount, _theCamera.transform, null, null));
+        StartCoroutine(Utility.Shaking2D(_earthQuakeDuration, _earthQuakeAmount, _theCamera.transform, null, null));
     }
 
 	void InstantiateTheDirectedDust(){
