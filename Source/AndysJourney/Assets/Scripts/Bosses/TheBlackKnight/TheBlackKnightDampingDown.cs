@@ -138,21 +138,23 @@ public class TheBlackKnightDampingDown : Skill
             var execAngle = angle;
             if (i == 0)
             {
-                execAngle += Random.Range(5f, 15f);
+                execAngle += Random.Range(3.5f, 7f);
             }
             else if (i == number)
             {
-                execAngle -= Random.Range(5f, 15f);
+                execAngle -= Random.Range(3.5f, 7f);
             }
             else
             {
                 execAngle = Random.Range(angle - 15f, angle + 15f);
             }
             var ins = Instantiate<TheBlackKnightEnergyBall>(_energyBallPrefab, transform.position, Quaternion.Euler(0f, 0f, execAngle));
-            ins.transform.localScale = Vector3.one * Random.Range(.425f, 1f);
-            ins.speed = Random.Range(1f, 2f);
+            var scaleRatio = Random.Range(.8f, 1.25f);
+            var scaleVal = ins.transform.localScale;
+            ins.transform.localScale = new Vector3(scaleVal.x * scaleRatio, scaleVal.y * scaleRatio, scaleVal.z);
+            ins.speed = Random.Range(1.4f, 1.5f);
             ins.gameObject.SetActive(true);
-            Destroy(ins.gameObject, 3f);
+            Destroy(ins.gameObject, 2f);
             angle += deltaAngle;
         }
     }
