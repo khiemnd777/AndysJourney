@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: cba4b8644212a4f1e8700396de2a9a24
-timeCreated: 1538298640
+timeCreated: 1538579779
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -300,6 +300,10 @@ TextureImporter:
     21300586: the-blind-oldster_293
     21300588: the-blind-oldster_294
     21300590: the-blind-oldster_295
+    21300592: the-blind-oldster_296
+    21300594: the-blind-oldster_297
+    21300596: the-blind-oldster_298
+    21300598: the-blind-oldster_299
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
@@ -4540,6 +4544,62 @@ TextureImporter:
         height: 21
       alignment: 9
       pivot: {x: 0.20182419, y: 0.017912365}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: the-blind-oldster_296
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 1708
+        width: 22
+        height: 25
+      alignment: 9
+      pivot: {x: 0.43185493, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: the-blind-oldster_297
+      rect:
+        serializedVersion: 2
+        x: 82
+        y: 1708
+        width: 24
+        height: 26
+      alignment: 9
+      pivot: {x: 0.47643504, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: the-blind-oldster_298
+      rect:
+        serializedVersion: 2
+        x: 116
+        y: 1708
+        width: 25
+        height: 26
+      alignment: 9
+      pivot: {x: 0.5011438, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: the-blind-oldster_299
+      rect:
+        serializedVersion: 2
+        x: 153
+        y: 1708
+        width: 24
+        height: 26
+      alignment: 9
+      pivot: {x: 0.47643724, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
