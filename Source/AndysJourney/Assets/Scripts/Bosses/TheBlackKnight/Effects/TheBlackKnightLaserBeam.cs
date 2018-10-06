@@ -13,23 +13,49 @@ public class TheBlackKnightLaserBeam : MonoBehaviour
     [SerializeField]
     LayerMask _layerMask;
 
+    [SerializeField]
+    AnimationCurve _curve;
+
+    [SerializeField]
+    Transform _from;
+
+    [SerializeField]
+    Transform _to;
+
+    [SerializeField]
+    float _duration;
+
     LineRenderer _lr;
 
     void Start()
     {
         _lr = GetComponent<LineRenderer>();
+        StartCoroutine(RotateTheBeam());
     }
 
     void Update()
     {
-        var mousePoint = _theCamera.ScreenToWorldPoint(Input.mousePosition);
         _lr.SetPosition(0, new Vector2(_start.position.x, _start.position.y));
-        var direction = (mousePoint - _start.position).normalized;
-        var hit = Physics2D.Raycast(_start.position, direction, float.MaxValue, _layerMask);
-        if (hit.collider != null)
+    }
+
+    IEnumerator RotateTheBeam()
+    {
+        var fromPos = _from.position;
+        var toPos = _to.position;
+        var t = 0f;
+        while (t <= 1f)
         {
-			var endPoint = hit.point;
-			_lr.SetPosition(1, new Vector2(endPoint.x, endPoint.y));
+            t += Time.deltaTime / _duration;
+            var expPos = Vector3.Lerp(fromPos, toPos, _curve.Evaluate(t));
+            var expDir = (expPos - _start.position).normalized;
+            var hit = Physics2D.Raycast(_start.position, expDir, float.MaxValue, _layerMask);
+            if(hit.collider != null){
+                var endPoint = hit.point;
+                _lr.SetPosition(1, new Vector2(endPoint.x, endPoint.y));
+            }
+            yield return null;
         }
+        yield return new WaitForSeconds(.5f);
+        StartCoroutine(RotateTheBeam());
     }
 }
