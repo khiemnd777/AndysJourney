@@ -1489,7 +1489,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!120 &840868770
 LineRenderer:
@@ -1600,7 +1600,7 @@ MonoBehaviour:
   _start: {fileID: 1708899226}
   _layerMask:
     serializedVersion: 2
-    m_Bits: 4608
+    m_Bits: 6656
   _curve:
     serializedVersion: 2
     m_Curve:
@@ -1634,6 +1634,8 @@ MonoBehaviour:
   _from: {fileID: 2128975057}
   _to: {fileID: 2068124586}
   _duration: 1.5
+  _impactedLaserPrefab: {fileID: 4592200825976944, guid: 652cbbccd2ec74944b1e500c113fdc54,
+    type: 2}
 --- !u!1 &878514076
 GameObject:
   m_ObjectHideFlags: 0
@@ -2001,7 +2003,7 @@ GameObject:
   - component: {fileID: 977816913}
   - component: {fileID: 977816912}
   - component: {fileID: 977816914}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Target Test
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2163,6 +2165,57 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1198856710
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4137374105824804, guid: e6c4e3e4c0637428e80484c101568141, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -0.686
+      objectReference: {fileID: 0}
+    - target: {fileID: 4137374105824804, guid: e6c4e3e4c0637428e80484c101568141, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -0.172
+      objectReference: {fileID: 0}
+    - target: {fileID: 4137374105824804, guid: e6c4e3e4c0637428e80484c101568141, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0.2061385
+      objectReference: {fileID: 0}
+    - target: {fileID: 4137374105824804, guid: e6c4e3e4c0637428e80484c101568141, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4137374105824804, guid: e6c4e3e4c0637428e80484c101568141, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4137374105824804, guid: e6c4e3e4c0637428e80484c101568141, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4137374105824804, guid: e6c4e3e4c0637428e80484c101568141, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4137374105824804, guid: e6c4e3e4c0637428e80484c101568141, type: 2}
+      propertyPath: m_RootOrder
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 212505255829508798, guid: e6c4e3e4c0637428e80484c101568141,
+        type: 2}
+      propertyPath: m_WasSpriteAssigned
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1453840677051598, guid: e6c4e3e4c0637428e80484c101568141, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: e6c4e3e4c0637428e80484c101568141, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &1344237776
 GameObject:
   m_ObjectHideFlags: 0
@@ -2714,34 +2767,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 684721374}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1766703178
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 1766703179}
-  m_Layer: 0
-  m_Name: Start Laser
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1766703179
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1766703178}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.669, y: 0.283, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1769668221
 GameObject:
